@@ -39,7 +39,16 @@ export default function Home() {
     >
       <HomepageHeader />
       <main>
-        
+        <div className={styles.grules}>
+          <h3>Principles:</h3>
+          <ul>
+            <li>Simple APIs.</li>
+            <li>Only the essential features are to be implemented.</li>
+            <li>Try to support the <a href="https://en.wikipedia.org/wiki/Accessibility">Accessibility</a>.</li>
+            <li>The tests should resemble the way the software is used.</li>
+            <li>Respect othes.</li>
+          </ul>
+        </div>
       </main>
     </Layout>
   );
