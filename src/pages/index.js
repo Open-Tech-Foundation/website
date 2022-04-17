@@ -1,45 +1,18 @@
 import React from "react";
 import clsx from "clsx";
 import Layout from "@theme/Layout";
-import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import { Box } from "@mui/system";
 import ProjectBox from "../components/ProjectBox";
 
-function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
-  return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <div style={{ marginTop: "50px" }}>
-          <quote className="quote">
-            "To look simple outside, it must be complex inside."
-          </quote>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              fontSize: "14px",
-            }}
-          >
-            - You already know it.
-          </div>
-        </div>
-      </div>
-    </header>
-  );
-}
-
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`Home`}
+      description="An open organization for the technological world."
     >
-      <HomepageHeader />
       <main>
         <Box p={5}>
           <h3>Principles:</h3>
@@ -66,18 +39,24 @@ export default function Home() {
               url="https://js-utils.pages.dev/"
               desc="A Collection of JavaScript Utility Functions."
               lang="ts"
-              />
+            />
             <ProjectBox
               title="React Form"
               url="https://react-form.pages.dev/"
               desc="Build & Manage the State of Forms in React."
-              lang="ts"
+              lang={["react", "ts"]}
             />
             <ProjectBox
               title="CLI Progressbar"
               url="https://github.com/open-tech-world/cli-progress-bar"
               desc="Node.js CLI progress bar."
-              lang="ts"
+              lang={["nodeJS", "ts"]}
+            />
+            <ProjectBox
+              title="React State"
+              url="https://react-app-state.pages.dev/"
+              desc="A shared state management library for React."
+              lang={["react", "ts"]}
             />
           </Box>
         </Box>
