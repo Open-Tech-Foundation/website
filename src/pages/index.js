@@ -1,22 +1,38 @@
 import React from "react";
-import clsx from "clsx";
 import Layout from "@theme/Layout";
+import clsx from "clsx";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Link from "@docusaurus/Link";
+
 import styles from "./index.module.css";
 import { Box } from "@mui/system";
 import ProjectBox from "../components/ProjectBox";
 
-export default function Home() {
+function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+  return (
+    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+      <div className="container">
+        <h1 className="hero__title">{siteConfig.title}</h1>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
+      </div>
+    </header>
+  );
+}
+
+export default function Home() {
   return (
     <Layout
       title={`Home`}
       description="An open organization for the technological world."
     >
+      <HomepageHeader />
       <main>
         <Box p={5}>
-          <h3>Principles:</h3>
-          <ul>
+          <div className={styles.parallelogram}>
+            <h3>PRINCIPLES</h3>
+          </div>
+          <ul style={{ marginLeft: "25px" }}>
             <li>Simple APIs.</li>
             <li>Only the essential features are to be implemented.</li>
             <li>
@@ -27,12 +43,14 @@ export default function Home() {
               .
             </li>
             <li>The tests should resemble the way the software is used.</li>
-            <li>Respect othes.</li>
+            <li>Respect the other similar libraries.</li>
           </ul>
         </Box>
 
         <Box p={5}>
-          <h3>Featured Projects:</h3>
+          <div className={styles.parallelogram}>
+            <h3>FEATURED PROJECTS</h3>
+          </div>
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             <ProjectBox
               title="JS Utils"
@@ -57,6 +75,12 @@ export default function Home() {
               url="https://react-app-state.pages.dev/"
               desc="A shared state management library for React."
               lang={["react", "ts"]}
+            />
+            <ProjectBox
+              title="Route Matcher"
+              url="https://route-matcher.pages.dev/"
+              desc="A route pattern matcher using regular expressions."
+              lang={["ts"]}
             />
           </Box>
         </Box>

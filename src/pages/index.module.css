@@ -19,3 +19,21 @@
 .grules {
   padding: 15px;
 }
+
+
+.parallelogram {
+  clip-path: polygon(0 19%, 85% 23%, 100% 100%, 14% 100%);
+  padding: 20px 40px;
+  height: 35px;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ifm-color-primary);
+  margin-bottom: 25px;
+}
+
+.parallelogram h3 {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
