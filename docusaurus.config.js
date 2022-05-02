@@ -7,6 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Open Tech World",
+  tagline: 'An open tech community for simple API libraries',
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -39,6 +40,10 @@ const config = {
     ({
       navbar: {
         title: "Open Tech World",
+        logo: {
+          alt: "Open Tech World Logo",
+          src: "img/logo.png",
+        },
         items: [
           { to: "/blog", label: "Blog", position: "left" },
           {
