@@ -34,7 +34,7 @@ export default function Home() {
           </div>
           <ul style={{ marginLeft: "25px" }}>
             <li>Simple APIs.</li>
-            <li>Only the essential features are to be implemented.</li>
+            <li>Implement only essential features.</li>
             <li>
               Try to support the{" "}
               <a href="https://en.wikipedia.org/wiki/Accessibility">
@@ -42,8 +42,6 @@ export default function Home() {
               </a>
               .
             </li>
-            <li>The tests should resemble the way the software is used.</li>
-            <li>Respect the other similar libraries.</li>
           </ul>
         </Box>
 
@@ -66,7 +64,7 @@ export default function Home() {
             />
             <ProjectBox
               title="CLI Progressbar"
-              url="https://github.com/open-tech-world/cli-progress-bar"
+              url="https://github.com/open-tech-foundation/cli-progress-bar"
               desc="Node.js CLI progress bar."
               lang={["nodeJS", "ts"]}
             />
