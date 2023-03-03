@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Open Tech Foundation",
-  tagline: 'An open tech community for simple & essential feature-only API libraries',
+  tagline: 'An open tech community for simple & essential features-only API libraries',
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
