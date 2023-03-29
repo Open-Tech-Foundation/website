@@ -44,13 +44,13 @@ function getLangIcons(name) {
     js,
     ts,
     nodeJS,
-    react
+    react,
   };
 
   return obj[name];
 }
 
-export default function ProjectBox({ title, url, desc, lang }) {
+export default function ProjectBox({ title, url, desc, lang, imgUrl }) {
   return (
     <Box
       sx={{
@@ -69,6 +69,11 @@ export default function ProjectBox({ title, url, desc, lang }) {
         <a href={url}>{title}</a>
       </Box>
       <Box sx={{ minHeight: "100px" }}>{desc}</Box>
+      <Box>
+        {imgUrl && (
+          <img src={imgUrl} alt="screenshot" width="100%" height="200" />
+        )}
+      </Box>
       <Box mt={2} sx={{ alignSelf: "flex-end" }}>
         {Array.isArray(lang)
           ? lang.map((l) => getLangIcons(l))
