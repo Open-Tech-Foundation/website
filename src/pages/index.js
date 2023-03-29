@@ -72,6 +72,7 @@ export default function Home() {
               url="https://github.com/open-tech-foundation/cli-progress-bar"
               desc="Node.js CLI progress bar."
               lang={["nodeJS", "ts"]}
+              imgUrl="https://github.com/Open-Tech-Foundation/cli-progress-bar/raw/main/demo.gif"
             />
             <ProjectBox
               title="React State"
