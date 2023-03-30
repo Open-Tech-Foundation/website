@@ -54,7 +54,15 @@ export default function Home() {
         <Box p={5}>
           <Typography variant="h5">FEATURED PROJECTS</Typography>
           <Divider />
-          <Masonry columns={4} spacing={2} sx={{ mt: 3 }}>
+          <Masonry
+            columns={4}
+            spacing={2}
+            sx={{
+              mt: 3,
+              display: "flex",
+              alignContent: "center",
+            }}
+          >
             <ProjectBox
               title="JS Utils"
               url="https://js-utils.pages.dev/"

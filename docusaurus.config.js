@@ -12,7 +12,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "img/Logo.svg",
   organizationName: "open-tech-foundation", // Usually your GitHub org/user name.
   projectName: "website", // Usually your repo name.
 
@@ -42,7 +42,7 @@ const config = {
         title: "Open Tech Foundation",
         logo: {
           alt: "Open Tech Foundation Logo",
-          src: "img/logo.png",
+          src: "img/Logo.svg",
         },
         items: [
           { to: "/blog", label: "Blog", position: "left" },
