@@ -89,17 +89,18 @@ export default function Home() {
               lang={["react", "ts"]}
             />
             <ProjectBox
-              title="Route Matcher"
-              url="https://route-matcher.pages.dev/"
-              desc="A route pattern matcher using regular expressions."
-              lang={["ts"]}
-            />
-            <ProjectBox
               title="React Sandbox"
               url="https://github.com/open-tech-foundation/react-sandbox"
               desc="The CodeSandbox sandpack wrapper with tabs layout."
               lang={["ts", "react"]}
               imgUrl="https://raw.githubusercontent.com/open-tech-foundation/react-sandbox/HEAD/Screenshot.png"
+            />
+            <ProjectBox
+              title="Vue Input Mask"
+              url="https://vue-input-mask.pages.dev/"
+              desc="The input mask directive for Vue.js."
+              lang={["vue"]}
+              imgUrl="https://raw.githubusercontent.com/Open-Tech-Foundation/vue-input-mask/main/apps/website/public/demo.png"
             />
           </Masonry>
         </Box>
