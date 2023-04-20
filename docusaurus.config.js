@@ -7,8 +7,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "OPEN TECH FOUNDATION",
-  tagline: '- An effort to standardize OSS libraries.',
-  url: "https://your-docusaurus-test-site.com",
+  tagline: "- An effort to standardize OSS libraries.",
+  url: "https://open-tech-foundation.pages.dev",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -47,8 +47,13 @@ const config = {
         items: [
           { to: "/blog", label: "Blog", position: "left" },
           {
+            to: "/contribute",
+            position: "right",
+            html: `<div class="contribute">CONTRIBUTE <div class="heart">❤️</div></div>`,
+          },
+          {
             href: "https://github.com/open-tech-foundation",
-            className: 'header-github-link',
+            className: "header-github-link",
             position: "right",
           },
         ],
