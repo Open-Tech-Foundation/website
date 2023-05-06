@@ -47,6 +47,7 @@ export default function Home() {
                 </a>
                 .
               </li>
+              <li>Beginner-Friendly (Providing <a href="https://en.wikipedia.org/wiki/Mental_model">mental models</a>, explaining jargons in docs, etc)</li>
             </ul>
           </Box>
         </Box>
