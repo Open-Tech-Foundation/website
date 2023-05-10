@@ -75,12 +75,12 @@ export default function ProjectBox({ title, url, desc, lang, imgUrl }) {
         boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
         borderRadius: "10px",
         minWidth: "200px",
-        maxWidth: "250px",
+        maxWidth: "300px",
         minHeight: "150px",
         display: "flex",
         flexDirection: "column",
         p: 2,
-        m: 1,
+        m: 2,
       }}
     >
       <Box sx={{ textAlign: "center" }}>

@@ -47,7 +47,13 @@ export default function Home() {
                 </a>
                 .
               </li>
-              <li>Beginner-Friendly (Providing <a href="https://en.wikipedia.org/wiki/Mental_model">mental models</a>, explaining jargons in docs, etc)</li>
+              <li>
+                Beginner-Friendly (Providing{" "}
+                <a href="https://en.wikipedia.org/wiki/Mental_model">
+                  mental models
+                </a>
+                , explaining jargons in docs, etc)
+              </li>
             </ul>
           </Box>
         </Box>
@@ -59,7 +65,7 @@ export default function Home() {
             columns={4}
             spacing={2}
             sx={{
-              mt: 3,
+              m: 3,
               display: "flex",
               alignContent: "center",
             }}
@@ -71,17 +77,17 @@ export default function Home() {
               lang="ts"
             />
             <ProjectBox
-              title="React Form"
-              url="https://react-form.pages.dev/"
-              desc="Build & Manage the State of Forms in React."
-              lang={["react", "ts"]}
-            />
-            <ProjectBox
               title="CLI Progressbar"
               url="https://github.com/open-tech-foundation/cli-progress-bar"
               desc="Node.js CLI progress bar."
               lang={["nodeJS", "ts"]}
               imgUrl="https://github.com/Open-Tech-Foundation/cli-progress-bar/raw/main/demo.gif"
+            />
+            <ProjectBox
+              title="React Form"
+              url="https://react-form.pages.dev/"
+              desc="Build & Manage the State of Forms in React."
+              lang={["react", "ts"]}
             />
             <ProjectBox
               title="React State"
@@ -94,7 +100,7 @@ export default function Home() {
               url="https://github.com/open-tech-foundation/react-sandbox"
               desc="The CodeSandbox sandpack wrapper with tabs layout."
               lang={["ts", "react"]}
-              imgUrl="https://raw.githubusercontent.com/open-tech-foundation/react-sandbox/HEAD/Screenshot.png"
+              imgUrl="https://raw.githubusercontent.com/open-tech-foundation/react-sandbox/HEAD/assets/demo.gif"
             />
             <ProjectBox
               title="Vue Input Mask"
