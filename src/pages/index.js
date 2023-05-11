@@ -98,7 +98,7 @@ export default function Home() {
             <ProjectBox
               title="React Sandbox"
               url="https://github.com/open-tech-foundation/react-sandbox"
-              desc="The CodeSandbox sandpack wrapper with tabs layout."
+              desc="The CodeSandbox sandpack wrapper with additional features."
               lang={["ts", "react"]}
               imgUrl="https://raw.githubusercontent.com/open-tech-foundation/react-sandbox/HEAD/assets/demo.gif"
             />
