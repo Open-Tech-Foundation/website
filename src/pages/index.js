@@ -109,6 +109,13 @@ export default function Home() {
               lang={["vue"]}
               imgUrl="https://raw.githubusercontent.com/Open-Tech-Foundation/vue-input-mask/main/apps/website/public/demo.png"
             />
+            <ProjectBox
+              title="React Code Editor"
+              url="https://github.com/Open-Tech-Foundation/react-code-editor"
+              desc="A simple code editor for React JS, useful for form code input."
+              lang={["react", "ts"]}
+              imgUrl="https://raw.githubusercontent.com/open-tech-foundation/react-code-editor/HEAD/demo.gif"
+            />
           </Masonry>
         </Box>
       </main>
