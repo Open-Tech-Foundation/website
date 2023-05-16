@@ -75,6 +75,7 @@ export default function Home() {
               url="https://js-utils.pages.dev/"
               desc="A Collection of JavaScript Utility Functions."
               lang="ts"
+              release="BETA"
             />
             <ProjectBox
               title="CLI Progressbar"
@@ -82,39 +83,45 @@ export default function Home() {
               desc="Node.js CLI progress bar."
               lang={["nodeJS", "ts"]}
               imgUrl="https://github.com/Open-Tech-Foundation/cli-progress-bar/raw/main/demo.gif"
-            />
+              release="STABLE"
+              />
             <ProjectBox
               title="React Form"
               url="https://react-form.pages.dev/"
               desc="Build & Manage the State of Forms in React."
               lang={["react", "ts"]}
-            />
+              release="BETA"
+              />
             <ProjectBox
               title="React State"
               url="https://react-app-state.pages.dev/"
               desc="A shared state management library for React."
               lang={["react", "ts"]}
-            />
+              release="BETA"
+              />
             <ProjectBox
               title="React Sandbox"
               url="https://github.com/open-tech-foundation/react-sandbox"
               desc="The CodeSandbox sandpack wrapper with additional features."
               lang={["ts", "react"]}
               imgUrl="https://raw.githubusercontent.com/open-tech-foundation/react-sandbox/HEAD/assets/demo.gif"
-            />
+              release="BETA"
+              />
             <ProjectBox
               title="Vue Input Mask"
               url="https://vue-input-mask.pages.dev/"
               desc="The input mask directive for Vue.js."
               lang={["vue"]}
               imgUrl="https://raw.githubusercontent.com/Open-Tech-Foundation/vue-input-mask/main/apps/website/public/demo.png"
-            />
+              release="BETA"
+              />
             <ProjectBox
               title="React Code Editor"
               url="https://github.com/Open-Tech-Foundation/react-code-editor"
               desc="A simple code editor for React JS, useful for form code input."
               lang={["react", "ts"]}
               imgUrl="https://raw.githubusercontent.com/open-tech-foundation/react-code-editor/HEAD/demo.gif"
+              release="ALPHA"
             />
           </Masonry>
         </Box>

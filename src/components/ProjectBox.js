@@ -1,3 +1,4 @@
+import { Chip } from "@mui/material";
 import { Box } from "@mui/system";
 
 function getLangIcons(name) {
@@ -62,13 +63,23 @@ function getLangIcons(name) {
     ts,
     nodeJS,
     react,
-    vue
+    vue,
   };
 
   return obj[name];
 }
 
-export default function ProjectBox({ title, url, desc, lang, imgUrl }) {
+export default function ProjectBox({
+  title,
+  url,
+  desc,
+  lang,
+  imgUrl,
+  release,
+}) {
+  const releaseColor =
+    release === "STABLE" ? "success" : release === "BETA" ? "warning" : "error";
+
   return (
     <Box
       sx={{
@@ -83,10 +94,11 @@ export default function ProjectBox({ title, url, desc, lang, imgUrl }) {
         m: 2,
       }}
     >
-      <Box sx={{ textAlign: "center" }}>
+      <Box sx={{ display: "grid", gridTemplateColumns: "1fr auto" }}>
         <a href={url}>{title}</a>
+        <Chip size="small" label={release} color={releaseColor} />
       </Box>
-      <Box sx={{ minHeight: "100px" }}>{desc}</Box>
+      <Box sx={{ minHeight: "100px", mt: 1 }}>{desc}</Box>
       <Box>
         {imgUrl && (
           <img src={imgUrl} alt="screenshot" width="100%" height="200" />
