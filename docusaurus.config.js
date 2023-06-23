@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "OPEN TECH FOUNDATION",
-  tagline: "- An effort to standardize OSS libraries.",
+  tagline: "- An effort to standardize OSS libraries. [CURRENT FOCUS]",
   url: "https://open-tech-foundation.pages.dev",
   baseUrl: "/",
   onBrokenLinks: "throw",
