@@ -101,7 +101,7 @@ export default function ProjectBox({
       <Box sx={{ minHeight: "100px", mt: 1 }}>{desc}</Box>
       <Box>
         {imgUrl && (
-          <img src={imgUrl} alt="screenshot" width="100%" height="200" />
+          <img style={{ aspectRatio: "auto" }} src={imgUrl} alt="screenshot" />
         )}
       </Box>
       <Box mt={2} sx={{ alignSelf: "flex-end" }}>

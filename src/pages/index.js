@@ -38,21 +38,21 @@ export default function Home() {
           <Divider />
           <Box mt={2}>
             <ul>
-              <li>Simple APIs.</li>
-              <li>Implement only the essential features.</li>
+              <li>Simple APIs</li>
+              <li>Implement only essential features</li>
+              <li>Respect Developers</li>
               <li>
-                Try to support the{" "}
+                Support{" "}
                 <a href="https://en.wikipedia.org/wiki/Accessibility">
                   Accessibility
                 </a>
-                .
               </li>
               <li>
-                Beginner-Friendly (Providing{" "}
+                Beginner-Friendly (Providing 
                 <a href="https://en.wikipedia.org/wiki/Mental_model">
                   mental models
                 </a>
-                , explaining jargons in docs, etc)
+                , explaining jargon in documents, etc.)
               </li>
             </ul>
           </Box>
@@ -65,7 +65,7 @@ export default function Home() {
             columns={4}
             spacing={2}
             sx={{
-              m: 3,
+              mt: 3,
               display: "flex",
               alignContent: "center",
             }}
@@ -84,21 +84,21 @@ export default function Home() {
               lang={["nodeJS", "ts"]}
               imgUrl="https://github.com/Open-Tech-Foundation/cli-progress-bar/raw/main/demo.gif"
               release="STABLE"
-              />
+            />
             <ProjectBox
               title="React Form"
               url="https://react-form.pages.dev/"
               desc="Build & Manage the State of Forms in React."
               lang={["react", "ts"]}
               release="BETA"
-              />
+            />
             <ProjectBox
               title="React State"
               url="https://react-app-state.pages.dev/"
               desc="A shared state management library for React."
               lang={["react", "ts"]}
               release="BETA"
-              />
+            />
             <ProjectBox
               title="React Sandbox"
               url="https://github.com/open-tech-foundation/react-sandbox"
@@ -106,7 +106,7 @@ export default function Home() {
               lang={["ts", "react"]}
               imgUrl="https://raw.githubusercontent.com/open-tech-foundation/react-sandbox/HEAD/assets/demo.gif"
               release="BETA"
-              />
+            />
             <ProjectBox
               title="Vue Input Mask"
               url="https://vue-input-mask.pages.dev/"
@@ -114,13 +114,21 @@ export default function Home() {
               lang={["vue"]}
               imgUrl="https://raw.githubusercontent.com/Open-Tech-Foundation/vue-input-mask/main/apps/website/public/demo.png"
               release="BETA"
-              />
+            />
             <ProjectBox
               title="React Code Editor"
               url="https://github.com/Open-Tech-Foundation/react-code-editor"
               desc="A simple code editor for React JS, useful for form code input."
               lang={["react", "ts"]}
               imgUrl="https://raw.githubusercontent.com/open-tech-foundation/react-code-editor/HEAD/demo.gif"
+              release="ALPHA"
+            />
+            <ProjectBox
+              title="CLI Styles"
+              url="https://github.com/Open-Tech-Foundation/js-cli-styles"
+              desc="Style your CLI text using ANSI escape sequences."
+              lang={["nodeJS", "ts"]}
+              imgUrl="https://raw.githubusercontent.com/open-tech-foundation/js-cli-styles/HEAD/assets/highlight_code.png"
               release="ALPHA"
             />
           </Masonry>
