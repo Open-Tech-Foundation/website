@@ -83,7 +83,7 @@ export default function Home() {
               desc="CLI progress bar."
               lang={["nodeJS", "ts"]}
               imgUrl="https://github.com/Open-Tech-Foundation/cli-pbar/raw/main/demo.gif"
-              release="STABLE"
+              release="ALPHA"
             />
             <ProjectBox
               title="React Form"
