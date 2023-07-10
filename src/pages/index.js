@@ -111,7 +111,7 @@ export default function Home() {
               title="Vue Input Mask"
               url="https://vue-input-mask.pages.dev/"
               desc="The input mask directive for Vue.js."
-              lang={["vue"]}
+              lang={["ts", "vue"]}
               imgUrl="https://raw.githubusercontent.com/Open-Tech-Foundation/vue-input-mask/main/apps/website/public/demo.png"
               release="BETA"
             />
