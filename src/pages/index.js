@@ -82,7 +82,7 @@ export default function Home() {
               url="https://github.com/open-tech-foundation/cli-pbar"
               desc="CLI progress bar."
               lang={["nodeJS", "ts"]}
-              imgUrl="https://github.com/Open-Tech-Foundation/cli-pbar/raw/main/demo.gif"
+              imgUrl="https://github.com/Open-Tech-Foundation/cli-pbar/raw/main/assets/demo-min.gif"
               release="ALPHA"
             />
             <ProjectBox
