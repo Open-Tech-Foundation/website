@@ -70,6 +70,14 @@ export default function Home() {
               alignContent: "center",
             }}
           >
+          <ProjectBox
+              title="React Node REPL"
+              url="https://node-repl.pages.dev"
+              desc="The Node.js REPL in a React component."
+              lang={['ts', 'react']}
+              release="BETA"
+              imgUrl="https://github.com/Open-Tech-Foundation/react-node-repl/raw/main/assets/Demo.png"
+            />
             <ProjectBox
               title="JS Utils"
               url="https://js-utils.pages.dev/"
@@ -83,7 +91,7 @@ export default function Home() {
               desc="CLI progress bar."
               lang={["nodeJS", "ts"]}
               imgUrl="https://github.com/Open-Tech-Foundation/cli-pbar/raw/main/assets/demo-min.gif"
-              release="ALPHA"
+              release="BETA"
             />
             <ProjectBox
               title="React Form"
@@ -129,7 +137,7 @@ export default function Home() {
               desc="Style your CLI text using ANSI escape sequences."
               lang={["nodeJS", "ts"]}
               imgUrl="https://raw.githubusercontent.com/open-tech-foundation/js-cli-styles/HEAD/assets/highlight_code.png"
-              release="ALPHA"
+              release="BETA"
             />
           </Masonry>
         </Box>
