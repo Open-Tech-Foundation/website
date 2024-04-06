@@ -79,9 +79,9 @@ export default function Home() {
               imgUrl="https://github.com/Open-Tech-Foundation/react-node-repl/raw/main/assets/Demo.png"
             />
             <ProjectBox
-              title="JS Utils"
-              url="https://js-utils.pages.dev/"
-              desc="A Collection of JavaScript Utility Functions."
+              title="JS Std"
+              url="https://js-std.pages.dev/"
+              desc="An Extensive JavaScript Standard Library."
               lang="ts"
               release="BETA"
             />
