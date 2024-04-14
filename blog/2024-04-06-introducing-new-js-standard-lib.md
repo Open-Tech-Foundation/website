@@ -8,13 +8,13 @@ authors:
     url: https://github.com/Thanga-Ganapathy
 tags:
   [introducing, new, js, javascript, typescript, std, standard, lib, library]
-image: /img/playground-demo.png
+image: /img/blogs/playground-demo.png
 hide_table_of_contents: false
 ---
 
 <!-- truncate -->
 
-![Playground Demo](../static/img/playground-demo.png)
+![Playground Demo](../static/img/blogs/playground-demo.png)
 
 Welcome,
 

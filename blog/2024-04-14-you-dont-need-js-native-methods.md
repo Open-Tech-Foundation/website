@@ -1,25 +1,29 @@
 ---
-title: You don't need JavaScript native methods
+title: You Don’t Need JavaScript Native Methods
 description: I'm sure you have came across something like `You don't need Lodash/Underscore`, but this is opposite.
 slug: you-dont-need-js-native-methods
 authors:
   - name: Thanga Ganapathy
     title: Contributor of @opentf/std
     url: https://github.com/Thanga-Ganapathy
-tags:
-  [js, javascript, typescript, std, standard, lib, library, native, method]
-# image: /img/playground-demo.png
+tags: [js, javascript, typescript, std, standard, lib, library, native, method]
+image: /img/blogs/you-dont-need-js-native-methods.png
 hide_table_of_contents: false
 ---
 
 <!-- truncate -->
-# 
+
+![Title text image](../static/img/blogs/you-dont-need-js-native-methods.png)
 
 Welcome,
 
-I'm sure you have come across something like, You don't need Lodash or Underscore, but this is the `opposite`.
+I'm sure you have come across something like, You don't need `Lodash`, `Underscore` or `Ramda`, but this is the `opposite`.
 
-When ES6 came, people got excited and started using native JS methods instead of using utility lib functions for various reasons like performance, size reduction, dependencies-free, etc.
+When `ES6` came, people got excited and started using native JS methods instead of using utility lib functions for various reasons like performance, size reduction, dependencies-free, etc.
+
+## Context
+
+I recommend you check out this post, [Introducing Our New JavaScript Standard Library]((https://open-tech-foundation.pages.dev/blog/introducing-new-js-std-lib)), to learn more about the JS library [@opentf/std](https://js-std.pages.dev/), which we will be using throughout this article.
 
 ## Why
 
@@ -255,7 +259,7 @@ has(foo, "a.c"); //=> false
 ### 10. Number.isFinite() & global isFinite()
 
 ```js
-import { isNum } from '@opentf/std';
+import { isNum } from "@opentf/std";
 
 Number.isFinite(Infinity); // false
 Number.isFinite(NaN); // false
@@ -274,3 +278,19 @@ isNum(2e64); // true
 isNum("0"); // false
 isNum("0", true); // true; coerced to number 0
 ```
+
+## Conclusion
+
+In this exploration of JavaScript native methods and their alternatives, we’ve discovered the power of the @opentf/std library. By replacing native functions with well-tested alternatives, developers can achieve cleaner, more efficient code.
+
+If you need to find out the performance of the lib, please check out this [benchmarks](https://js-std.pages.dev/#benchmarks).
+
+Another important thing to `note` here is that we don't say you should stop using regular array `map`, `filter`, or `reduce` methods, but the external library is not bad at all and will give you some benefits from using it.
+
+As you continue your coding journey, consider adopting these alternatives and contributing to the open-source ecosystem.
+
+Remember that collaboration and community involvement play a crucial role in advancing our collective knowledge.
+
+Happy coding! 🚀
+
+🙏 Thanks for reading.
