@@ -14,7 +14,7 @@ hide_table_of_contents: false
 
 <!-- truncate -->
 
-![Playground Demo](../static/img/blogs/playground-demo.png)
+![Playground Demo](/img/blogs/playground-demo.png)
 
 Welcome,
 

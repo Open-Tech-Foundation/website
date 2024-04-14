@@ -13,7 +13,7 @@ hide_table_of_contents: false
 
 <!-- truncate -->
 
-![Title text image](../static/img/blogs/you-dont-need-js-native-methods.png)
+![Title text image](/img/blogs/you-dont-need-js-native-methods.png)
 
 Welcome,
 
@@ -23,7 +23,7 @@ When `ES6` came, people got excited and started using native JS methods instead 
 
 ## Context
 
-I recommend you check out this post, [Introducing Our New JavaScript Standard Library]((https://open-tech-foundation.pages.dev/blog/introducing-new-js-std-lib)), to learn more about the JS library [@opentf/std](https://js-std.pages.dev/), which we will be using throughout this article.
+I recommend you check out this post, [Introducing Our New JavaScript Standard Library](https://open-tech-foundation.pages.dev/blog/introducing-new-js-std-lib), to learn more about the JS library [@opentf/std](https://js-std.pages.dev/), which we will be using throughout this article.
 
 ## Why
 
