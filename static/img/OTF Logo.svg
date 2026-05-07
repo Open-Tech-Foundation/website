@@ -1,0 +1,50 @@
+<svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+    <defs>
+        <radialGradient id="bgGrad" cx="50%" cy="38%" r="58%">
+            <stop offset="0%" stop-color="#2A2A2A"></stop>
+            <stop offset="100%" stop-color="#0E0E0E"></stop>
+        </radialGradient>
+
+        <linearGradient id="og" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FF9010"></stop>
+            <stop offset="100%" stop-color="#E06000"></stop>
+        </linearGradient>
+    </defs>
+
+    <!-- Background -->
+    <circle cx="210" cy="210" r="180" fill="url(#bgGrad)"></circle>
+
+    <!-- Left brace -->
+    <path d="M118 120
+           Q98 120 98 140
+           L98 190
+           Q98 210 78 210
+           Q98 210 98 230
+           L98 280
+           Q98 300 118 300" fill="none" stroke="url(#og)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"></path>
+
+    <!-- Right brace -->
+    <path d="M302 120
+           Q322 120 322 140
+           L322 190
+           Q322 210 342 210
+           Q322 210 322 230
+           L322 280
+           Q322 300 302 300" fill="none" stroke="url(#og)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"></path>
+
+    <!-- T top -->
+    <rect x="138" y="148" width="144" height="24" rx="8" ry="8" fill="url(#og)"></rect>
+
+    <!-- Main stem -->
+    <rect x="198" y="148" width="24" height="124" rx="8" ry="8" fill="url(#og)"></rect>
+
+    <!-- F middle arm -->
+    <!-- Rounded only on right side -->
+    <path d="M222 200
+           H251
+           Q258 200 258 207
+           V213
+           Q258 220 251 220
+           H222
+           Z" fill="url(#og)"></path>
+</svg>
