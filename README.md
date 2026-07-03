@@ -2,14 +2,33 @@
 
 Static coming soon page. A new site is in the works.
 
-## Local preview
+**Live site:** https://opentechf.org/
+
+**Advocacy • Collaboration • Open Innovation**
+
+We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, open standards, and open protocols — for the public good.
+
+## Development
 
 ```bash
-python3 -m http.server 8080
+pnpm install
+pnpm dev
 ```
 
-Then open http://localhost:8080
+## Build
 
-## Deployment
+```bash
+pnpm build
+```
 
-Deployed to [Cloudflare Pages](https://open-tech-foundation.pages.dev).
+Outputs to `dist/` — deploy this folder to Cloudflare Pages.
+
+**Cloudflare Pages settings:**
+- Build command: `pnpm build`
+- Build output directory: `dist`
+
+## Preview production build
+
+```bash
+pnpm preview
+```
