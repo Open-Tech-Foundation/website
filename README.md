@@ -21,11 +21,18 @@ pnpm dev
 pnpm build
 ```
 
-Outputs to `dist/` — deploy this folder to Cloudflare Pages.
+Outputs to `dist/` for Cloudflare Workers static assets.
 
-**Cloudflare Pages settings:**
-- Build command: `pnpm build`
-- Build output directory: `dist`
+## Deploy
+
+```bash
+pnpm deploy
+```
+
+**Cloudflare settings:**
+- Build command: `pnpm run build`
+- Deploy command: `wrangler deploy`
+- Output directory: `dist`
 
 ## Preview production build
 
