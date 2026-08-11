@@ -1,5 +1,4 @@
 import InvolveCard from "../components/InvolveCard.jsx";
-import SectionHeading from "../components/SectionHeading.jsx";
 
 export const metadata = {
   title: "Get Involved",
@@ -39,34 +38,13 @@ const WAYS = [
   {
     icon: "heart",
     title: "Support the mission",
-    body: "Use the projects, cite them, write about them, and tell other people they exist. Adoption is what makes open technology stick.",
-    action: "See what we build",
-    href: "/projects",
+    body: "The foundation is non-profit and volunteer-run, and the work is funded by the people who value it. Sponsorship pays for the unglamorous parts — infrastructure, domains, security audits, and the sustained time that carries a project from proposal to release. Any amount helps, and every project stays free and open regardless.",
+    action: "Sponsor on GitHub",
+    href: "https://github.com/sponsors/Open-Tech-Foundation",
+    external: true,
   },
 ];
 
-const STEPS = [
-  {
-    n: "01",
-    title: "Find a project",
-    body: "Start with something you already use. The stable projects are the easiest place to land a first change.",
-  },
-  {
-    n: "02",
-    title: "Read the repo",
-    body: "Each repository documents how to build it and run its tests. If that documentation is wrong, fixing it is a genuinely useful first contribution.",
-  },
-  {
-    n: "03",
-    title: "Open the conversation",
-    body: "For anything beyond a small fix, open an issue first. It is faster to agree on an approach than to rework a finished patch.",
-  },
-  {
-    n: "04",
-    title: "Send the change",
-    body: "Small, focused pull requests with a clear description get reviewed fastest.",
-  },
-];
 
 export default function GetInvolvedPage() {
   return (
@@ -79,11 +57,6 @@ export default function GetInvolvedPage() {
           <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
             Get involved
           </h1>
-          <p class="text-lg text-[var(--otfw-text-muted)] leading-relaxed">
-            The foundation is shaped by contributors, not control. There is no
-            membership to apply for and no committee to clear — participation is
-            the qualification.
-          </p>
         </div>
       </section>
 
@@ -95,31 +68,6 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      <section class="px-6 py-20 border-t border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
-        <div class="max-w-4xl mx-auto space-y-12">
-          <SectionHeading
-            eyebrow="First contribution"
-            title="How to start"
-            lead="No process theatre — four steps from reading to merged."
-          />
-
-          <ol class="grid gap-4 sm:grid-cols-2">
-            {STEPS.map((s) => (
-              <li class="flex gap-4 p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg)]">
-                <span class="shrink-0 font-mono text-sm font-bold text-[var(--accent-text)]">
-                  {s.n}
-                </span>
-                <div class="space-y-1.5">
-                  <h3 class="font-bold text-[var(--otfw-text)]">{s.title}</h3>
-                  <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed">
-                    {s.body}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
     </div>
   );
 }

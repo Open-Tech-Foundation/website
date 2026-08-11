@@ -7,7 +7,8 @@ export const metadata = {
   canonical: "/contact",
 };
 
-// Two addresses, deliberately separated: one for the foundation, one for the software.
+// Three addresses, deliberately separated: one for the foundation, one for the
+// software, and one for vulnerabilities — which must not be reported in public.
 const CHANNELS = [
   {
     icon: "mail",
@@ -22,11 +23,19 @@ const CHANNELS = [
     email: "support@opentechf.org",
     note: "For bugs and feature requests, an issue on the project's repository will get a faster and more useful answer than email.",
   },
+  {
+    icon: "shield",
+    // Heavier stroke: this card carries the one message that must not be missed.
+    iconWeight: 2.4,
+    title: "Security disclosures",
+    body: "Found a vulnerability? Report it privately rather than in a public issue, and we will coordinate a fix and disclosure with you.",
+    email: "security@opentechf.org",
+  },
 ];
 
 export default function ContactPage() {
   return (
-    <div class="w-full">
+    <div class="w-full flex-1 flex flex-col">
       <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
         <div class="max-w-3xl mx-auto py-20 text-center space-y-5">
           <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
@@ -40,11 +49,11 @@ export default function ContactPage() {
       </section>
 
       <section class="px-6 py-16">
-        <div class="max-w-3xl mx-auto grid gap-4 sm:grid-cols-2">
+        <div class="max-w-5xl mx-auto grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CHANNELS.map((c) => (
             <div class="h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
               <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--otfw-accent-soft)] text-[var(--accent-text)]">
-                <Icon name={c.icon} size={20} />
+                <Icon name={c.icon} size={20} weight={c.iconWeight} />
               </span>
 
               <h2 class="text-base font-bold text-[var(--otfw-text)]">
@@ -72,24 +81,13 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section class="px-6 py-16 border-t border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
-        <div class="max-w-2xl mx-auto text-center space-y-4">
-          <h2 class="text-xl font-bold tracking-tight text-[var(--otfw-text)]">
-            Security disclosures
-          </h2>
-          <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed">
-            Found a vulnerability? Report it privately to{" "}
-            <a
-              href="mailto:security@opentechf.org"
-              class="font-semibold text-[var(--accent-text)] hover:underline"
-            >
-              security@opentechf.org
-            </a>{" "}
-            rather than in a public issue, and we will coordinate a fix and
-            disclosure with you.
-          </p>
-        </div>
-      </section>
+      {/* `mt-auto` drops the location to the foot of the content area, just above the
+          footer, however tall the page happens to be. */}
+      <p class="mt-auto px-6 pb-12 flex items-center justify-center gap-2 text-lg text-[var(--otfw-text-muted)]">
+        <Icon name="pin" size={20} />
+        Chennai
+      </p>
+
     </div>
   );
 }

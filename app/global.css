@@ -150,6 +150,7 @@ html {
 
   .mobile-nav {
     display: block;
+    height: var(--mobile-nav-height);
     position: sticky;
     top: var(--otfw-navbar-height);
     z-index: 30;
@@ -159,6 +160,8 @@ html {
   }
   .mobile-nav-list {
     display: flex;
+    height: 100%;
+    align-items: center;
     gap: 0.5rem;
     margin: 0;
     padding: 0.6rem 1rem;
@@ -230,4 +233,30 @@ html {
   position: absolute;
   inset: 0;
   z-index: 1;
+}
+
+/* ── Page height ───────────────────────────────────────────────────────────────
+ * A short page must not show the footer on load — it should sit just past the fold.
+ * The navbar (and, below 768px, the mobile nav strip) are sticky but stay in normal
+ * flow, so the content area needs the viewport minus their heights to push the footer
+ * exactly off-screen. `dvh` first so mobile browser chrome is accounted for, with `vh`
+ * as the fallback for anything that does not support it. */
+:root {
+  --mobile-nav-height: 3.5rem;
+}
+
+main {
+  min-height: calc(100vh - var(--otfw-navbar-height));
+  min-height: calc(100dvh - var(--otfw-navbar-height));
+}
+
+@media (max-width: 767px) {
+  main {
+    min-height: calc(
+      100vh - var(--otfw-navbar-height) - var(--mobile-nav-height)
+    );
+    min-height: calc(
+      100dvh - var(--otfw-navbar-height) - var(--mobile-nav-height)
+    );
+  }
 }
