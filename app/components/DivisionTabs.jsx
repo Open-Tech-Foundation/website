@@ -59,14 +59,14 @@ export default function DivisionTabs(props) {
           id={`division-panel-${g.division.id}`}
           role="tabpanel"
           aria-labelledby={`division-tab-${g.division.id}`}
-          class={active === i ? "space-y-10" : "hidden"}
+          class={active === i ? "space-y-16" : "hidden"}
         >
           <p class="text-center text-sm text-[var(--otfw-text-muted)] max-w-xl mx-auto">
             {g.division.blurb}
           </p>
 
           {/* Documents lead the division: proposals, then specifications. */}
-          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
             {DOC_KIND_LIST.map((kind) => (
               <CountCard
                 icon={kind.icon}
@@ -85,7 +85,7 @@ export default function DivisionTabs(props) {
             ? categoriesIn(g.division.id)
                 .filter((c) => c.items.length > 0)
                 .map((c) => (
-                  <section id={c.id} class="space-y-5 scroll-mt-24">
+                  <section id={c.id} class="space-y-6 scroll-mt-24">
                     <div class="space-y-1.5">
                       <h2 class="text-2xl font-bold tracking-tight text-[var(--otfw-text)]">
                         {c.name}
@@ -93,7 +93,7 @@ export default function DivisionTabs(props) {
                       <p class="text-sm text-[var(--otfw-text-muted)]">{c.blurb}</p>
                     </div>
 
-                    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
                       {c.items.map((p) => (
                         <ProjectCard item={p} compact={props.compact} banner={props.banner} />
                       ))}
@@ -101,7 +101,7 @@ export default function DivisionTabs(props) {
                   </section>
                 ))
             : (
-              <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
                 {g.items.map((p) => (
                   <ProjectCard
                     item={p}
