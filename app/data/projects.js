@@ -246,7 +246,7 @@ export const projects = [
     status: "alpha",
     lang: "Rust",
     license: "MIT",
-    featured: false,
+    featured: true,
     banner: "/img/banners/release.svg",
     tagline: "A manual-bump, changelog-aware release CLI for single projects and monorepos.",
     detail:
