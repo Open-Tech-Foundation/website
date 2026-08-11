@@ -163,7 +163,9 @@ export default function GetInvolvedPage() {
               appointment: the repositories take pull requests, issues, and discussion
               from any person who wishes to take part. Contributing Membership is a
               separate, named post for domain experts who take responsibility for the
-              stewardship of a particular project or subject area.
+              stewardship of a particular project or subject area. The post is not
+              exclusive: a field may hold several Contributing Members, and is expected
+              to as the work in it grows.
             </p>
 
             <div class="space-y-3">
@@ -172,7 +174,7 @@ export default function GetInvolvedPage() {
               </h3>
               <p class="text-[var(--otfw-text-muted)] leading-relaxed">
                 A Contributing Member reviews contributions, triages issues, and
-                moderates discussion within the project or domain they hold, and is
+                moderates discussion within the project or domain they serve, and is
                 expected to be consistently available to do so. The post is applied for
                 and is granted on the basis of demonstrated expertise in the relevant
                 domain.
