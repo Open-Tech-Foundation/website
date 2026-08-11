@@ -27,7 +27,7 @@ export default function ProjectCard(props) {
   const href = `/projects/${p.id}`;
 
   return (
-    <div class="relative h-full flex flex-col rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] overflow-hidden transition-colors hover:border-[var(--otfw-accent)]/40">
+    <div class="relative h-full flex flex-col rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] overflow-hidden cursor-pointer transition-colors hover:border-[var(--otfw-accent)]/40">
       {props.banner ? <ProjectBanner item={p} /> : null}
 
       <div class="flex flex-col gap-3 p-6 flex-1">
@@ -83,20 +83,10 @@ export default function ProjectCard(props) {
                 href={p.site}
                 target="_blank"
                 rel="noreferrer"
-                class="font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] transition-colors"
+                class="inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] transition-colors"
               >
+                <Icon name="globe" size={14} />
                 Website
-              </a>
-            ) : null}
-
-            {p.npm ? (
-              <a
-                href={`https://www.npmjs.com/package/${p.npm}`}
-                target="_blank"
-                rel="noreferrer"
-                class="font-mono text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] transition-colors"
-              >
-                {p.npm}
               </a>
             ) : null}
 

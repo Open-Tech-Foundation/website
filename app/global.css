@@ -220,3 +220,14 @@ html {
 [data-theme="dark"] .lang-mark[data-lang="Rust"] {
   --mark: #ffffff;
 }
+
+/* Whole-card click target. The card is the positioning context and this overlay,
+ * carried by the title link, stretches across it — so the entire card navigates while
+ * the markup keeps a single real <a> with the item's name as its text. Anything that
+ * must stay separately clickable inside a card needs `relative z-10`. */
+.card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}

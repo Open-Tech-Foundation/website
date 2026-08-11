@@ -81,11 +81,11 @@ export const projects = [
     division: "software",
     category: "web",
     status: "under-development",
-    lang: "JavaScript",
+    lang: "Rust",
     license: "AGPL-3.0",
     featured: true,
     banner: "/img/banners/web-browser.svg",
-    tagline: "A fast, privacy-focused browser built on the Chromium Embedded Framework.",
+    tagline: "A fast, privacy-focused browser built on a Chromium base.",
     detail:
       "An exploration of what a browser looks like when tracking protection and resource frugality are the starting requirements rather than extensions bolted on later.",
     href: `${GH}/Web-Browser`,
@@ -416,6 +416,7 @@ export const specifications = [
       "A human-readable, structured data format for configuration: unambiguous to parse, forgiving to edit, and readable in a diff. Designed to be written and reviewed by people rather than generated and regretted.",
     license: "CC0-1.0",
     href: "https://github.com/Open-Tech-Foundation/STF",
+    site: "https://stf.opentechf.org/",
   },
 ];
 

@@ -29,20 +29,25 @@ export default function DocIndexSection(props) {
       <section class="px-6 py-16">
         <div class="max-w-3xl mx-auto space-y-4">
           {items.map((p) => (
-            <a
-              href={p.href}
-              target="_blank"
-              rel="noreferrer"
-              class="group block p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] transition-colors hover:border-[var(--otfw-accent)]/40"
-            >
+            <div class="relative group p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] cursor-pointer transition-colors hover:border-[var(--otfw-accent)]/40">
               <div class="flex items-start justify-between gap-4">
                 <div class="space-y-2">
                   <p class="font-mono text-xs text-[var(--otfw-text-muted)]">
                     {kind.itemLabel} {p.id}
                   </p>
 
-                  <h2 class="text-lg font-bold text-[var(--otfw-text)] group-hover:text-[var(--accent-text)] transition-colors">
-                    {p.title}
+                  <h2 class="text-lg font-bold text-[var(--otfw-text)]">
+                    {/* Reading the document is the point, so the card leads to the
+                        document's own site when it has one, and to the repository
+                        otherwise. The overlay makes the whole card that link. */}
+                    <a
+                      href={p.site || p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="card-link group-hover:text-[var(--accent-text)] transition-colors"
+                    >
+                      {p.title}
+                    </a>
                   </h2>
                 </div>
                 <span
@@ -57,11 +62,31 @@ export default function DocIndexSection(props) {
                 {p.summary}
               </p>
 
-              <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent-text)]">
-                {kind.readCta}
-                <Icon name="arrow" size={14} weight={2.4} />
-              </span>
-            </a>
+              <div class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs">
+                <span class="inline-flex items-center gap-1.5 font-semibold text-[var(--accent-text)]">
+                  {kind.readCta}
+                  <Icon name="arrow" size={14} weight={2.4} />
+                </span>
+
+                {/* Raised above the overlay so the repository stays reachable when the
+                    card itself points at the document's site. */}
+                {p.site ? (
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="relative z-10 inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] transition-colors"
+                  >
+                    <Icon name="github" size={14} />
+                    Source
+                  </a>
+                ) : null}
+
+                {p.license ? (
+                  <span class="ml-auto text-[var(--otfw-text-muted)]">{p.license}</span>
+                ) : null}
+              </div>
+            </div>
           ))}
 
           {items.length === 0 ? (
