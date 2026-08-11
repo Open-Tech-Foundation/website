@@ -127,7 +127,8 @@ export default function GetInvolvedPage() {
               The Core Membership is self-constituting. Its first member is the founder
               of the Foundation; each subsequent member is admitted by a vote of those
               already serving, who assess the candidate's background and experience
-              against the eligibility requirements above.
+              against the eligibility requirements above. No seat is conferred by
+              employment, sponsorship, or donation.
             </p>
           </div>
 
@@ -152,14 +153,54 @@ export default function GetInvolvedPage() {
             </ol>
           </div>
 
-          <div class="space-y-3 pt-2 border-t border-[var(--otfw-border)]">
-            <h3 class="text-base font-bold text-[var(--otfw-text)] pt-6">
+          <div class="space-y-6 pt-6 border-t border-[var(--otfw-border)]">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[var(--otfw-text)]">
+              Contributing Members
+            </h2>
+
+            <p class="text-[var(--otfw-text)]/85 leading-relaxed">
+              Contribution to the Foundation is open to anyone and requires no
+              appointment: the repositories take pull requests, issues, and discussion
+              from any person who wishes to take part. Contributing Membership is a
+              separate, named post for domain experts who take responsibility for the
+              stewardship of a particular project or subject area.
+            </p>
+
+            <div class="space-y-3">
+              <h3 class="text-base font-bold text-[var(--otfw-text)]">
+                The post
+              </h3>
+              <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+                A Contributing Member reviews contributions, triages issues, and
+                moderates discussion within the project or domain they hold, and is
+                expected to be consistently available to do so. The post is applied for
+                and is granted on the basis of demonstrated expertise in the relevant
+                domain.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <h3 class="text-base font-bold text-[var(--otfw-text)]">
+                Relation to the Core Membership
+              </h3>
+              <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+                Contributing Members do not hold a vote on organisation-wide matters,
+                which rest with the Core Membership. The two posts are distinct in
+                purpose: the Core Membership decides the direction of the Foundation,
+                while Contributing Members carry the day-to-day stewardship of the work
+                it publishes.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-3 pt-6 border-t border-[var(--otfw-border)]">
+            <h3 class="text-base font-bold text-[var(--otfw-text)]">
               Expressions of interest
             </h3>
             <p class="text-[var(--otfw-text-muted)] leading-relaxed">
-              The Foundation welcomes expressions of interest in Core Membership. Write
-              to us with an account of your background and the disciplines you would
-              bring to the body.
+              The Foundation welcomes applications for either post. Write to us with an
+              account of your background, the disciplines or projects you would take
+              responsibility for, and which of the two you have in mind.
             </p>
             <a
               href="mailto:contact@opentechf.org"
