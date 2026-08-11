@@ -54,7 +54,7 @@ export default function ProjectsPage() {
       </section>
 
       <div class="max-w-6xl mx-auto w-full px-6 py-16">
-        <DivisionTabs groups={ALL_GROUPS} grouped={true} />
+        <DivisionTabs groups={ALL_GROUPS} grouped={true} banner={true} />
       </div>
 
     </div>
