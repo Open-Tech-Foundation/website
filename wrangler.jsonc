@@ -6,9 +6,12 @@
     "enabled": true
   },
   "assets": {
-    // `otfw build --ssg` pre-renders every route to its own .html file and emits a
-    // dist/404.html, so unknown paths serve that page with a real 404 status instead
-    // of the SPA shell with a 200.
+    // Where `otfw build --ssg` writes the pre-rendered site. Required by
+    // `wrangler deploy`, which has no worker entrypoint to infer it from.
+    "directory": "./dist",
+    // Every route is pre-rendered to its own .html file and the build emits a
+    // dist/404.html, so unknown paths serve that page with a real 404 status
+    // instead of the SPA shell with a 200.
     "not_found_handling": "404-page"
   },
   "compatibility_flags": ["nodejs_compat"]

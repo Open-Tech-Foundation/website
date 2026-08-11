@@ -83,10 +83,10 @@ export default function ContactPage() {
 
       {/* `mt-auto` drops the location to the foot of the content area, just above the
           footer, however tall the page happens to be. */}
-      <p class="mt-auto px-6 pb-12 flex items-center justify-center gap-2 text-lg text-[var(--otfw-text-muted)]">
+      <div class="mt-auto px-6 pb-12 flex items-center justify-center gap-2 text-lg text-[var(--otfw-text-muted)]">
         <Icon name="pin" size={20} />
         Chennai
-      </p>
+      </div>
 
     </div>
   );
