@@ -2,7 +2,7 @@
   "name": "website",
   "version": "0.0.0",
   "private": true,
-  "description": "Advocacy • Collaboration • Open Innovation",
+  "description": "Advocacy \u2022 Collaboration \u2022 Open Innovation",
   "homepage": "https://opentechf.org/",
   "repository": {
     "type": "git",
@@ -13,14 +13,25 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "otfw dev",
+    "build": "otfw build --ssg",
     "preview": "pnpm run build && wrangler dev",
     "deploy": "pnpm run build && wrangler deploy"
   },
+  "dependencies": {
+    "@opentf/web": "^0.27.0",
+    "@opentf/web-docs": "^0.25.0"
+  },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.12.2",
-    "vite": "^6.3.5",
+    "@opentf/web-cli": "^1.25.0",
+    "tailwindcss": "4.2.2",
     "wrangler": "^4.45.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@opentf/web-compiler",
+      "esbuild",
+      "workerd"
+    ]
   }
 }

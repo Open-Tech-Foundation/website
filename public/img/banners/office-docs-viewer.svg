@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" role="img" aria-label="Office Docs Viewer">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#131c2f"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff851b"/><stop offset="1" stop-color="#ffb26b"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#7c8db0" stroke-opacity=".13" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow" cx=".5" cy=".1" r=".8">
+      <stop offset="0" stop-color="#ff851b" stop-opacity=".22"/><stop offset="1" stop-color="#ff851b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="300" fill="url(#bg)"/>
+  <rect width="800" height="300" fill="url(#grid)"/>
+  <rect width="800" height="300" fill="url(#glow)"/>
+  <g fill="#131c2f" stroke="#7c8db0" stroke-opacity=".5" stroke-width="2">
+    <rect x="108" y="66" width="180" height="168" rx="12"/>
+    <rect x="512" y="66" width="180" height="168" rx="12"/>
+  </g>
+  <g fill="#7c8db0" fill-opacity=".28">
+    <rect x="130" y="92" width="136" height="12" rx="4"/><rect x="130" y="116" width="110" height="9" rx="4"/>
+    <rect x="130" y="136" width="136" height="9" rx="4"/><rect x="130" y="156" width="96" height="9" rx="4"/>
+    <rect x="130" y="176" width="128" height="9" rx="4"/><rect x="130" y="196" width="80" height="9" rx="4"/>
+  </g>
+  <g stroke="#7c8db0" stroke-opacity=".4" stroke-width="1.5" fill="none">
+    <rect x="534" y="92" width="136" height="116" rx="4"/>
+    <path d="M534 122 H670 M534 150 H670 M534 178 H670 M579 92 V208 M624 92 V208"/>
+  </g>
+  <rect x="534" y="92" width="45" height="30" fill="#ff851b" fill-opacity=".35"/>
+  <rect x="308" y="52" width="184" height="196" rx="14" fill="#0f1729" stroke="#ff851b" stroke-width="2"/>
+  <rect x="330" y="78" width="140" height="76" rx="8" fill="#2a1a0c" stroke="#ff851b" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M348 132 l26-28 20 22 16-14 22 24z" fill="#ffb26b" fill-opacity=".85"/>
+  <circle cx="418" cy="98" r="9" fill="#ffb26b"/>
+  <g fill="#7c8db0" fill-opacity=".3">
+    <rect x="330" y="172" width="140" height="10" rx="4"/><rect x="330" y="192" width="108" height="10" rx="4"/>
+    <rect x="330" y="212" width="126" height="10" rx="4"/>
+  </g>
+</svg>

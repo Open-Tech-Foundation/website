@@ -1,0 +1,222 @@
+@import "tailwindcss";
+@import "@opentf/web-docs/theme";
+
+/* The docs theme switches on `[data-theme="dark"]` (set before first paint from
+ * localStorage), so Tailwind's `dark:` variant has to follow that attribute rather than
+ * its default `prefers-color-scheme` — otherwise `dark:` utilities fire on the wrong
+ * theme whenever a visitor's explicit choice differs from their OS setting. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Brand accent — the foundation orange, shared with the OTF Web framework site.
+ * Exposed to Tailwind as `accent`/`accent-hover` utilities. */
+@theme {
+  --color-accent: #ff851b;
+  --color-accent-hover: #e67512;
+}
+
+/* ── Accessible accent ─────────────────────────────────────────────────────── */
+/* The brand orange is a *fill* colour, not a text colour: #ff851b on white is 2.44:1,
+ * well under the 4.5:1 WCAG AA needs, and white on that same orange is equally poor.
+ * Accessibility is this foundation's first stated principle, so accent-coloured text
+ * uses a darkened orange on light backgrounds (4.87:1) and near-black sits on
+ * accent-filled surfaces (7.61:1). Dark mode already clears AA with the theme's own
+ * values (9.18:1 and 8.52:1), so it just re-uses them.
+ *
+ * --accent-text : accent-coloured text drawn ON the page background
+ * --accent-on   : text/icons drawn ON an accent-filled surface
+ * (`--otfw-accent` itself stays the fill for buttons, borders, and badges.) */
+:root {
+  /* Clears 4.5:1 on white (5.38), on the accent-soft tint (4.83), and on that tint over
+   * --otfw-bg-surface (4.64) — accent text sits on all three. */
+  --accent-text: #b34a0b;
+  --accent-on: #1a1205;
+  /* Muted body text on an accent-soft surface: the standard --otfw-text-muted drops to
+   * 4.10:1 once the warm tint is underneath it. */
+  --text-muted-on-accent: #556070;
+}
+
+[data-theme="dark"] {
+  --accent-text: var(--otfw-accent);
+  --accent-on: var(--otfw-accent-contrast);
+  --text-muted-on-accent: var(--otfw-text-muted);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────────────
+ * The footer is dark in both themes — a deliberate anchor at the foot of the page
+ * rather than a themed surface, so it reads the same everywhere. Its own tokens keep
+ * that decision in one place instead of scattering literal colours through the markup;
+ * all four clear AA against --footer-bg (muted 7.6:1, accent 8.1:1). */
+.site-footer {
+  --footer-bg: #0b1220;
+  --footer-text: #e2e8f0;
+  --footer-muted: #94a3b8;
+  --footer-border: #1e293b;
+  --footer-accent: #ff943d;
+
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  border-top: 1px solid var(--footer-border);
+}
+
+/* Zero third-party requests: no CDN fonts, no analytics, no remote assets. The site
+ * has to hold to the Privacy principle it advertises, so the docs theme's webfont is
+ * replaced with a system stack that ships with the device. */
+:root {
+  --otfw-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Component hosts compile to custom elements, which are `display: inline` by default —
+ * inline boxes collapse in the grid/flex layouts these are used in. Hosts are addressed
+ * by the stable `web-<kebab>` class the compiler stamps on every component. */
+.web-project-card,
+.web-principle-card,
+.web-involve-card,
+.web-section-heading {
+  display: block;
+}
+.web-project-card,
+.web-principle-card,
+.web-involve-card {
+  height: 100%;
+}
+
+/* Soft radial wash behind the hero. Purely decorative. */
+.hero-glow {
+  position: relative;
+}
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  /* Horizontal inset stays at 0: a negative one widens the page and gives every
+   * hero section a horizontal scrollbar on narrow viewports. */
+  inset: -20% 0 auto;
+  height: 26rem;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    var(--otfw-accent-soft),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Skip link — visible only once focused. */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  border-radius: var(--otfw-radius);
+  background: var(--otfw-accent);
+  color: var(--accent-on);
+  font-weight: 600;
+  transition: top 0.15s;
+}
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+/* ── Mobile navigation ─────────────────────────────────────────────────────── */
+/* The docs theme only relocates its navbar links into a drawer when a <Sidebar> is
+ * mounted (`:root[data-otfw-has-sidebar]`). This site has no sidebar, so below the
+ * theme's 768px breakpoint the links overflow the bar. Hide them there and let
+ * <MobileNav> render the links as a scrollable strip underneath instead. */
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .otfw-navbar-nav {
+    display: none;
+  }
+
+  /* Long brand name — keep it on one line next to the action cluster. */
+  .otfw-navbar-title {
+    white-space: nowrap;
+    font-size: 0.95rem;
+  }
+
+  .mobile-nav {
+    display: block;
+    position: sticky;
+    top: var(--otfw-navbar-height);
+    z-index: 30;
+    background: color-mix(in srgb, var(--otfw-bg) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--otfw-border);
+  }
+  .mobile-nav-list {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0.6rem 1rem;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .mobile-nav-list::-webkit-scrollbar {
+    display: none;
+  }
+  .mobile-nav-link {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--otfw-border);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--otfw-text-muted);
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .mobile-nav-link.is-active {
+    color: var(--accent-text);
+    border-color: var(--otfw-accent);
+    background: var(--otfw-accent-soft);
+  }
+}
+
+/* The docs theme centres its tooltip bubbles on the trigger (`left: 50%` +
+ * `translateX(-50%)`). The navbar's action icons sit hard against the right edge, so
+ * the bubble's right half lands outside the viewport and gives every page a horizontal
+ * scrollbar. Anchor those bubbles to the right edge of their trigger instead — still
+ * fully visible on hover, just no longer overhanging. */
+.otfw-navbar-actions .otfw-tooltip-bubble {
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(3px);
+}
+.otfw-navbar-actions .otfw-tooltip:hover .otfw-tooltip-bubble,
+.otfw-navbar-actions .otfw-tooltip:focus-within .otfw-tooltip-bubble {
+  transform: translateX(0) translateY(0);
+}
+
+/* ── Language marks ────────────────────────────────────────────────────────────
+ * Official single-path glyphs, filled with each language's brand colour. Rust's mark is
+ * black, which disappears on the dark background, so it inverts to white there. */
+.lang-mark path {
+  fill: var(--mark);
+}
+.lang-mark[data-lang="Rust"] {
+  --mark: #000000;
+}
+.lang-mark[data-lang="TypeScript"] {
+  --mark: #3178c6;
+}
+.lang-mark[data-lang="JavaScript"] {
+  --mark: #f7df1e;
+}
+[data-theme="dark"] .lang-mark[data-lang="Rust"] {
+  --mark: #ffffff;
+}

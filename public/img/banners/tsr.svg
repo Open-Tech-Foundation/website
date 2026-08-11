@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" role="img" aria-label="tsr">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#131c2f"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff851b"/><stop offset="1" stop-color="#ffb26b"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#7c8db0" stroke-opacity=".13" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow" cx=".5" cy=".1" r=".8">
+      <stop offset="0" stop-color="#ff851b" stop-opacity=".22"/><stop offset="1" stop-color="#ff851b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="300" fill="url(#bg)"/>
+  <rect width="800" height="300" fill="url(#grid)"/>
+  <rect width="800" height="300" fill="url(#glow)"/>
+  <g fill="#131c2f" stroke="#7c8db0" stroke-opacity=".5" stroke-width="2">
+    <rect x="120" y="126" width="120" height="50" rx="12"/>
+    <rect x="330" y="126" width="120" height="50" rx="12"/>
+    <rect x="540" y="126" width="120" height="50" rx="12"/>
+  </g>
+  <g stroke="url(#acc)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M240 151 H320 M310 140 l12 11 -12 11"/>
+    <path d="M450 151 H530 M520 140 l12 11 -12 11"/>
+  </g>
+  <g fill="#7c8db0" fill-opacity=".85" font-family="ui-monospace,Menlo,monospace" font-size="16" text-anchor="middle">
+    <text x="180" y="157">build</text><text x="390" y="157">test</text><text x="600" y="157">ship</text>
+  </g>
+  <g fill="#ff851b"><circle cx="180" cy="92" r="6"/><circle cx="390" cy="92" r="6"/><circle cx="600" cy="92" r="6"/></g>
+  <path d="M180 92 H600" stroke="#ff851b" stroke-opacity=".35" stroke-width="2"/>
+</svg>
