@@ -121,6 +121,16 @@ export default function GetInvolvedPage() {
             </p>
           </div>
 
+          <div class="space-y-3">
+            <h3 class="text-base font-bold text-[var(--otfw-text)]">Appointment</h3>
+            <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+              The Core Membership is self-constituting. Its first member is the founder
+              of the Foundation; each subsequent member is admitted by a vote of those
+              already serving, who assess the candidate's background and experience
+              against the eligibility requirements above.
+            </p>
+          </div>
+
           <div class="space-y-4">
             <h3 class="text-base font-bold text-[var(--otfw-text)]">
               Responsibilities
