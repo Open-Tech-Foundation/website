@@ -187,6 +187,7 @@ export const projects = [
     detail:
       "Computes a minimal diff between two object graphs and applies it back as a patch — handling circular references, Maps, Sets, and typed arrays correctly.",
     href: `${GH}/obj-diff`,
+    site: "https://obj-diff.opentechf.org/",
     npm: "@opentf/obj-diff",
   },
   {

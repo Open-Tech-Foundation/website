@@ -33,6 +33,13 @@
   /* Muted body text on an accent-soft surface: the standard --otfw-text-muted drops to
    * 4.10:1 once the warm tint is underneath it. */
   --text-muted-on-accent: #556070;
+
+  /* Primary button. The brand orange as a large fill is loud, and it competes with the
+   * orange used for links and accents — so the solid button is the neutral ink colour
+   * and the orange stays a highlight. Inverts with the theme; 17.9:1 in light, 16.4:1
+   * in dark. */
+  --btn-bg: var(--otfw-text);
+  --btn-fg: var(--otfw-bg);
 }
 
 [data-theme="dark"] {

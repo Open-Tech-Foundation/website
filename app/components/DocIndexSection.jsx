@@ -105,7 +105,7 @@ export default function DocIndexSection(props) {
               href={kind.repo}
               target="_blank"
               rel="noreferrer"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--otfw-accent)] text-[var(--accent-on)] hover:opacity-90 transition-opacity"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity"
             >
               <Icon name="github" size={16} />
               {kind.submitCta}

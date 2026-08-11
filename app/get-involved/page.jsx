@@ -206,7 +206,7 @@ export default function GetInvolvedPage() {
             </p>
             <a
               href="mailto:contact@opentechf.org"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--otfw-accent)] text-[var(--accent-on)] hover:opacity-90 transition-opacity"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity"
             >
               <Icon name="mail" size={16} />
               contact@opentechf.org

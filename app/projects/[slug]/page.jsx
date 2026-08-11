@@ -128,7 +128,7 @@ export default function ProjectPage() {
                     href={project().href}
                     target="_blank"
                     rel="noreferrer"
-                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-[var(--otfw-accent)] text-[var(--accent-on)] hover:opacity-90 transition-opacity"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity"
                   >
                     <Icon name="github" size={16} />
                     Source
