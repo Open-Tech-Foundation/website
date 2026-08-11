@@ -1,9 +1,10 @@
+import Icon from "../components/Icon.jsx";
 import InvolveCard from "../components/InvolveCard.jsx";
 
 export const metadata = {
   title: "Get Involved",
   description:
-    "Contribute to Open Tech Foundation initiatives, open issues and discussions, share ideas and feedback, or support the mission.",
+    "Contribute to Open Tech Foundation initiatives, open issues and discussions, share ideas and feedback, support the mission, or stand for Core Membership.",
   canonical: "/get-involved",
 };
 
@@ -46,6 +47,27 @@ const WAYS = [
 ];
 
 
+// Core Membership duties, in charter order. This is the governing body's mandate as
+// stated by the Foundation; it is not a substitute for incorporated bylaws.
+const DUTIES = [
+  {
+    title: "Vote on organisation-wide decisions",
+    body: "Each Core Member holds one vote on matters affecting the Foundation as a whole — the adoption of proposals and specifications, the admission and retirement of projects, the allocation of Foundation funds, and any amendment to this charter.",
+  },
+  {
+    title: "Guide the mission",
+    body: "Core Members are custodians of the Foundation's mission and of the seven principles that follow from it. They are responsible for ensuring that the work the Foundation undertakes, and the work it declines, remains consistent with them.",
+  },
+  {
+    title: "Direct research and development",
+    body: "Core Members set the Foundation's research priorities, review the technical direction of its projects, and determine which lines of enquiry the Foundation commits its resources to.",
+  },
+  {
+    title: "Oversee legal matters",
+    body: "Core Members are responsible for the Foundation's legal and compliance obligations, including licensing, trademark, the terms under which the Foundation's work is published, and its standing as a non-profit body.",
+  },
+];
+
 export default function GetInvolvedPage() {
   return (
     <div class="w-full">
@@ -65,6 +87,78 @@ export default function GetInvolvedPage() {
           {WAYS.map((c) => (
             <InvolveCard item={c} />
           ))}
+        </div>
+      </section>
+
+      <section class="px-6 py-20 border-t border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
+        <div class="max-w-3xl mx-auto space-y-8">
+          <div class="space-y-3">
+            <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
+              Governance
+            </p>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[var(--otfw-text)]">
+              Core Members
+            </h2>
+          </div>
+
+          <p class="text-[var(--otfw-text)]/85 leading-relaxed">
+            The Foundation is directed by a Core Membership: a body of senior
+            technologists drawn from different disciplines and industries, who
+            together hold responsibility for decisions affecting the Foundation as a
+            whole. The Core Membership exists so that those decisions are made by
+            people with the depth to judge their consequences, and from more than one
+            tradition of practice.
+          </p>
+
+          <div class="space-y-3">
+            <h3 class="text-base font-bold text-[var(--otfw-text)]">Eligibility</h3>
+            <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+              A candidate for Core Membership shall have a minimum of ten (10) years of
+              professional experience in technology or a directly related discipline.
+              The Core Membership is constituted to be varied in background —
+              engineering, research, operations, security, design, and law among them —
+              and appointments are made with that breadth in view.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-base font-bold text-[var(--otfw-text)]">
+              Responsibilities
+            </h3>
+            <ol class="space-y-4">
+              {DUTIES.map((d, i) => (
+                <li class="flex gap-4 p-5 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg)]">
+                  <span class="shrink-0 font-mono text-sm font-bold text-[var(--accent-text)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div class="space-y-1.5">
+                    <h4 class="font-bold text-[var(--otfw-text)]">{d.title}</h4>
+                    <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed">
+                      {d.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div class="space-y-3 pt-2 border-t border-[var(--otfw-border)]">
+            <h3 class="text-base font-bold text-[var(--otfw-text)] pt-6">
+              Expressions of interest
+            </h3>
+            <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+              The Foundation welcomes expressions of interest in Core Membership. Write
+              to us with an account of your background and the disciplines you would
+              bring to the body.
+            </p>
+            <a
+              href="mailto:contact@opentechf.org"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--otfw-accent)] text-[var(--accent-on)] hover:opacity-90 transition-opacity"
+            >
+              <Icon name="mail" size={16} />
+              contact@opentechf.org
+            </a>
+          </div>
         </div>
       </section>
 
