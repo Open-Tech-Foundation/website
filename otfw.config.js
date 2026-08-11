@@ -16,7 +16,6 @@ export default defineDocsConfig({
       { label: "Projects", href: "/projects" },
       { label: "Blog", href: "/blog" },
       { label: "Get Involved", href: "/get-involved" },
-      { label: "Contact", href: "/contact" },
     ],
   },
 
