@@ -260,3 +260,10 @@ main {
     );
   }
 }
+
+/* Prose links in MDX (blog posts) come from the docs theme as `var(--otfw-accent)`,
+ * which is 2.44:1 on white and fails AA as text. Same substitution as everywhere else:
+ * the raw brand orange is a fill, `--accent-text` is the readable one. */
+.otfw-prose a {
+  color: var(--accent-text);
+}

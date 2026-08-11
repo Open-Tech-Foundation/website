@@ -14,8 +14,22 @@ export default defineDocsConfig({
     nav: [
       { label: "Home", href: "/" },
       { label: "Projects", href: "/projects" },
+      { label: "Blog", href: "/blog" },
       { label: "Get Involved", href: "/get-involved" },
       { label: "Contact", href: "/contact" },
     ],
+  },
+
+  // Blog generator: posts live under app/blog/<slug>/page.mdx. The toolchain reads each
+  // post's frontmatter into `@opentf/web-docs/posts` for the index and the banners, and
+  // emits /blog/rss.xml and /blog/atom.xml at build time (which is why site.url above
+  // is required).
+  blog: {
+    dir: "blog",
+    title: "Open Tech Foundation Blog",
+    description:
+      "Technical writing from the Open Tech Foundation's projects, and news from the Foundation itself.",
+    // Show a "Last updated" line when a post is edited after it was published.
+    lastUpdated: true,
   },
 });
