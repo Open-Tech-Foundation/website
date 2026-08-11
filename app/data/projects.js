@@ -170,6 +170,7 @@ export const projects = [
     detail:
       "A lightweight, high-accuracy, runtime-agnostic collection of the utilities JavaScript never shipped with — strings, arrays, objects, dates, types, and async helpers.",
     href: `${GH}/js-std`,
+    site: "https://js-std.opentechf.org/",
     npm: "@opentf/std",
   },
   {
