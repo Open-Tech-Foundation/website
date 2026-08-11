@@ -267,3 +267,12 @@ main {
 .otfw-prose a {
   color: var(--accent-text);
 }
+
+/* npm's mark, in its own red. Decorative next to the package name, which carries the
+ * meaning — so it only needs to stay recognisable on both backgrounds. */
+.npm-mark path {
+  fill: #cb3837;
+}
+[data-theme="dark"] .npm-mark path {
+  fill: #e14b4a;
+}

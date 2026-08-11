@@ -1,6 +1,7 @@
 import { Link, router } from "@opentf/web";
 import Icon from "../../components/Icon.jsx";
 import LangIcon from "../../components/LangIcon.jsx";
+import NpmMark from "../../components/NpmMark.jsx";
 import ProjectBanner from "../../components/ProjectBanner.jsx";
 import {
   categoryById,
@@ -140,6 +141,7 @@ export default function ProjectPage() {
                       rel="noreferrer"
                       class={META_LINK}
                     >
+                      <Icon name="globe" size={16} />
                       Website
                     </a>
                   ) : null}
@@ -151,6 +153,7 @@ export default function ProjectPage() {
                       rel="noreferrer"
                       class={META_LINK}
                     >
+                      <NpmMark size={16} />
                       <span class="font-mono text-sm">{project().npm}</span>
                     </a>
                   ) : null}
