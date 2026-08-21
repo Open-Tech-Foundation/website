@@ -26,7 +26,7 @@ const WAYS = [
     title: "Open issues & discussions",
     body: "Report a bug, propose a feature, or ask how something is meant to work. Design decisions get made in these threads, in public.",
     action: "Start a discussion",
-    href: `${GITHUB}/Web-App-Framework/discussions`,
+    href: "https://github.com/orgs/Open-Tech-Foundation/discussions",
     external: true,
   },
   {
