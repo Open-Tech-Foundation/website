@@ -31,11 +31,6 @@ export default function ProjectsPage() {
           <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
             Projects
           </h1>
-          <p class="text-lg text-[var(--otfw-text-muted)] leading-relaxed">
-            {projects.length} open projects across software and hardware — each one open
-            source and developed in public. Licences vary by project and are shown on
-            every card.
-          </p>
 
           {/* Status legend — the badges on each card are meaningless without it. */}
           <ul class="flex flex-wrap justify-center gap-x-5 gap-y-2 pt-2 text-xs text-[var(--otfw-text-muted)]">

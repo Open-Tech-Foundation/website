@@ -61,10 +61,6 @@ export default function DivisionTabs(props) {
           aria-labelledby={`division-tab-${g.division.id}`}
           class={active === i ? "space-y-16" : "hidden"}
         >
-          <p class="text-center text-sm text-[var(--otfw-text-muted)] max-w-xl mx-auto">
-            {g.division.blurb}
-          </p>
-
           {/* Documents lead the division: proposals, then specifications. */}
           <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
             {DOC_KIND_LIST.map((kind) => (
