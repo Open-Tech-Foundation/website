@@ -85,9 +85,9 @@ export const projects = [
     license: "AGPL-3.0",
     featured: true,
     banner: "/img/banners/web-browser.svg",
-    tagline: "A fast, privacy-focused browser built on a Chromium base.",
+    tagline: "A fast, privacy-focused browser powered by our own rendering engine.",
     detail:
-      "An exploration of what a browser looks like when tracking protection and resource frugality are the starting requirements rather than extensions bolted on later.",
+      "A browser built around an in-house rendering engine, designed from first principles — privacy protection and resource frugality are starting requirements, not extensions bolted on later. No Chromium base, no inherited code the foundation does not control.",
     href: `${GH}/Web-Browser`,
     site: "https://browser.opentechf.org",
   },
@@ -191,6 +191,20 @@ export const projects = [
     npm: "@opentf/obj-diff",
   },
   {
+    id: "syntax-highlighter",
+    name: "Syntax Highlighter",
+    division: "software",
+    category: "web-development",
+    status: "under-development",
+    lang: "JavaScript",
+    license: "MIT",
+    featured: false,
+    tagline: "A JavaScript syntax highlighter built on the CSS Custom Highlight API.",
+    detail:
+      "Highlights code without injecting a single wrapper element — the CSS Custom Highlight API does the painting, so the DOM stays exactly as authored and large documents stay fast.",
+    href: `${GH}/Syntax-Highlighter`,
+  },
+  {
     id: "immutate",
     name: "immutate",
     division: "software",
@@ -288,6 +302,20 @@ export const projects = [
     detail:
       "Processes images as a pull-based stream, so only the pixels actually needed are decoded and transformed — bounded memory regardless of source size.",
     href: `${GH}/Pixels`,
+  },
+  {
+    id: "2d-engine",
+    name: "2D Engine",
+    division: "software",
+    category: "media",
+    status: "under-development",
+    lang: "Rust",
+    license: "Apache-2.0",
+    featured: false,
+    tagline: "A 2D vector graphics engine with immutable scenes.",
+    detail:
+      "Scenes are immutable values that render to raster or vector targets — build once, draw many times, and never mutate a scene graph that is already on screen.",
+    href: `${GH}/2D-Engine`,
   },
 ];
 
