@@ -1,0 +1,4 @@
+allowBuilds:
+  '@opentf/web-compiler': true
+  esbuild: true
+  workerd: true

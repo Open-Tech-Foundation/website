@@ -26,12 +26,5 @@
     "@opentf/web-cli": "^1.25.0",
     "tailwindcss": "4.2.2",
     "wrangler": "^4.45.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@opentf/web-compiler",
-      "esbuild",
-      "workerd"
-    ]
   }
 }
