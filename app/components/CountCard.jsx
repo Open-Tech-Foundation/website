@@ -10,7 +10,7 @@ export default function CountCard(props) {
   return (
     <Link
       href={props.href}
-      class="group h-full flex flex-col justify-between gap-4 p-6 rounded-2xl border border-dashed border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] cursor-pointer transition-colors hover:border-[var(--otfw-accent)]"
+      class="group h-full flex flex-col justify-between gap-4 p-6 rounded-2xl border border-dashed border-[var(--otfw-border)] bg-white dark:bg-[var(--otfw-bg-elevated)] cursor-pointer transition-colors hover:border-[var(--otfw-accent)]"
     >
       <div class="flex items-start justify-between gap-3">
         <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--otfw-accent-soft)] text-[var(--accent-text)]">

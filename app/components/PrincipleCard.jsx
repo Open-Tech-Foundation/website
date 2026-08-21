@@ -8,7 +8,7 @@ export default function PrincipleCard(props) {
   return (
     <div
       id={props.expanded ? p.id : null}
-      class="h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] scroll-mt-24 transition-colors hover:border-[var(--otfw-accent)]/40"
+      class="h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--otfw-border)] bg-orange-50 dark:bg-[var(--otfw-bg-elevated)] scroll-mt-24 transition-colors hover:border-[var(--otfw-accent)]/40"
     >
       <div class="flex items-center gap-3">
         <span class="flex items-center justify-center w-10 h-10 shrink-0 rounded-xl bg-[var(--otfw-accent-soft)] text-[var(--accent-text)]">

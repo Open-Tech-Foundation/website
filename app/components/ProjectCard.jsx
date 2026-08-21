@@ -27,7 +27,7 @@ export default function ProjectCard(props) {
   const href = `/projects/${p.id}`;
 
   return (
-    <div class="relative h-full flex flex-col rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] overflow-hidden cursor-pointer transition-colors hover:border-[var(--otfw-accent)]/40">
+    <div class="relative h-full flex flex-col rounded-2xl border border-[var(--otfw-border)] bg-white dark:bg-[var(--otfw-bg-elevated)] overflow-hidden cursor-pointer transition-colors hover:border-[var(--otfw-accent)]/40">
       {props.banner ? <ProjectBanner item={p} /> : null}
 
       <div class="flex flex-col gap-3 p-6 flex-1">
