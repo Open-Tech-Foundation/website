@@ -89,7 +89,8 @@ html {
 .web-project-card,
 .web-principle-card,
 .web-involve-card,
-.web-section-heading {
+.web-section-heading,
+.web-project-banner {
   display: block;
 }
 .web-project-card,

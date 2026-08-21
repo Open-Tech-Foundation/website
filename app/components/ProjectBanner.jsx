@@ -48,9 +48,7 @@ export default function ProjectBanner(props) {
   ) : (
     <svg
       viewBox="0 0 800 300"
-      width="800"
-      height="300"
-      class="w-full aspect-[8/3] object-cover"
+      class="w-full h-auto aspect-[8/3]"
       role="img"
       aria-label=""
       aria-hidden="true"
