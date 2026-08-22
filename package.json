@@ -2,7 +2,7 @@
   "name": "website",
   "version": "0.0.0",
   "private": true,
-  "description": "Advocacy \u2022 Collaboration \u2022 Open Innovation",
+  "description": "Advocacy • Collaboration • Open Innovation",
   "homepage": "https://opentechf.org/",
   "repository": {
     "type": "git",
@@ -19,12 +19,12 @@
     "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
-    "@opentf/web": "^0.27.0",
-    "@opentf/web-docs": "^0.25.0"
+    "@opentf/web": "^0.28.0",
+    "@opentf/web-docs": "^0.26.0"
   },
   "devDependencies": {
-    "@opentf/web-cli": "^1.25.0",
-    "tailwindcss": "4.2.2",
-    "wrangler": "^4.45.0"
+    "@opentf/web-cli": "^1.26.0",
+    "tailwindcss": "4.3.3",
+    "wrangler": "^4.125.0"
   }
 }
