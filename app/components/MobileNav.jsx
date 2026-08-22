@@ -14,23 +14,26 @@ export default function MobileNav(props) {
   const links = props.links || [];
 
   return (
-    <nav aria-label="Primary" class="mobile-nav">
+    <nav aria-label="Primary mobile" class="mobile-nav">
       <ul class="mobile-nav-list">
-        {links.map((l) => (
-          <li>
-            <Link
-              href={l.href}
-              class={
-                router.pathname === l.href ||
-                router.pathname.startsWith(l.href + "/")
-                  ? "mobile-nav-link is-active"
-                  : "mobile-nav-link"
-              }
-            >
-              {l.label}
-            </Link>
-          </li>
-        ))}
+        {links.map((l) => {
+          const isActive =
+            router.pathname === l.href ||
+            router.pathname.startsWith(l.href + "/");
+          return (
+            <li>
+              <Link
+                href={l.href}
+                aria-current={isActive ? "page" : undefined}
+                class={
+                  isActive ? "mobile-nav-link is-active" : "mobile-nav-link"
+                }
+              >
+                {l.label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

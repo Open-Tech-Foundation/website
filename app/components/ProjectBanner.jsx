@@ -35,11 +35,13 @@ export default function ProjectBanner(props) {
   // referenced id is namespaced with the project id.
   const uid = `pb-${p.id}`;
 
+  const eager = props.eager;
   return p.banner ? (
     <img
       src={p.banner}
       alt=""
-      loading="lazy"
+      loading={eager ? "eager" : "lazy"}
+      fetchpriority={eager ? "high" : "auto"}
       decoding="async"
       width="800"
       height="300"

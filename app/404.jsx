@@ -51,8 +51,24 @@ export default function NotFoundPage() {
         </div>
       </main>
 
-      <footer class="border-t border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] px-6 py-6 text-center text-xs text-[var(--otfw-text-muted)]">
-        © {new Date().getFullYear()} Open Tech Foundation
+      <footer class="site-footer">
+        <div class="border-t border-[var(--footer-border)]">
+          <div class="max-w-6xl mx-auto w-full px-6 py-6 flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--footer-muted)]">
+            <span>© {new Date().getFullYear()} Open Tech Foundation</span>
+            <span>
+              Built with{" "}
+              <a
+                href="https://web.opentechf.org"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="font-semibold text-[var(--footer-accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--footer-accent)] rounded"
+              >
+                OTF Web
+              </a>
+              {" "}· No trackers, no analytics.
+            </span>
+          </div>
+        </div>
       </footer>
     </div>
   );

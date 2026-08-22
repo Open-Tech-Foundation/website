@@ -25,6 +25,24 @@ export default function DivisionTabs(props) {
   // Software is index 0 in `divisions`, so it is the default active tab.
   let active = $state(0);
 
+  function onKeyDown(e, i) {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      const dir = e.key === "ArrowRight" ? 1 : -1;
+      const next = (i + dir + divisions.length) % divisions.length;
+      active = next;
+      document.getElementById(`division-tab-${divisions[next].id}`)?.focus();
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      active = 0;
+      document.getElementById(`division-tab-${divisions[0].id}`)?.focus();
+    } else if (e.key === "End") {
+      e.preventDefault();
+      active = divisions.length - 1;
+      document.getElementById(`division-tab-${divisions[divisions.length - 1].id}`)?.focus();
+    }
+  }
+
   return (
     <div class="space-y-8">
       <div
@@ -39,15 +57,17 @@ export default function DivisionTabs(props) {
             id={`division-tab-${d.id}`}
             aria-selected={active === i}
             aria-controls={`division-panel-${d.id}`}
+            tabindex={active === i ? 0 : -1}
+            onkeydown={(e) => onKeyDown(e, i)}
             class={
               active === i
-                ? "px-5 py-2 rounded-full border border-[var(--otfw-accent)] bg-[var(--otfw-accent-soft)] text-[var(--accent-text)] text-sm font-bold transition-colors"
-                : "px-5 py-2 rounded-full border border-[var(--otfw-border)] text-[var(--otfw-text-muted)] text-sm font-bold hover:border-[var(--otfw-accent)]/50 transition-colors"
+                ? "px-5 py-2 rounded-full border border-[var(--otfw-accent)] bg-[var(--otfw-accent-soft)] text-[var(--accent-text)] text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] focus-visible:ring-offset-2"
+                : "px-5 py-2 rounded-full border border-[var(--otfw-border)] text-[var(--otfw-text-muted)] text-sm font-bold hover:border-[var(--otfw-accent)]/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] focus-visible:ring-offset-2"
             }
             onclick={() => (active = i)}
           >
             <span class="inline-flex items-center gap-2">
-              <Icon name={d.icon} size={15} />
+              <Icon name={d.icon} size={15} weight={2} />
               {d.name}
             </span>
           </button>
@@ -59,7 +79,8 @@ export default function DivisionTabs(props) {
           id={`division-panel-${g.division.id}`}
           role="tabpanel"
           aria-labelledby={`division-tab-${g.division.id}`}
-          class={active === i ? "space-y-16" : "hidden"}
+          hidden={active !== i}
+          class={active === i ? "space-y-16 js-tabs" : "hidden js-tabs"}
         >
           {/* Documents lead the division: proposals, then specifications. */}
           <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
@@ -81,29 +102,29 @@ export default function DivisionTabs(props) {
             ? categoriesIn(g.division.id)
                 .filter((c) => c.items.length > 0)
                 .map((c) => (
-                  <section id={c.id} class="space-y-6 scroll-mt-24">
+                  <section id={c.id} class="space-y-6 scroll-mt-24" aria-labelledby={`${c.id}-heading`}>
                     <div class="space-y-1.5">
-                      <h2 class="text-2xl font-bold tracking-tight text-[var(--otfw-text)]">
+                      <h3 id={`${c.id}-heading`} class="text-2xl font-bold tracking-tight text-[var(--otfw-text)]">
                         {c.name}
-                      </h2>
+                      </h3>
                       <p class="text-sm text-[var(--otfw-text-muted)]">{c.blurb}</p>
                     </div>
 
                     <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
-                      {c.items.map((p) => (
-                        <ProjectCard item={p} compact={props.compact} banner={props.banner} />
+                      {c.items.map((p, idx) => (
+                        <ProjectCard item={p} banner={props.banner} eager={idx < 2 && g.division.id === divisions[0].id} />
                       ))}
                     </div>
                   </section>
                 ))
             : (
               <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
-                {g.items.map((p) => (
+                {g.items.map((p, idx) => (
                   <ProjectCard
                     item={p}
-                    compact={props.compact}
                     banner={props.banner}
                     category={true}
+                    eager={idx < 3}
                   />
                 ))}
               </div>

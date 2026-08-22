@@ -23,7 +23,7 @@ const FOOTER_NAV = [
 export const metadata = {
   titleTemplate: "%s — Open Tech Foundation",
   description:
-    "We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, open standards, and open protocols — for the public good.",
+    "We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, and open standards — for the public good.",
   openGraph: {
     siteName: "Open Tech Foundation",
     type: "website",
@@ -44,7 +44,7 @@ export const metadata = {
     url: "https://opentechf.org/",
     logo: "https://opentechf.org/img/Logo.svg",
     description:
-      "We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, open standards, and open protocols — for the public good.",
+      "We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, and open standards — for the public good.",
     slogan: "Advocacy • Collaboration • Open Innovation",
     email: "contact@opentechf.org",
     sameAs: [GITHUB],
@@ -86,9 +86,9 @@ export default function RootLayout(props) {
             <a
               href={GITHUB}
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               aria-label="Open Tech Foundation on GitHub"
-              class="inline-flex items-center gap-2 text-sm text-[var(--footer-muted)] hover:text-[var(--footer-accent)] transition-colors"
+              class="inline-flex items-center gap-2 text-sm text-[var(--footer-muted)] hover:text-[var(--footer-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--footer-accent)] rounded transition-colors"
             >
               <Icon name="github" size={16} />
               GitHub
@@ -107,8 +107,8 @@ export default function RootLayout(props) {
                       <a
                         href={l.href}
                         target="_blank"
-                        rel="noreferrer"
-                        class="text-sm text-[var(--footer-muted)] hover:text-[var(--footer-accent)] transition-colors"
+                        rel="noreferrer noopener"
+                        class="text-sm text-[var(--footer-muted)] hover:text-[var(--footer-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--footer-accent)] rounded transition-colors"
                       >
                         {l.label}
                       </a>
@@ -135,8 +135,8 @@ export default function RootLayout(props) {
               <a
                 href="https://web.opentechf.org"
                 target="_blank"
-                rel="noreferrer"
-                class="font-semibold text-[var(--footer-accent)] hover:underline"
+                rel="noreferrer noopener"
+                class="font-semibold text-[var(--footer-accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--footer-accent)] rounded"
               >
                 OTF Web
               </a>

@@ -17,7 +17,7 @@ export default function PrincipleCard(props) {
         <h3 class="text-base font-bold text-[var(--otfw-text)]">{p.name}</h3>
       </div>
 
-      <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed">
+      <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed min-h-[2.5rem]">
         {p.summary}
       </p>
 

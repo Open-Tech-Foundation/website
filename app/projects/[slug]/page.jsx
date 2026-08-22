@@ -80,7 +80,7 @@ export default function ProjectPage() {
             <section class="px-6 py-14">
               <div class="max-w-3xl mx-auto space-y-10">
                 <div class="rounded-2xl border border-[var(--otfw-border)] overflow-hidden">
-                  <ProjectBanner item={project()} />
+                  <ProjectBanner item={project()} eager={true} />
                 </div>
 
                 <p class="text-[var(--otfw-text)]/85 leading-relaxed text-lg">
@@ -127,8 +127,8 @@ export default function ProjectPage() {
                   <a
                     href={project().href}
                     target="_blank"
-                    rel="noreferrer"
-                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity"
+                    rel="noreferrer noopener"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
                   >
                     <Icon name="github" size={16} />
                     Source
@@ -138,8 +138,8 @@ export default function ProjectPage() {
                     <a
                       href={project().site}
                       target="_blank"
-                      rel="noreferrer"
-                      class={META_LINK}
+                      rel="noreferrer noopener"
+                      class={`${META_LINK} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]`}
                     >
                       <Icon name="globe" size={16} />
                       Website
@@ -150,8 +150,8 @@ export default function ProjectPage() {
                     <a
                       href={`https://www.npmjs.com/package/${project().npm}`}
                       target="_blank"
-                      rel="noreferrer"
-                      class={META_LINK}
+                      rel="noreferrer noopener"
+                      class={`${META_LINK} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]`}
                     >
                       <NpmMark size={16} />
                       <span class="font-mono text-sm">{project().npm}</span>

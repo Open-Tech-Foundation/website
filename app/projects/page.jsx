@@ -32,16 +32,18 @@ export default function ProjectsPage() {
             Projects
           </h1>
 
-          {/* Status legend — the badges on each card are meaningless without it. */}
-          <ul class="flex flex-wrap justify-center gap-x-5 gap-y-2 pt-2 text-xs text-[var(--otfw-text-muted)]">
+          {/* Status legend — the badges on each card are meaningless without it.
+              The list is one shared grid, so every hint starts on the same edge
+              while each chip keeps its natural width. */}
+          <ul class="mx-auto grid w-fit gap-x-4 gap-y-2 pt-3 text-left text-xs text-[var(--otfw-text-muted)] [grid-template-columns:auto_auto]">
             {STATUS_ORDER.map((key) => (
-              <li class="inline-flex items-center gap-2">
+              <li class="contents">
                 <span
-                  class={`inline-flex items-center px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wider ${STATUS[key].cls}`}
+                  class={`inline-flex items-center justify-self-start px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wider ${STATUS[key].cls}`}
                 >
                   {STATUS[key].label}
                 </span>
-                {STATUS[key].hint}
+                <span class="self-center leading-snug">{STATUS[key].hint}</span>
               </li>
             ))}
           </ul>

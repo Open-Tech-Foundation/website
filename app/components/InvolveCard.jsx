@@ -8,7 +8,7 @@ export default function InvolveCard(props) {
     <a
       href={c.href}
       target={c.external ? "_blank" : null}
-      rel={c.external ? "noreferrer" : null}
+      rel={c.external ? "noreferrer noopener" : null}
       class="group h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] transition-colors hover:border-[var(--otfw-accent)]/40"
     >
       <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--otfw-accent-soft)] text-[var(--accent-text)]">

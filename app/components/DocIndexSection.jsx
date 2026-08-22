@@ -29,7 +29,7 @@ export default function DocIndexSection(props) {
       <section class="px-6 py-16">
         <div class="max-w-3xl mx-auto space-y-4">
           {items.map((p) => (
-            <div class="relative group p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] cursor-pointer transition-colors hover:border-[var(--otfw-accent)]/40">
+            <div class="relative group p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] transition-colors hover:border-[var(--otfw-accent)]/40 focus-within:border-[var(--otfw-accent)]/40 focus-within:ring-2 focus-within:ring-[var(--otfw-accent)]/20">
               <div class="flex items-start justify-between gap-4">
                 <div class="space-y-2">
                   <p class="font-mono text-xs text-[var(--otfw-text-muted)]">
@@ -43,8 +43,8 @@ export default function DocIndexSection(props) {
                     <a
                       href={p.site || p.href}
                       target="_blank"
-                      rel="noreferrer"
-                      class="card-link group-hover:text-[var(--accent-text)] transition-colors"
+                      rel="noreferrer noopener"
+                      class="card-link group-hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:text-[var(--accent-text)] transition-colors"
                     >
                       {p.title}
                     </a>
@@ -74,8 +74,8 @@ export default function DocIndexSection(props) {
                   <a
                     href={p.href}
                     target="_blank"
-                    rel="noreferrer"
-                    class="relative z-10 inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] transition-colors"
+                    rel="noreferrer noopener"
+                    class="relative z-10 inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
                   >
                     <Icon name="github" size={14} />
                     Source
@@ -104,8 +104,8 @@ export default function DocIndexSection(props) {
             <a
               href={kind.repo}
               target="_blank"
-              rel="noreferrer"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity"
+              rel="noreferrer noopener"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
             >
               <Icon name="github" size={16} />
               {kind.submitCta}

@@ -322,22 +322,22 @@ export const projects = [
 export const STATUS = {
   draft: {
     label: "Draft",
-    hint: "specified on paper, not yet implemented",
+    hint: "Specified on paper, not yet implemented",
     cls: "bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/25",
   },
   "under-development": {
     label: "Under Development",
-    hint: "actively being built, nothing released yet",
+    hint: "Actively being built, nothing released yet",
     cls: "bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-500/25",
   },
   alpha: {
     label: "Alpha",
-    hint: "early — the API can still change without notice",
+    hint: "Early — the API can still change without notice",
     cls: "bg-amber-500/10 text-amber-800 dark:text-amber-300 border-amber-500/25",
   },
   beta: {
     label: "Beta",
-    hint: "published and usable, API still settling",
+    hint: "Published and usable, API still settling",
     cls: "bg-sky-500/10 text-sky-700 dark:text-sky-300 border-sky-500/25",
   },
   stable: {

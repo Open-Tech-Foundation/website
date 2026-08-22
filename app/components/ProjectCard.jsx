@@ -9,7 +9,6 @@ const TAG =
 
 // A project in the index.
 //
-//   compact   home page — tagline only; the index adds the detail paragraph
 //   banner    draw artwork above the title (see ProjectBanner for the fallback)
 //   category  tag mode: the footer carries category/language tags instead of outbound
 //             links. Passed where the cards are NOT already under a category heading
@@ -27,15 +26,15 @@ export default function ProjectCard(props) {
   const href = `/projects/${p.id}`;
 
   return (
-    <div class="relative h-full flex flex-col rounded-2xl border border-[var(--otfw-border)] bg-white dark:bg-[var(--otfw-bg-elevated)] overflow-hidden cursor-pointer transition-colors hover:border-[var(--otfw-accent)]/40">
-      {props.banner ? <ProjectBanner item={p} /> : null}
+    <div class="group relative h-full flex flex-col rounded-2xl border border-[var(--otfw-border)] bg-white dark:bg-[var(--otfw-bg-elevated)] overflow-hidden transition-colors hover:border-[var(--otfw-accent)]/40 focus-within:border-[var(--otfw-accent)]/40 focus-within:ring-2 focus-within:ring-[var(--otfw-accent)]/20">
+      {props.banner ? <ProjectBanner item={p} eager={props.eager} /> : null}
 
       <div class="flex flex-col gap-3 p-6 flex-1">
         <div class="flex items-start justify-between gap-3">
           <h3 class="text-base font-bold text-[var(--otfw-text)]">
             <Link
               href={href}
-              class="card-link hover:text-[var(--accent-text)] transition-colors"
+              class="card-link hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:text-[var(--accent-text)] transition-colors"
             >
               {p.name}
             </Link>
@@ -50,10 +49,6 @@ export default function ProjectCard(props) {
         <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed">
           {p.tagline}
         </p>
-
-        {props.compact ? null : (
-          <p class="text-sm text-[var(--otfw-text)]/75 leading-relaxed">{p.detail}</p>
-        )}
 
         {props.category ? (
           <div class="flex flex-wrap items-center gap-2 pt-3 mt-auto border-t border-[var(--otfw-border)]">
@@ -71,8 +66,8 @@ export default function ProjectCard(props) {
             <a
               href={p.href}
               target="_blank"
-              rel="noreferrer"
-              class="inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] transition-colors"
+              rel="noreferrer noopener"
+              class="inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
             >
               <Icon name="github" size={14} />
               Source
@@ -82,8 +77,8 @@ export default function ProjectCard(props) {
               <a
                 href={p.site}
                 target="_blank"
-                rel="noreferrer"
-                class="inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] transition-colors"
+                rel="noreferrer noopener"
+                class="inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
               >
                 <Icon name="globe" size={14} />
                 Website
