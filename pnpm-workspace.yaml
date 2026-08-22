@@ -1,3 +1,6 @@
+packages:
+  - .
+
 allowBuilds:
   '@opentf/web-compiler': true
   esbuild: true
