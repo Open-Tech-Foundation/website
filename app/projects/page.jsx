@@ -36,7 +36,7 @@ export default function ProjectsPage() {
         <DivisionTabs groups={ALL_GROUPS} grouped={true} banner={true} />
       </div>
 
-      <section class="max-w-7xl mx-auto w-full px-6 pb-16" aria-label="Project status guide">
+      <section class="w-full px-6 pb-16 xl:pl-[18rem]" aria-label="Project status guide">
         <div class="border-t border-[var(--otfw-border)] pt-8">
           <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
             Status guide

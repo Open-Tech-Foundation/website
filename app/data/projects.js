@@ -17,6 +17,12 @@
 //                      "alpha"             early; the API can still change without notice
 //                      "beta"              published and usable, API still settling
 //                      "stable"            API committed, safe to depend on
+//   internalDependencies: → optional Foundation project ids this project directly uses;
+//                           omit tooling-only relationships
+//   externalDependencies: → optional { name, href, description? } third-party packages
+//                           or services this project directly uses
+//   screenshots:      → optional { src, alt, caption? } project-page screenshots;
+//                      distinct from `banner`, which is card artwork only
 
 const GH = "https://github.com/Open-Tech-Foundation";
 
@@ -90,6 +96,7 @@ export const projects = [
       "A browser built around an in-house rendering engine, designed from first principles — privacy protection and resource frugality are starting requirements, not extensions bolted on later. No Chromium base, no inherited code the foundation does not control.",
     href: `${GH}/Web-Browser`,
     site: "https://browser.opentechf.org",
+    internalDependencies: ["2d-engine", "edb"],
   },
   {
     id: "es-runtime",
@@ -121,6 +128,7 @@ export const projects = [
     detail:
       "Processes, scheduling, and isolation in the browser — treating JavaScript and WebAssembly modules the way an operating system treats binaries.",
     href: `${GH}/WorkerOS`,
+    internalDependencies: ["web-app-framework"],
   },
   {
     id: "office-docs-viewer",
@@ -155,6 +163,7 @@ export const projects = [
     href: `${GH}/Web-App-Framework`,
     site: "https://web.opentechf.org",
     npm: "@opentf/web",
+    internalDependencies: ["js-std"],
   },
   {
     id: "js-std",
@@ -189,6 +198,7 @@ export const projects = [
     href: `${GH}/obj-diff`,
     site: "https://obj-diff.opentechf.org/",
     npm: "@opentf/obj-diff",
+    internalDependencies: ["js-std"],
   },
   {
     id: "syntax-highlighter",
@@ -203,6 +213,7 @@ export const projects = [
     detail:
       "Highlights code without injecting a single wrapper element — the CSS Custom Highlight API does the painting, so the DOM stays exactly as authored and large documents stay fast.",
     href: `${GH}/Syntax-Highlighter`,
+    internalDependencies: ["js-std"],
   },
   {
     id: "immutate",
@@ -332,6 +343,7 @@ export const projects = [
     detail:
       "ACI perceives signals, reasons over a defined knowledge model, and replies with a deterministic result. It is an experimental research preview whose engine, data shapes, and public API are still changing.",
     href: `${GH}/ACI`,
+    internalDependencies: ["js-std"],
   },
   {
     id: "micro-ui",
