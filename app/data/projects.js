@@ -14,6 +14,7 @@
 //                      than assuming; the projects are not on a single licence
 //   status:          → "draft"             specified on paper, not yet implemented
 //                      "under-development" actively being built, nothing released yet
+//                      "experimental"      exploratory work; direction can change at any time
 //                      "alpha"             early; the API can still change without notice
 //                      "beta"              published and usable, API still settling
 //                      "stable"            API committed, safe to depend on
@@ -70,6 +71,13 @@ export const categories = [
     division: "software",
     name: "Data",
     blurb: "Storage and query engines.",
+  },
+  {
+    id: "artificial-intelligence",
+    division: "software",
+    name: "Artificial Intelligence",
+    blurb:
+      "Open tools and research for transparent, understandable machine intelligence.",
   },
   {
     id: "media",
@@ -335,8 +343,8 @@ export const projects = [
     id: "aci",
     name: "ACI",
     division: "software",
-    category: "developer-tools",
-    status: "alpha",
+    category: "artificial-intelligence",
+    status: "experimental",
     lang: "JavaScript",
     license: "MIT",
     featured: true,
@@ -389,6 +397,11 @@ export const STATUS = {
     hint: "Actively being built, nothing released yet",
     cls: "bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-500/25",
   },
+  experimental: {
+    label: "Experimental",
+    hint: "Exploratory work; direction and interfaces can change at any time",
+    cls: "bg-red-500/10 text-red-700 dark:text-red-300 border-red-500/25",
+  },
   alpha: {
     label: "Alpha",
     hint: "Early — the API can still change without notice",
@@ -411,6 +424,7 @@ export const STATUS = {
 export const STATUS_ORDER = [
   "draft",
   "under-development",
+  "experimental",
   "alpha",
   "beta",
   "stable",

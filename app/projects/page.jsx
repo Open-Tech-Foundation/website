@@ -41,7 +41,7 @@ export default function ProjectsPage() {
           <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
             Status guide
           </p>
-          <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-5 text-xs text-[var(--otfw-text-muted)]">
+          <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 text-xs text-[var(--otfw-text-muted)]">
             {STATUS_ORDER.map((key) => (
               <li class="space-y-2">
                 <span
