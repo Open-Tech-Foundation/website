@@ -205,14 +205,15 @@ export const projects = [
     name: "Syntax Highlighter",
     division: "software",
     category: "web-development",
-    status: "under-development",
-    lang: "JavaScript",
+    status: "beta",
+    lang: "TypeScript",
     license: "MIT",
     featured: false,
-    tagline: "A JavaScript syntax highlighter built on the CSS Custom Highlight API.",
+    tagline: "Renderer-agnostic syntax highlighting with one semantic tokenizer.",
     detail:
-      "Highlights code without injecting a single wrapper element — the CSS Custom Highlight API does the painting, so the DOM stays exactly as authored and large documents stay fast.",
+      "One semantic tokenizer powers CSS Custom Highlights in the browser, escaped HTML for SSR, JSON token streams, and ANSI terminal output. It keeps rendering separate from tokenization, with extensible languages, shared themes, and precise UTF-16 ranges.",
     href: `${GH}/Syntax-Highlighter`,
+    npm: "@opentf/syntax-highlighter",
     internalDependencies: ["js-std"],
   },
   {
@@ -338,7 +339,7 @@ export const projects = [
     status: "alpha",
     lang: "JavaScript",
     license: "MIT",
-    featured: false,
+    featured: true,
     tagline: "A deterministic brain that reasons over explicit knowledge.",
     detail:
       "ACI perceives signals, reasons over a defined knowledge model, and replies with a deterministic result. It is an experimental research preview whose engine, data shapes, and public API are still changing.",
@@ -353,7 +354,7 @@ export const projects = [
     status: "beta",
     lang: "JavaScript",
     license: "MIT",
-    featured: false,
+    featured: true,
     tagline: "A small functional UI library for AI-generated micro-apps.",
     detail:
       "A dependency-free JavaScript runtime for lightweight interactive micro-apps, with simple state management, batched updates, stable lists, and a minimal API that AI agents can generate without a toolchain.",

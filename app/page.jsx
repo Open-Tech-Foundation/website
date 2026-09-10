@@ -40,7 +40,11 @@ const GLANCE_ROWS = [
 // app/data/projects.js is all it takes to change what appears here.
 const FEATURED_GROUPS = divisions.map((division) => ({
   division,
-  items: featuredIn(division.id),
+  items: featuredIn(division.id).sort((a, b) => {
+    if (a.id === "aci") return -1;
+    if (b.id === "aci") return 1;
+    return 0;
+  }),
 }));
 
 export default function HomePage() {
@@ -126,9 +130,9 @@ export default function HomePage() {
         <div class="max-w-6xl mx-auto space-y-12">
           <SectionHeading title="Our mission" />
 
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr items-stretch">
-            {principles.map((p) => (
-              <PrincipleCard item={p} expanded={true} />
+          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr items-stretch">
+            {principles.map((p, index) => (
+              <PrincipleCard key={p.id} item={p} index={index} expanded={true} />
             ))}
           </div>
         </div>
@@ -141,9 +145,9 @@ export default function HomePage() {
 
           <DivisionTabs groups={FEATURED_GROUPS} banner={true} />
 
-          <div class="flex justify-center">
+          <div class="mt-6 flex justify-center">
             <Link href="/projects" class={BTN_GHOST}>
-              View all {projects.length} projects
+              View all projects
               <Icon name="arrow" size={16} weight={2.4} />
             </Link>
           </div>
