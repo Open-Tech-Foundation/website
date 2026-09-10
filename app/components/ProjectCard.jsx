@@ -29,7 +29,7 @@ export default function ProjectCard(props) {
     <div class="group relative h-full flex flex-col rounded-2xl border border-[var(--otfw-border)] bg-white dark:bg-[var(--otfw-bg-elevated)] overflow-hidden transition-colors hover:border-[var(--otfw-accent)]/40 focus-within:border-[var(--otfw-accent)]/40 focus-within:ring-2 focus-within:ring-[var(--otfw-accent)]/20">
       {props.banner ? <ProjectBanner item={p} eager={props.eager} /> : null}
 
-      <div class="flex flex-col gap-3 p-6 flex-1">
+      <div class="flex flex-col gap-3 p-6 flex-1 min-h-64">
         <div class="flex items-start justify-between gap-3">
           <h3 class="text-base font-bold text-[var(--otfw-text)]">
             <Link

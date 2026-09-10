@@ -12,7 +12,7 @@ export default function CountCard(props) {
     <Link
       href={props.href}
       aria-label={`${count} ${count === 1 ? props.noun : props.nounPlural} — ${isEmpty ? props.emptyCta : props.cta}`}
-      class={`group h-full flex flex-col justify-between gap-4 p-6 rounded-2xl border border-dashed bg-white dark:bg-[var(--otfw-bg-elevated)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] ${isEmpty ? "border-[var(--otfw-border)] hover:border-[var(--otfw-border)] opacity-80" : "border-[var(--otfw-border)] hover:border-[var(--otfw-accent)]"}`}
+      class={`group w-full h-full flex flex-col justify-between gap-4 p-6 rounded-2xl border border-dashed bg-white dark:bg-[var(--otfw-bg-elevated)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] ${isEmpty ? "border-[var(--otfw-border)] hover:border-[var(--otfw-border)] opacity-80" : "border-[var(--otfw-border)] hover:border-[var(--otfw-accent)]"}`}
     >
       <div class="flex items-start justify-between gap-3">
         <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--otfw-accent-soft)] text-[var(--accent-text)]">

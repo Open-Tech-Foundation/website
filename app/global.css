@@ -87,6 +87,7 @@ html {
  * inline boxes collapse in the grid/flex layouts these are used in. Hosts are addressed
  * by the stable `web-<kebab>` class the compiler stamps on every component. */
 .web-project-card,
+.web-count-card,
 .web-principle-card,
 .web-involve-card,
 .web-section-heading,
@@ -97,6 +98,17 @@ html {
 .web-principle-card,
 .web-involve-card {
   height: 100%;
+}
+
+/* Count cards render through <Link>, whose component host is inline by default.
+ * Constrain both hosts so a single-column mobile grid cannot grow to the link's
+ * intrinsic width. */
+.web-count-card,
+.web-count-card .web-link,
+.web-count-card .web-link > a {
+  display: block;
+  width: 100%;
+  min-width: 0;
 }
 
 /* Soft radial wash behind the hero. Purely decorative. */

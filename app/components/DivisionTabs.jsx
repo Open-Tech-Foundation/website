@@ -1,7 +1,18 @@
+import { onMount } from "@opentf/web";
 import CountCard from "./CountCard.jsx";
 import Icon from "./Icon.jsx";
 import ProjectCard from "./ProjectCard.jsx";
-import { categoriesIn, divisions, DOC_KINDS, docCount } from "../data/projects.js";
+import {
+  categories,
+  categoriesIn,
+  categoryById,
+  divisions,
+  DOC_KINDS,
+  docCount,
+  projects,
+  STATUS,
+  STATUS_ORDER,
+} from "../data/projects.js";
 
 // Software / Hardware switcher.
 //
@@ -19,11 +30,165 @@ import { categoriesIn, divisions, DOC_KINDS, docCount } from "../data/projects.j
 // `groups` is [{ division, items }]; `items` is only read in flat mode, since grouped
 // mode derives its sections from the category table.
 const DOC_KIND_LIST = Object.values(DOC_KINDS);
+const PROJECT_LANGUAGES = [...new Set(projects.map((p) => p.lang).filter(Boolean))].sort();
+const PROJECT_LICENSES = [...new Set(projects.map((p) => p.license).filter(Boolean))].sort();
+
+const FILTER_SECTIONS = [
+  { key: "status", label: "Status", options: STATUS_ORDER.map((key) => ({ value: key, label: STATUS[key].label })) },
+  { key: "category", label: "Category" },
+  { key: "lang", label: "Language", options: PROJECT_LANGUAGES.map((value) => ({ value, label: value })) },
+  { key: "license", label: "License", options: PROJECT_LICENSES.map((value) => ({ value, label: value })) },
+];
+
+function FilterPanel(props) {
+  return (
+    <div class="space-y-6">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <p class="text-sm font-bold text-[var(--otfw-text)]">Filter projects</p>
+          <p class="mt-1 text-xs text-[var(--otfw-text-muted)]">
+            Narrow the list by project details.
+          </p>
+        </div>
+        <button
+          type="button"
+          onclick={props.onClear}
+          disabled={!props.hasActiveFilters}
+          class="shrink-0 text-xs font-semibold text-[var(--accent-text)] disabled:opacity-40 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded"
+        >
+          Clear
+        </button>
+      </div>
+
+      <div class="space-y-2">
+        <label for={`project-search-${props.idPrefix}`} class="text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--otfw-text-muted)]">
+          Search
+        </label>
+        <input
+          id={`project-search-${props.idPrefix}`}
+          type="search"
+          value={props.search}
+          placeholder="Search projects"
+          aria-label="Search projects"
+          oninput={props.onSearch}
+          class="w-full px-3 py-2 rounded-lg border border-[var(--otfw-border)] bg-[var(--otfw-bg)] text-sm text-[var(--otfw-text)] placeholder:text-[var(--otfw-text-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
+        />
+      </div>
+
+      {props.sections.map((section) => (
+        <fieldset key={section.key} class="space-y-3">
+          <legend class="text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--otfw-text-muted)]">
+            {section.label}
+          </legend>
+          <div class="space-y-2.5">
+            {section.options.map((option) => {
+              const inputId = `project-filter-${props.idPrefix}-${section.key}-${option.value}`;
+
+              return (
+                <label key={option.value} for={inputId} class="flex items-center gap-2.5 text-sm text-[var(--otfw-text)] cursor-pointer">
+                  <input
+                    id={inputId}
+                    type="checkbox"
+                    checked={props.filters[section.key].includes(option.value)}
+                    onchange={() => props.onToggle(section.key, option.value)}
+                    class="size-4 accent-[var(--otfw-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] focus-visible:ring-offset-2"
+                  />
+                  <span>{option.label}</span>
+                </label>
+              );
+            })}
+          </div>
+        </fieldset>
+      ))}
+    </div>
+  );
+}
 
 export default function DivisionTabs(props) {
   const groups = props.groups || [];
   // Software is index 0 in `divisions`, so it is the default active tab.
   let active = $state(0);
+  let search = $state("");
+  let filters = $state({ status: [], category: [], lang: [], license: [] });
+  let filterBottom = $state(24);
+
+  onMount(() => {
+    function keepFilterAboveFooter() {
+      const footer = document.querySelector("footer");
+      if (!footer) return;
+
+      const overlap = Math.max(0, window.innerHeight - footer.getBoundingClientRect().top);
+      filterBottom = 24 + overlap;
+    }
+
+    keepFilterAboveFooter();
+    window.addEventListener("scroll", keepFilterAboveFooter, { passive: true });
+    window.addEventListener("resize", keepFilterAboveFooter);
+
+    return () => {
+      window.removeEventListener("scroll", keepFilterAboveFooter);
+      window.removeEventListener("resize", keepFilterAboveFooter);
+    };
+  });
+
+  const activeDivision = () => divisions[active]?.id;
+
+  function toggleFilter(key, value) {
+    const selected = filters[key];
+    filters = {
+      ...filters,
+      [key]: selected.includes(value)
+        ? selected.filter((item) => item !== value)
+        : [...selected, value],
+    };
+  }
+
+  function clearFilters() {
+    search = "";
+    filters = { status: [], category: [], lang: [], license: [] };
+  }
+
+  function filterOptions(section) {
+    if (section.key !== "category") return section.options;
+
+    return categories
+      .filter((category) => category.division === activeDivision())
+      .map((category) => ({ value: category.id, label: category.name }));
+  }
+
+  function hasActiveFilters() {
+    return Boolean(search.trim()) || Object.values(filters).some((values) => values.length > 0);
+  }
+
+  function filterSections() {
+    return FILTER_SECTIONS.map((section) => ({
+      ...section,
+      options: filterOptions(section) || [],
+    })).filter((section) => section.options.length > 0);
+  }
+
+  function matchesProject(p) {
+    const query = search.trim().toLowerCase();
+    if (query) {
+      const text = [
+        p.name,
+        p.tagline,
+        p.detail,
+        p.lang,
+        p.license,
+        categoryById[p.category]?.name,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+
+      if (!text.includes(query)) return false;
+    }
+
+    return Object.entries(filters).every(([key, values]) =>
+      values.length === 0 || values.includes(p[key]),
+    );
+  }
 
   function onKeyDown(e, i) {
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
@@ -43,8 +208,67 @@ export default function DivisionTabs(props) {
     }
   }
 
+  function scrollFilter(e) {
+    const panel = e.currentTarget;
+    if (panel.scrollHeight <= panel.clientHeight) return;
+
+    panel.scrollTop += e.deltaY;
+    e.preventDefault();
+  }
+
   return (
-    <div class="space-y-8">
+    <div
+      class={
+        props.grouped
+          ? "space-y-8 xl:grid xl:grid-cols-[14rem_minmax(0,1fr)] xl:gap-10 xl:space-y-0"
+          : "space-y-8"
+      }
+    >
+      {props.grouped ? (
+        <aside aria-label="Project filters" class="hidden xl:block">
+          <div
+            onwheel={scrollFilter}
+            style={`bottom: ${filterBottom}px;`}
+            class="fixed left-6 top-24 z-20 w-56 overflow-y-auto overscroll-contain rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] p-5 shadow-sm"
+          >
+            <FilterPanel
+              idPrefix="desktop"
+              sections={filterSections()}
+              filters={filters}
+              search={search}
+              hasActiveFilters={hasActiveFilters()}
+              onToggle={toggleFilter}
+              onClear={clearFilters}
+              onSearch={(e) => (search = e.currentTarget.value)}
+            />
+          </div>
+        </aside>
+      ) : null}
+
+      {props.grouped ? (
+        <details class="xl:hidden rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] p-5">
+          <summary class="cursor-pointer text-sm font-bold text-[var(--otfw-text)]">
+            Filter projects
+          </summary>
+          <div
+            onwheel={scrollFilter}
+            class="pt-5 max-h-[60vh] overflow-y-auto overscroll-contain"
+          >
+            <FilterPanel
+              idPrefix="mobile"
+              sections={filterSections()}
+              filters={filters}
+              search={search}
+              hasActiveFilters={hasActiveFilters()}
+              onToggle={toggleFilter}
+              onClear={clearFilters}
+              onSearch={(e) => (search = e.currentTarget.value)}
+            />
+          </div>
+        </details>
+      ) : null}
+
+      <div class={props.grouped ? "min-w-0 space-y-8" : "contents"}>
       <div
         class="flex justify-center gap-2"
         role="tablist"
@@ -52,6 +276,7 @@ export default function DivisionTabs(props) {
       >
         {divisions.map((d, i) => (
           <button
+            key={d.id}
             type="button"
             role="tab"
             id={`division-tab-${d.id}`}
@@ -76,16 +301,22 @@ export default function DivisionTabs(props) {
 
       {groups.map((g, i) => (
         <div
+          key={g.division.id}
           id={`division-panel-${g.division.id}`}
           role="tabpanel"
           aria-labelledby={`division-tab-${g.division.id}`}
           hidden={active !== i}
-          class={active === i ? "space-y-16 js-tabs" : "hidden js-tabs"}
+          class={
+            active === i
+                ? "space-y-16 js-tabs"
+                : "hidden js-tabs"
+          }
         >
           {/* Documents lead the division: proposals, then specifications. */}
           <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
-            {DOC_KIND_LIST.map((kind) => (
-              <CountCard
+          {DOC_KIND_LIST.map((kind) => (
+            <CountCard
+                key={kind.id}
                 icon={kind.icon}
                 label={kind.label}
                 href={`${kind.route}/${g.division.id}`}
@@ -100,9 +331,13 @@ export default function DivisionTabs(props) {
 
           {props.grouped
             ? categoriesIn(g.division.id)
+                .map((c) => ({
+                  ...c,
+                  items: c.items.filter(matchesProject),
+                }))
                 .filter((c) => c.items.length > 0)
                 .map((c) => (
-                  <section id={c.id} class="space-y-6 scroll-mt-24" aria-labelledby={`${c.id}-heading`}>
+                  <section key={c.id} id={c.id} class="space-y-6 scroll-mt-24" aria-labelledby={`${c.id}-heading`}>
                     <div class="space-y-1.5">
                       <h3 id={`${c.id}-heading`} class="text-2xl font-bold tracking-tight text-[var(--otfw-text)]">
                         {c.name}
@@ -112,7 +347,7 @@ export default function DivisionTabs(props) {
 
                     <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
                       {c.items.map((p, idx) => (
-                        <ProjectCard item={p} banner={props.banner} eager={idx < 2 && g.division.id === divisions[0].id} />
+                        <ProjectCard key={p.id} item={p} banner={props.banner} eager={idx < 2 && g.division.id === divisions[0].id} />
                       ))}
                     </div>
                   </section>
@@ -121,6 +356,7 @@ export default function DivisionTabs(props) {
               <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
                 {g.items.map((p, idx) => (
                   <ProjectCard
+                    key={p.id}
                     item={p}
                     banner={props.banner}
                     category={true}
@@ -129,6 +365,12 @@ export default function DivisionTabs(props) {
                 ))}
               </div>
             )}
+
+          {props.grouped && g.items.length > 0 && !g.items.some(matchesProject) ? (
+            <p class="text-center text-sm text-[var(--otfw-text-muted)] py-4">
+              No projects match “{search}”.
+            </p>
+          ) : null}
 
           {g.items.length === 0 && categoriesIn(g.division.id).length === 0 ? (
             <p class="text-center text-sm text-[var(--otfw-text-muted)] py-4">
@@ -139,6 +381,7 @@ export default function DivisionTabs(props) {
           ) : null}
         </div>
       ))}
+      </div>
     </div>
   );
 }

@@ -317,6 +317,52 @@ export const projects = [
       "Scenes are immutable values that render to raster or vector targets — build once, draw many times, and never mutate a scene graph that is already on screen.",
     href: `${GH}/2D-Engine`,
   },
+
+  // ── New Projects ───────────────────────────────────────────────────────────
+  {
+    id: "aci",
+    name: "ACI",
+    division: "software",
+    category: "developer-tools",
+    status: "alpha",
+    lang: "JavaScript",
+    license: "MIT",
+    featured: false,
+    tagline: "A deterministic brain that reasons over explicit knowledge.",
+    detail:
+      "ACI perceives signals, reasons over a defined knowledge model, and replies with a deterministic result. It is an experimental research preview whose engine, data shapes, and public API are still changing.",
+    href: `${GH}/ACI`,
+  },
+  {
+    id: "micro-ui",
+    name: "Micro-UI",
+    division: "software",
+    category: "web-development",
+    status: "beta",
+    lang: "JavaScript",
+    license: "MIT",
+    featured: false,
+    tagline: "A small functional UI library for AI-generated micro-apps.",
+    detail:
+      "A dependency-free JavaScript runtime for lightweight interactive micro-apps, with simple state management, batched updates, stable lists, and a minimal API that AI agents can generate without a toolchain.",
+    href: `${GH}/Micro-UI`,
+    site: "https://micro-ui.opentechf.org/",
+    npm: "@opentf/micro-ui",
+  },
+  {
+    id: "typed-js",
+    name: "Typed JS",
+    division: "software",
+    category: "developer-tools",
+    status: "under-development",
+    lang: "Rust",
+    license: "Apache-2.0",
+    featured: false,
+    tagline: "A minimal type annotation dialect for JavaScript.",
+    detail:
+      "A Rust-based project exploring a minimal type annotation dialect for JavaScript.",
+    href: `${GH}/Typed-JS`,
+  },
 ];
 
 export const STATUS = {

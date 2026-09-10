@@ -7,6 +7,7 @@ import { principles } from "./data/principles.js";
 import {
   divisions,
   featuredIn,
+  projects,
   projectsIn,
   proposalCount,
   specificationCount,
@@ -112,7 +113,7 @@ export default function HomePage() {
                 href="/projects"
                 class="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity text-sm"
               >
-                Explore the projects
+                Explore
                 <Icon name="arrow" size={14} weight={2.4} />
               </Link>
             </div>
@@ -142,13 +143,12 @@ export default function HomePage() {
 
           <div class="flex justify-center">
             <Link href="/projects" class={BTN_GHOST}>
-              View all projects
+              View all {projects.length} projects
               <Icon name="arrow" size={16} weight={2.4} />
             </Link>
           </div>
         </div>
       </section>
-
     </div>
   );
 }

@@ -23,36 +23,38 @@ const ALL_GROUPS = divisions.map((division) => ({
 export default function ProjectsPage() {
   return (
     <div class="w-full">
-      <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
-        <div class="max-w-3xl mx-auto py-20 text-center space-y-5">
+      <div class="w-full px-6 py-12 md:py-14">
+        <div class="mb-10 space-y-3 text-center xl:pl-[16.5rem] xl:text-left">
           <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
             What we build
           </p>
-          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
+          <h1 class="text-3xl md:text-4xl font-black tracking-tight text-[var(--otfw-text)]">
             Projects
           </h1>
+        </div>
 
-          {/* Status legend — the badges on each card are meaningless without it.
-              The list is one shared grid, so every hint starts on the same edge
-              while each chip keeps its natural width. */}
-          <ul class="mx-auto grid w-fit gap-x-4 gap-y-2 pt-3 text-left text-xs text-[var(--otfw-text-muted)] [grid-template-columns:auto_auto]">
+        <DivisionTabs groups={ALL_GROUPS} grouped={true} banner={true} />
+      </div>
+
+      <section class="max-w-7xl mx-auto w-full px-6 pb-16" aria-label="Project status guide">
+        <div class="border-t border-[var(--otfw-border)] pt-8">
+          <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
+            Status guide
+          </p>
+          <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-5 text-xs text-[var(--otfw-text-muted)]">
             {STATUS_ORDER.map((key) => (
-              <li class="contents">
+              <li class="space-y-2">
                 <span
-                  class={`inline-flex items-center justify-self-start px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wider ${STATUS[key].cls}`}
+                  class={`inline-flex items-center px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wider ${STATUS[key].cls}`}
                 >
                   {STATUS[key].label}
                 </span>
-                <span class="self-center leading-snug">{STATUS[key].hint}</span>
+                <span class="block leading-snug">{STATUS[key].hint}</span>
               </li>
             ))}
           </ul>
         </div>
       </section>
-
-      <div class="max-w-6xl mx-auto w-full px-6 py-16">
-        <DivisionTabs groups={ALL_GROUPS} grouped={true} banner={true} />
-      </div>
 
     </div>
   );
