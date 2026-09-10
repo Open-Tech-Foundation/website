@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" role="img" aria-label="ACI structured reasoning">
+  <defs>
+    <linearGradient id="aci-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#131c2f"/>
+    </linearGradient>
+    <linearGradient id="aci-acc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff851b"/><stop offset="1" stop-color="#ffb26b"/>
+    </linearGradient>
+    <pattern id="aci-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#7c8db0" stroke-opacity=".13" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="aci-glow" cx=".5" cy=".15" r=".8">
+      <stop offset="0" stop-color="#ff851b" stop-opacity=".22"/><stop offset="1" stop-color="#ff851b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="300" fill="url(#aci-bg)"/>
+  <rect width="800" height="300" fill="url(#aci-grid)"/>
+  <rect width="800" height="300" fill="url(#aci-glow)"/>
+
+  <!-- Explicit signals enter a small knowledge model. -->
+  <g fill="#131c2f" stroke="#7c8db0" stroke-opacity=".55" stroke-width="2">
+    <rect x="82" y="62" width="150" height="46" rx="10"/>
+    <rect x="82" y="127" width="150" height="46" rx="10"/>
+    <rect x="82" y="192" width="150" height="46" rx="10"/>
+  </g>
+  <g fill="#7c8db0" fill-opacity=".85" font-family="ui-monospace,Menlo,monospace" font-size="14">
+    <text x="104" y="91">signal</text>
+    <text x="104" y="156">context</text>
+    <text x="104" y="221">facts</text>
+  </g>
+
+  <g fill="none" stroke="#7c8db0" stroke-opacity=".45" stroke-width="2" stroke-linecap="round">
+    <path d="M232 85 H298 M232 150 H298 M232 215 H298"/>
+  </g>
+  <g fill="#7c8db0" fill-opacity=".6">
+    <circle cx="276" cy="85" r="4"/><circle cx="276" cy="150" r="4"/><circle cx="276" cy="215" r="4"/>
+  </g>
+
+  <!-- Deterministic rules turn knowledge into a traceable result. -->
+  <rect x="298" y="72" width="210" height="156" rx="16" fill="#0f1729" stroke="#ff851b" stroke-width="2"/>
+  <rect x="318" y="94" width="82" height="24" rx="7" fill="#2a1a0c" stroke="#ff851b" stroke-opacity=".7"/>
+  <text x="359" y="111" text-anchor="middle" fill="#ffb26b" font-family="ui-monospace,Menlo,monospace" font-size="11">RULES</text>
+  <g stroke="#7c8db0" stroke-opacity=".55" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M330 142 H470"/><path d="M330 166 H444"/><path d="M330 190 H458"/>
+  </g>
+  <g fill="#ff851b"><circle cx="330" cy="142" r="4"/><circle cx="330" cy="166" r="4"/><circle cx="330" cy="190" r="4"/></g>
+
+  <path d="M508 150 H588 M574 136 l14 14 -14 14" fill="none" stroke="url(#aci-acc)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="588" y="104" width="138" height="92" rx="14" fill="#2a1a0c" stroke="#ff851b" stroke-width="2"/>
+  <text x="657" y="139" text-anchor="middle" fill="#ffb26b" font-family="ui-monospace,Menlo,monospace" font-size="12">result</text>
+  <path d="M620 159 H694" stroke="#ffb26b" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="620" cy="174" r="4" fill="#ff851b"/><path d="M632 174 H682" stroke="#7c8db0" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+</svg>

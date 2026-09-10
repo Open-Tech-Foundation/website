@@ -49,6 +49,31 @@ export const divisions = [
 
 export const categories = [
   {
+    id: "artificial-intelligence",
+    division: "software",
+    name: "Artificial Intelligence",
+    blurb:
+      "Open tools and research for transparent, understandable machine intelligence.",
+  },
+  {
+    id: "data",
+    division: "software",
+    name: "Data",
+    blurb: "Storage and query engines.",
+  },
+  {
+    id: "developer-tools",
+    division: "software",
+    name: "Developer Tools",
+    blurb: "Command-line tools for building, releasing, and maintaining code.",
+  },
+  {
+    id: "media",
+    division: "software",
+    name: "Media",
+    blurb: "Image and media processing.",
+  },
+  {
     id: "web",
     division: "software",
     name: "Web",
@@ -59,31 +84,6 @@ export const categories = [
     division: "software",
     name: "Web Development",
     blurb: "Frameworks, runtimes, and libraries for building on the web.",
-  },
-  {
-    id: "developer-tools",
-    division: "software",
-    name: "Developer Tools",
-    blurb: "Command-line tools for building, releasing, and maintaining code.",
-  },
-  {
-    id: "data",
-    division: "software",
-    name: "Data",
-    blurb: "Storage and query engines.",
-  },
-  {
-    id: "artificial-intelligence",
-    division: "software",
-    name: "Artificial Intelligence",
-    blurb:
-      "Open tools and research for transparent, understandable machine intelligence.",
-  },
-  {
-    id: "media",
-    division: "software",
-    name: "Media",
-    blurb: "Image and media processing.",
   },
 ];
 
@@ -131,7 +131,7 @@ export const projects = [
     lang: "JavaScript",
     license: "Apache-2.0",
     featured: false,
-    banner: "/img/banners/workeros.svg",
+    banner: "/img/banners/workeros-v2.svg",
     tagline: "A real kernel that runs JS and WASM as a native executable format.",
     detail:
       "Processes, scheduling, and isolation in the browser — treating JavaScript and WebAssembly modules the way an operating system treats binaries.",
@@ -213,10 +213,11 @@ export const projects = [
     name: "Syntax Highlighter",
     division: "software",
     category: "web-development",
-    status: "beta",
+    status: "alpha",
     lang: "TypeScript",
     license: "MIT",
     featured: false,
+    banner: "/img/banners/syntax-highlighter.svg",
     tagline: "Renderer-agnostic syntax highlighting with one semantic tokenizer.",
     detail:
       "One semantic tokenizer powers CSS Custom Highlights in the browser, escaped HTML for SSR, JSON token streams, and ANSI terminal output. It keeps rendering separate from tokenization, with extensible languages, shared themes, and precise UTF-16 ranges.",
@@ -300,7 +301,7 @@ export const projects = [
     lang: "Rust",
     license: "Apache-2.0",
     featured: false,
-    banner: "/img/banners/edb.svg",
+    banner: "/img/banners/edb-v2.svg",
     tagline: "An embedded, single-file relational database with a structured query interface.",
     detail:
       "Relational storage in one file, queried through a structured (non-SQL) interface rather than string parsing — removing a whole class of injection and parsing overhead.",
@@ -332,6 +333,7 @@ export const projects = [
     lang: "Rust",
     license: "Apache-2.0",
     featured: false,
+    banner: "/img/banners/2d-engine.svg",
     tagline: "A 2D vector graphics engine with immutable scenes.",
     detail:
       "Scenes are immutable values that render to raster or vector targets — build once, draw many times, and never mutate a scene graph that is already on screen.",
@@ -348,6 +350,7 @@ export const projects = [
     lang: "JavaScript",
     license: "MIT",
     featured: true,
+    banner: "/img/banners/aci.svg",
     tagline: "A deterministic brain that reasons over explicit knowledge.",
     detail:
       "ACI perceives signals, reasons over a defined knowledge model, and replies with a deterministic result. It is an experimental research preview whose engine, data shapes, and public API are still changing.",
@@ -363,6 +366,7 @@ export const projects = [
     lang: "JavaScript",
     license: "MIT",
     featured: true,
+    banner: "/img/banners/micro-ui.svg",
     tagline: "A small functional UI library for AI-generated micro-apps.",
     detail:
       "A dependency-free JavaScript runtime for lightweight interactive micro-apps, with simple state management, batched updates, stable lists, and a minimal API that AI agents can generate without a toolchain.",
@@ -379,6 +383,7 @@ export const projects = [
     lang: "Rust",
     license: "Apache-2.0",
     featured: false,
+    banner: "/img/banners/typed-js.svg",
     tagline: "A minimal type annotation dialect for JavaScript.",
     detail:
       "A Rust-based project exploring a minimal type annotation dialect for JavaScript.",
