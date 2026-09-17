@@ -293,6 +293,12 @@ main {
   color: var(--accent-text);
 }
 
+/* In-page anchors (#section) jump straight under the sticky navbar, which covers
+ * the target — give rendered headings a scroll offset like the category sections. */
+.otfw-prose :is(h1, h2, h3, h4, h5, h6) {
+  scroll-margin-top: 6rem;
+}
+
 /* npm's mark, in its own red. Decorative next to the package name, which carries the
  * meaning — so it only needs to stay recognisable on both backgrounds. */
 .npm-mark path {

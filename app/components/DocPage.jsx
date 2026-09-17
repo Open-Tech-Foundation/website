@@ -25,6 +25,7 @@ export default function DocPage() {
   let bodyHtml = $state("");
   let loading = $state(true);
   let error = $state("");
+  let hashScrolled = $state("");
 
   $effect(() => {
     const d = doc();
@@ -41,9 +42,16 @@ export default function DocPage() {
 
     (async () => {
       try {
-        const src = await fetchDocSource(d.href, { signal: controller.signal });
-        const { body } = parseDoc(src);
-        bodyHtml = renderMarkdown(body);
+        const { text, url } = await fetchDocSource(d.href, { signal: controller.signal });
+        const { body } = parseDoc(text);
+        bodyHtml = renderMarkdown(body, { baseUrl: url });
+        const key = location.pathname + location.hash;
+        if (location.hash && hashScrolled !== key) {
+          requestAnimationFrame(() => {
+            document.getElementById(location.hash.slice(1))?.scrollIntoView();
+            hashScrolled = key;
+          });
+        }
       } catch (e) {
         if (e.name !== "AbortError") error = e?.message || "Failed to load";
       } finally {
