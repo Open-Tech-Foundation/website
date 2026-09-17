@@ -1,7 +1,7 @@
 import { Link } from "@opentf/web";
 import Icon from "./components/Icon.jsx";
 import PrincipleCard from "./components/PrincipleCard.jsx";
-import DivisionTabs from "./components/DivisionTabs.jsx";
+import ProjectCard from "./components/ProjectCard.jsx";
 import SectionHeading from "./components/SectionHeading.jsx";
 import { principles } from "./data/principles.js";
 import {
@@ -36,16 +36,15 @@ const GLANCE_ROWS = [
   },
 ];
 
-// Home page shows only the featured projects of each division; flipping `featured` in
-// app/data/projects.js is all it takes to change what appears here.
-const FEATURED_GROUPS = divisions.map((division) => ({
-  division,
-  items: featuredIn(division.id).sort((a, b) => {
+// Home page shows only the featured projects, across divisions in one flat grid;
+// flipping `featured` in app/data/projects.js is all it takes to change what appears.
+const FEATURED_PROJECTS = divisions
+  .flatMap((d) => featuredIn(d.id))
+  .sort((a, b) => {
     if (a.id === "aci") return -1;
     if (b.id === "aci") return 1;
     return 0;
-  }),
-}));
+  });
 
 export default function HomePage() {
   return (
@@ -141,9 +140,13 @@ export default function HomePage() {
       {/* Featured projects */}
       <section class="px-6 py-20 border-t border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
         <div class="max-w-6xl mx-auto space-y-12">
-          <SectionHeading eyebrow="What we build" title="Featured projects" />
+          <SectionHeading eyebrow="What we build" title="Featured projects ✨" />
 
-          <DivisionTabs groups={FEATURED_GROUPS} banner={true} />
+          <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+            {FEATURED_PROJECTS.map((p, idx) => (
+              <ProjectCard key={p.id} item={p} banner={true} category={true} eager={idx < 3} />
+            ))}
+          </div>
 
           <div class="mt-6 flex justify-center">
             <Link href="/projects" class={BTN_GHOST}>

@@ -24,15 +24,6 @@ export default function ProjectsPage() {
   return (
     <div class="w-full">
       <div class="w-full px-6 py-12 md:py-14">
-        <div class="mb-10 space-y-3 text-center xl:pl-[16.5rem] xl:text-left">
-          <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
-            What we build
-          </p>
-          <h1 class="text-3xl md:text-4xl font-black tracking-tight text-[var(--otfw-text)]">
-            Projects
-          </h1>
-        </div>
-
         <DivisionTabs groups={ALL_GROUPS} grouped={true} banner={true} />
       </div>
 

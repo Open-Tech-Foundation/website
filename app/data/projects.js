@@ -491,6 +491,8 @@ export const DOC_STATUS = {
   },
 };
 
+export const DOC_STATUS_ORDER = ["Draft", "Review", "Accepted", "Rejected", "Superseded"];
+
 export const proposals = [
   {
     id: "0001",
@@ -499,7 +501,16 @@ export const proposals = [
     status: "Draft",
     summary:
       "Repurposes two keys almost nobody uses — Scroll Lock and Pause/Break — as dedicated microphone-mute and media play/pause controls. No keys are added or removed, and the physical layout is unchanged; the proposal specifies conformance requirements so the behaviour is identical across vendors.",
-    href: `${PROPOSALS_REPO}/blob/main/proposals/0001-standard-keyboard-media-keys/README.md`,
+    href: `${PROPOSALS_REPO}/blob/main/proposals/Hardware/0001-Modern-Media-and-Communication-Controls-for-Standard-PC-Keyboards/README.md`,
+  },
+  {
+    id: "0002",
+    division: "software",
+    title: "Fair Domain Name Registration and Transfer Policy",
+    status: "Draft",
+    summary:
+      "Defines the Domain Registration Abuse Lifecycle and proposes structural safeguards — acquisition limits, domain-only resale price caps, minimum holding periods, and public re-release of expired domains — to reduce large-scale speculative domain warehousing while preserving legitimate registration and transfer.",
+    href: `${PROPOSALS_REPO}/blob/main/proposals/Software/0002-Fair-Domain-Name-Registration-and-Transfer-Policy/README.md`,
   },
 ];
 
