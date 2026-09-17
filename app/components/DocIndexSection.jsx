@@ -38,16 +38,14 @@ export default function DocIndexSection(props) {
 
                   <h2 class="text-lg font-bold text-[var(--otfw-text)]">
                     {/* Reading the document is the point, so the card leads to the
-                        document's own site when it has one, and to the repository
-                        otherwise. The overlay makes the whole card that link. */}
-                    <a
-                      href={p.site || p.href}
-                      target="_blank"
-                      rel="noreferrer noopener"
+                        document rendered on this site. The overlay makes the whole
+                        card that link, and the repository stays reachable via Source. */}
+                    <Link
+                      href={`${kind.route}/${p.division}/${p.id}`}
                       class="card-link group-hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:text-[var(--accent-text)] transition-colors"
                     >
                       {p.title}
-                    </a>
+                    </Link>
                   </h2>
                 </div>
                 <span
@@ -68,19 +66,16 @@ export default function DocIndexSection(props) {
                   <Icon name="arrow" size={14} weight={2.4} />
                 </span>
 
-                {/* Raised above the overlay so the repository stays reachable when the
-                    card itself points at the document's site. */}
-                {p.site ? (
-                  <a
-                    href={p.href}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    class="relative z-10 inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
-                  >
-                    <Icon name="github" size={14} />
-                    Source
-                  </a>
-                ) : null}
+                {/* Raised above the overlay so the repository stays reachable. */}
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  class="relative z-10 inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
+                >
+                  <Icon name="github" size={14} />
+                  Source
+                </a>
 
                 {p.license ? (
                   <span class="ml-auto text-[var(--otfw-text-muted)]">{p.license}</span>

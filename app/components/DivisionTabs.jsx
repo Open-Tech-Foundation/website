@@ -1,4 +1,4 @@
-import { onMount } from "@opentf/web";
+import { Link, onMount } from "@opentf/web";
 import Icon from "./Icon.jsx";
 import ProjectCard from "./ProjectCard.jsx";
 import {
@@ -103,14 +103,12 @@ function DocCard(props) {
       </div>
 
       <h3 class="mt-1.5 text-sm font-bold text-[var(--otfw-text)] leading-snug">
-        <a
-          href={p.site || p.href}
-          target="_blank"
-          rel="noreferrer noopener"
+        <Link
+          href={`${kind.route}/${p.division}/${p.id}`}
           class="card-link group-hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:text-[var(--accent-text)] transition-colors"
         >
           {p.title}
-        </a>
+        </Link>
       </h3>
 
       <p class="mt-1.5 text-xs text-[var(--otfw-text-muted)] leading-relaxed line-clamp-2">
@@ -123,17 +121,15 @@ function DocCard(props) {
           <Icon name="arrow" size={11} weight={2.4} />
         </span>
 
-        {p.site ? (
-          <a
-            href={p.href}
-            target="_blank"
-            rel="noreferrer noopener"
-            class="relative z-10 inline-flex items-center gap-1 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
-          >
-            <Icon name="github" size={11} />
-            Source
-          </a>
-        ) : null}
+        <a
+          href={p.href}
+          target="_blank"
+          rel="noreferrer noopener"
+          class="relative z-10 inline-flex items-center gap-1 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
+        >
+          <Icon name="github" size={11} />
+          Source
+        </a>
       </div>
     </div>
   );
@@ -452,7 +448,7 @@ export default function DivisionTabs(props) {
               <div class="contents">
                 {props.grouped
                   ? categorySectionsFor(did).map((c) => (
-                      <section key={c.id} id={c.id} class="space-y-6 scroll-mt-24" aria-labelledby={`${c.id}-heading`}>
+                      <section key={c.id} id={c.id} class="my-8 space-y-6 scroll-mt-24" aria-labelledby={`${c.id}-heading`}>
                         <div class="space-y-1.5">
                           <h3 id={`${c.id}-heading`} class="text-2xl font-bold tracking-tight text-[var(--otfw-text)]">
                             {c.name}

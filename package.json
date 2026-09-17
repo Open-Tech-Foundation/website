@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "@opentf/web": "^0.28.0",
-    "@opentf/web-docs": "^0.26.0"
+    "@opentf/web-docs": "^0.26.0",
+    "marked": "^18.0.13"
   },
   "devDependencies": {
     "@opentf/web-cli": "^1.26.0",
