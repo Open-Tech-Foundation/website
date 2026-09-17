@@ -58,8 +58,8 @@ export default function HomePage() {
             </p>
 
             <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-[1.08] text-[var(--otfw-text)]">
-              Open technology for the{" "}
-              <span class="text-[var(--accent-text)]">public good</span>.
+              Open Technology for{" "}
+              <span class="text-[var(--accent-text)]">Everyone</span>.
             </h1>
 
             <p class="text-lg md:text-xl text-[var(--otfw-text-muted)] leading-relaxed max-w-2xl mx-auto lg:mx-0">
