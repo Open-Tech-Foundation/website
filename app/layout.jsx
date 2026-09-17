@@ -15,6 +15,12 @@ const FOOTER_NAV = [
       { label: "Contact", href: "/contact" },
     ],
   },
+  {
+    title: "Projects",
+    links: [
+      { label: "Source hosting - GitHub", href: GITHUB, external: true, icon: "github" },
+    ],
+  },
 ];
 
 // Site-wide SEO defaults — least-specific in the metadata merge, so every route
@@ -66,7 +72,7 @@ export default function RootLayout(props) {
       </main>
 
       <footer class="site-footer mt-auto">
-        <div class="max-w-6xl mx-auto w-full px-6 py-14 grid gap-10 md:grid-cols-[1.5fr_1fr]">
+        <div class="max-w-6xl mx-auto w-full px-6 py-14 grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
           <div class="space-y-3">
             <Link href="/" class="inline-flex items-center gap-2.5">
               <img
@@ -83,16 +89,6 @@ export default function RootLayout(props) {
             <p class="text-sm text-[var(--footer-muted)] leading-relaxed max-w-xs">
               Advocacy • Collaboration • Open Innovation
             </p>
-            <a
-              href={GITHUB}
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label="Open Tech Foundation on GitHub"
-              class="inline-flex items-center gap-2 text-sm text-[var(--footer-muted)] hover:text-[var(--footer-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--footer-accent)] rounded transition-colors"
-            >
-              <Icon name="github" size={16} />
-              GitHub
-            </a>
           </div>
 
           {FOOTER_NAV.map((group) => (
@@ -108,9 +104,10 @@ export default function RootLayout(props) {
                         href={l.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        class="text-sm text-[var(--footer-muted)] hover:text-[var(--footer-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--footer-accent)] rounded transition-colors"
+                        class="inline-flex items-center justify-center gap-1.5 text-sm text-[var(--footer-muted)] hover:text-[var(--footer-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--footer-accent)] rounded transition-colors"
                       >
                         {l.label}
+                        {l.icon ? <Icon name={l.icon} size={14} /> : null}
                       </a>
                     ) : (
                       <Link
