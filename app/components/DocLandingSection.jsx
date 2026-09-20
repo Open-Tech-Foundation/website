@@ -69,6 +69,7 @@ export default function DocLandingSection(props) {
             >
               <Icon name="github" size={16} />
               {kind.submitCta}
+              <span class="sr-only">(opens in new tab)</span>
             </a>
           </div>
         </div>

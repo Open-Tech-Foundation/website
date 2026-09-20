@@ -84,7 +84,7 @@ export default function ProjectPage() {
 
             <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
               <div id="overview" class="max-w-7xl mx-auto py-16 space-y-6 scroll-mt-28 2xl:mr-[17rem]">
-                <nav class="flex flex-wrap items-center gap-2 text-xs text-[var(--otfw-text-muted)]">
+                <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-xs text-[var(--otfw-text-muted)]">
                   <Link
                     href="/projects"
                     class="font-semibold hover:text-[var(--accent-text)] transition-colors"
@@ -211,6 +211,7 @@ export default function ProjectPage() {
                     >
                       <Icon name="github" size={16} />
                       Source
+                      <span class="sr-only">(opens in new tab)</span>
                     </a>
 
                     {project().site ? (
@@ -222,6 +223,7 @@ export default function ProjectPage() {
                       >
                         <Icon name="globe" size={16} />
                         Website
+                        <span class="sr-only">(opens in new tab)</span>
                       </a>
                     ) : null}
 
@@ -234,6 +236,7 @@ export default function ProjectPage() {
                       >
                         <NpmMark size={16} />
                         <span class="font-mono text-sm">{project().npm}</span>
+                        <span class="sr-only">(opens in new tab)</span>
                       </a>
                     ) : null}
                   </div>

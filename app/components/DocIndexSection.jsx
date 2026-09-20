@@ -29,7 +29,7 @@ export default function DocIndexSection(props) {
       <section class="px-6 py-16">
         <div class="max-w-3xl mx-auto space-y-4">
           {items.map((p) => (
-            <div class="relative group p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] transition-colors hover:border-[var(--otfw-accent)]/40 focus-within:border-[var(--otfw-accent)]/40 focus-within:ring-2 focus-within:ring-[var(--otfw-accent)]/20">
+            <div key={p.id} class="relative group p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] transition-colors hover:border-[var(--otfw-accent)]/40 focus-within:border-[var(--otfw-accent)]/40 focus-within:ring-2 focus-within:ring-[var(--otfw-accent)]/20">
               <div class="flex items-start justify-between gap-4">
                 <div class="space-y-2">
                   <p class="font-mono text-xs text-[var(--otfw-text-muted)]">
@@ -75,6 +75,7 @@ export default function DocIndexSection(props) {
                 >
                   <Icon name="github" size={14} />
                   Source
+                  <span class="sr-only">(opens in new tab)</span>
                 </a>
 
                 {p.license ? (
@@ -104,6 +105,7 @@ export default function DocIndexSection(props) {
             >
               <Icon name="github" size={16} />
               {kind.submitCta}
+              <span class="sr-only">(opens in new tab)</span>
             </a>
             <Link
               href="/projects"

@@ -92,13 +92,13 @@ export default function RootLayout(props) {
           </div>
 
           {FOOTER_NAV.map((group) => (
-            <nav class="space-y-3">
+            <nav key={group.title} aria-label={group.title} class="space-y-3">
               <h2 class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--footer-text)]">
                 {group.title}
               </h2>
               <ul class="space-y-2">
                 {group.links.map((l) => (
-                  <li>
+                  <li key={l.label}>
                     {l.external ? (
                       <a
                         href={l.href}
@@ -108,11 +108,12 @@ export default function RootLayout(props) {
                       >
                         {l.label}
                         {l.icon ? <Icon name={l.icon} size={14} /> : null}
+                        <span class="sr-only">(opens in new tab)</span>
                       </a>
                     ) : (
                       <Link
                         href={l.href}
-                        class="text-sm text-[var(--footer-muted)] hover:text-[var(--footer-accent)] transition-colors"
+                        class="text-sm text-[var(--footer-muted)] hover:text-[var(--footer-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--footer-accent)] rounded transition-colors"
                       >
                         {l.label}
                       </Link>
@@ -136,6 +137,7 @@ export default function RootLayout(props) {
                 class="font-semibold text-[var(--footer-accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--footer-accent)] rounded"
               >
                 OTF Web
+                <span class="sr-only">(opens in new tab)</span>
               </a>
               {" "}· No trackers, no analytics.
             </span>

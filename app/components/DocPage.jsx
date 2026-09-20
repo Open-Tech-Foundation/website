@@ -69,7 +69,7 @@ export default function DocPage() {
           <div>
             <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
               <div class="max-w-3xl mx-auto py-16 space-y-6">
-                <nav class="flex flex-wrap items-center gap-2 text-xs text-[var(--otfw-text-muted)]">
+                <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-xs text-[var(--otfw-text-muted)]">
                   <Link
                     href="/"
                     class="font-semibold hover:text-[var(--accent-text)] transition-colors"
@@ -112,6 +112,7 @@ export default function DocPage() {
                   >
                     <Icon name="github" size={15} />
                     Source on GitHub
+                    <span class="sr-only">(opens in new tab)</span>
                   </a>
 
                   {doc().site ? (
@@ -123,6 +124,7 @@ export default function DocPage() {
                     >
                       <Icon name="globe" size={15} />
                       Website
+                      <span class="sr-only">(opens in new tab)</span>
                     </a>
                   ) : null}
                 </div>
@@ -140,7 +142,7 @@ export default function DocPage() {
                       <div class="h-4 rounded bg-[var(--otfw-border)] w-2/3"></div>
                     </div>
                   ) : error ? (
-                    <div class="p-10 rounded-2xl border border-dashed border-red-300 dark:border-red-500/30 text-center space-y-3">
+                    <div role="alert" class="p-10 rounded-2xl border border-dashed border-red-300 dark:border-red-500/30 text-center space-y-3">
                       <p class="font-bold text-red-600 dark:text-red-400">
                         Failed to load content
                       </p>

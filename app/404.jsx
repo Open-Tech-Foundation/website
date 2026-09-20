@@ -18,10 +18,14 @@ export const metadata = {
 export default function NotFoundPage() {
   return (
     <div class="min-h-screen flex flex-col bg-[var(--otfw-bg)] text-[var(--otfw-text)]">
+      <a href="#main-404" class="skip-link">
+        Skip to content
+      </a>
+
       <Navbar config={config.docs} />
       <MobileNav links={config.docs.nav} />
 
-      <main class="flex-1 flex items-center justify-center px-6 py-24">
+      <main id="main-404" class="flex-1 flex items-center justify-center px-6 py-24">
         <div class="max-w-md text-center space-y-5">
           <p class="font-mono text-5xl font-black text-[var(--accent-text)]">
             404
@@ -64,6 +68,7 @@ export default function NotFoundPage() {
                 class="font-semibold text-[var(--footer-accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--footer-accent)] rounded"
               >
                 OTF Web
+                <span class="sr-only">(opens in new tab)</span>
               </a>
               {" "}· No trackers, no analytics.
             </span>

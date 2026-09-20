@@ -9,7 +9,7 @@ export default function InvolveCard(props) {
       href={c.href}
       target={c.external ? "_blank" : null}
       rel={c.external ? "noreferrer noopener" : null}
-      class="group h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] transition-colors hover:border-[var(--otfw-accent)]/40"
+      class="group h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] transition-colors hover:border-[var(--otfw-accent)]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
     >
       <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--otfw-accent-soft)] text-[var(--accent-text)]">
         <Icon name={c.icon} size={20} />

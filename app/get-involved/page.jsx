@@ -85,7 +85,7 @@ export default function GetInvolvedPage() {
       <section class="px-6 py-16">
         <div class="max-w-5xl mx-auto grid gap-4 sm:grid-cols-2">
           {WAYS.map((c) => (
-            <InvolveCard item={c} />
+            <InvolveCard key={c.title} item={c} />
           ))}
         </div>
       </section>
@@ -206,7 +206,7 @@ export default function GetInvolvedPage() {
             </p>
             <a
               href="mailto:contact@opentechf.org"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
             >
               <Icon name="mail" size={16} />
               contact@opentechf.org

@@ -128,10 +128,13 @@ function markdownRenderer(baseUrl) {
   renderer.heading = function ({ tokens, depth }) {
     const text = this.parser.parseInline(tokens, this.parser.textRenderer) || "";
     const slug = slugify(text);
-    if (!slug) return `<h${depth}>${this.parser.parseInline(tokens)}</h${depth}>`;
+    // Downgrade h1 → h2: the page already provides its own <h1>, so markdown body
+    // headings must not produce a second one.
+    const effectiveDepth = depth === 1 ? 2 : depth;
+    if (!slug) return `<h${effectiveDepth}>${this.parser.parseInline(tokens)}</h${effectiveDepth}>`;
     const n = (headingCounts[slug] = (headingCounts[slug] || 0) + 1);
     const id = n > 1 ? `${slug}-${n - 1}` : slug;
-    return `<h${depth} id="${id}">${this.parser.parseInline(tokens)}</h${depth}>`;
+    return `<h${effectiveDepth} id="${id}">${this.parser.parseInline(tokens)}</h${effectiveDepth}>`;
   };
   renderer.link = function ({ href, title, tokens }) {
     const text = this.parser.parseInline(tokens);

@@ -71,6 +71,7 @@ export default function ProjectCard(props) {
             >
               <Icon name="github" size={14} />
               Source
+              <span class="sr-only">(opens in new tab)</span>
             </a>
 
             {p.site ? (
@@ -82,6 +83,7 @@ export default function ProjectCard(props) {
               >
                 <Icon name="globe" size={14} />
                 Website
+                <span class="sr-only">(opens in new tab)</span>
               </a>
             ) : null}
 

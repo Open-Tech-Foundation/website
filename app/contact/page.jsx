@@ -51,7 +51,7 @@ export default function ContactPage() {
       <section class="px-6 py-16">
         <div class="max-w-5xl mx-auto grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CHANNELS.map((c) => (
-            <div class="h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
+            <div key={c.email} class="h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
               <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--otfw-accent-soft)] text-[var(--accent-text)]">
                 <Icon name={c.icon} size={20} weight={c.iconWeight} />
               </span>
@@ -66,7 +66,7 @@ export default function ContactPage() {
 
               <a
                 href={`mailto:${c.email}`}
-                class="font-semibold text-[var(--accent-text)] hover:underline break-all"
+                class="font-semibold text-[var(--accent-text)] hover:underline break-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded"
               >
                 {c.email}
               </a>

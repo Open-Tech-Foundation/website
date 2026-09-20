@@ -21,7 +21,7 @@ export default function MobileNav(props) {
             router.pathname === l.href ||
             router.pathname.startsWith(l.href + "/");
           return (
-            <li>
+            <li key={l.href}>
               <Link
                 href={l.href}
                 aria-current={isActive ? "page" : undefined}

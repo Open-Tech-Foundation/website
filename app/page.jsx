@@ -72,10 +72,10 @@ export default function HomePage() {
             <h2 class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
               At a glance
             </h2>
-            <table class="w-full mt-4 text-left">
+            <table class="w-full mt-4 text-left" aria-label="At a glance: project counts by division">
               <thead>
                 <tr class="text-[10px] uppercase tracking-wider text-[var(--otfw-text-muted)]">
-                  <th class="py-2 font-semibold"></th>
+                  <th class="py-2 font-semibold" scope="col">Metric</th>
                   {divisions.map((d) => (
                     <th
                       key={d.id}
@@ -92,7 +92,7 @@ export default function HomePage() {
               </thead>
               <tbody class="text-sm">
                 {GLANCE_ROWS.map((row) => (
-                  <tr class="border-t border-[var(--otfw-border)]">
+                  <tr key={row.label} class="border-t border-[var(--otfw-border)]">
                     <th
                       class="py-2.5 font-semibold text-[var(--otfw-text-muted)]"
                       scope="row"

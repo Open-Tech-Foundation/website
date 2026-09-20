@@ -34,7 +34,7 @@ export default function ProjectsPage() {
           </p>
           <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 text-xs text-[var(--otfw-text-muted)]">
             {STATUS_ORDER.map((key) => (
-              <li class="space-y-2">
+              <li key={key} class="space-y-2">
                 <span
                   class={`inline-flex items-center px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wider ${STATUS[key].cls}`}
                 >
