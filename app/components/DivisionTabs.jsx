@@ -204,6 +204,7 @@ export default function DivisionTabs(props) {
   function scrollFilter(e) {
     const panel = e.currentTarget;
     if (panel.scrollHeight <= panel.clientHeight) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     panel.scrollTop += e.deltaY;
     e.preventDefault();
   }
@@ -417,6 +418,7 @@ export default function DivisionTabs(props) {
               <div class="flex gap-1.5 p-1 mx-auto rounded-xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] w-fit">
                 <button
                   type="button"
+                  aria-pressed={contentTab === "projects"}
                   onclick={() => (contentTab = "projects")}
                   class={
                     contentTab === "projects"
@@ -430,6 +432,7 @@ export default function DivisionTabs(props) {
                   <button
                     key={kind.id}
                     type="button"
+                    aria-pressed={contentTab === kind.id}
                     onclick={() => (contentTab = kind.id)}
                     class={
                       contentTab === kind.id
@@ -450,9 +453,9 @@ export default function DivisionTabs(props) {
                   ? categorySectionsFor(did).map((c) => (
                       <section key={c.id} id={c.id} class="my-8 space-y-6 scroll-mt-24" aria-labelledby={`${c.id}-heading`}>
                         <div class="space-y-1.5">
-                          <h3 id={`${c.id}-heading`} class="text-2xl font-bold tracking-tight text-[var(--otfw-text)]">
+                          <h2 id={`${c.id}-heading`} class="text-2xl font-bold tracking-tight text-[var(--otfw-text)]">
                             {c.name}
-                          </h3>
+                          </h2>
                           <p class="text-sm text-[var(--otfw-text-muted)]">{c.blurb}</p>
                         </div>
                         <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
@@ -506,9 +509,9 @@ export default function DivisionTabs(props) {
 
                 {docItemsFor(did).length === 0 && !hasActiveFilters() ? (
                   <div class="p-10 rounded-2xl border border-dashed border-[var(--otfw-border)] text-center space-y-3">
-                    <h2 class="font-bold text-[var(--otfw-text)]">
+                    <h3 class="font-bold text-[var(--otfw-text)]">
                       No {g.division.name.toLowerCase()} {contentTab === "proposals" ? "proposals" : "specifications"} yet
-                    </h2>
+                    </h3>
                     <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed max-w-md mx-auto">
                       {DOC_KIND_LIST.find((k) => k.id === contentTab)?.emptyBody}
                     </p>
