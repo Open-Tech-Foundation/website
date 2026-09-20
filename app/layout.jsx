@@ -29,7 +29,7 @@ const FOOTER_NAV = [
 export const metadata = {
   titleTemplate: "%s — Open Tech Foundation",
   description:
-    "We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, and open standards — for the public good.",
+    "We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, and open standards — for everyone, from the general public to enterprises.",
   openGraph: {
     siteName: "Open Tech Foundation",
     type: "website",
@@ -50,7 +50,7 @@ export const metadata = {
     url: "https://opentechf.org/",
     logo: "https://opentechf.org/img/Logo.svg",
     description:
-      "We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, and open standards — for the public good.",
+      "We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, and open standards — for everyone, from the general public to enterprises.",
     slogan: "Advocacy • Collaboration • Open Innovation",
     email: "contact@opentechf.org",
     sameAs: [GITHUB],

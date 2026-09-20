@@ -17,7 +17,7 @@ export const metadata = {
   // Absolute: the home page keeps its own title instead of the "%s — …" template.
   title: { absolute: "Open Tech Foundation — Advocacy, Collaboration, Open Innovation" },
   description:
-    "A community-driven, non-profit initiative advancing open technologies — open source, open data, open standards — for the public good.",
+    "We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, and open standards — for everyone, from the general public to enterprises.",
   canonical: "/",
 };
 
@@ -63,8 +63,7 @@ export default function HomePage() {
             </h1>
 
             <p class="text-lg md:text-xl text-[var(--otfw-text-muted)] leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              We are a community-driven, non-profit initiative advancing open
-              technologies — including open source, open data, and open standards.
+              We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, and open standards — for everyone, from the general public to enterprises.
             </p>
           </div>
 
