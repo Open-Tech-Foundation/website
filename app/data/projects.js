@@ -225,22 +225,6 @@ export const projects = [
     npm: "@opentf/syntax-highlighter",
     internalDependencies: ["js-std"],
   },
-  {
-    id: "immutate",
-    name: "immutate",
-    division: "software",
-    category: "web-development",
-    status: "beta",
-    lang: "TypeScript",
-    license: "MIT",
-    featured: false,
-    banner: "/img/banners/immutate.svg",
-    tagline: "Lightweight, high-performance immutability for JavaScript.",
-    detail:
-      "Write plain mutable code against a draft and get an immutable result, with structural sharing so unchanged subtrees keep their identity.",
-    href: `${GH}/immutate`,
-    npm: "@opentf/immutate",
-  },
 
   // ── Developer Tools ─────────────────────────────────────────────────────────
   {
