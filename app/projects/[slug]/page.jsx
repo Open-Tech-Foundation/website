@@ -33,9 +33,21 @@ const META_LINK =
   "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold border border-[var(--otfw-border)] text-[var(--otfw-text)] hover:border-[var(--otfw-accent)] transition-colors";
 
 export default function ProjectPage() {
-  // Read through a function rather than a const: navigating between two project pages
+  // Read through functions rather than a const: navigating between two project pages
   // re-uses this same component, so the lookup has to re-run when the param changes.
-  const project = () => projectById(router.params.slug);
+  //
+  // Two lookups on purpose. The guard (`found`) wants the raw answer, including "no such
+  // project". Everything inside the guarded branch reads `project()`, which pins the last
+  // resolved project: on client-side navigation the param flips before this page unmounts,
+  // and nested effects re-run against the in-between value — pinning re-renders the same
+  // content for that frame instead of throwing on `undefined`.
+  let current;
+  const found = () => Boolean(projectById(router.params.slug));
+  const project = () => {
+    const p = projectById(router.params.slug);
+    if (p) current = p;
+    return current;
+  };
   const category = () => categoryById[project()?.category];
   const division = () => divisions.find((d) => d.id === project()?.division);
   const internalDependencies = () =>
@@ -58,7 +70,7 @@ export default function ProjectPage() {
   return (
     <div class="w-full">
       {() =>
-        project() ? (
+        found() ? (
           <div>
             <aside
               class="fixed right-6 top-28 z-20 hidden w-52 2xl:block"
