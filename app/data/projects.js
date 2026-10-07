@@ -274,6 +274,20 @@ export const projects = [
       "Versioning stays an explicit decision, not a side effect of commit-message parsing. Generates changelogs and coordinates releases across a workspace.",
     href: `${GH}/release`,
   },
+  {
+    id: "win-runner",
+    name: "Win-Runner",
+    division: "software",
+    category: "developer-tools",
+    status: "alpha",
+    lang: "Rust",
+    license: "Apache-2.0",
+    featured: true,
+    tagline: "Run Windows command-line programs outside Windows.",
+    detail:
+      "Runs Windows x86-64 CLI programs on Linux through native Windows API shims — no Wine or VM — with a disposable in-memory C: drive, snapshots, a scriptable shell, and a WebSocket control API built for CI pipelines and coding agents.",
+    href: `${GH}/Win-Runner`,
+  },
 
   // ── Data ────────────────────────────────────────────────────────────────────
   {
