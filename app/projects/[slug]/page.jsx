@@ -239,6 +239,19 @@ export default function ProjectPage() {
                         <span class="sr-only">(opens in new tab)</span>
                       </a>
                     ) : null}
+
+                    {project().crates ? (
+                      <a
+                        href={`https://crates.io/crates/${project().crates}`}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class={`${META_LINK} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]`}
+                      >
+                        <Icon name="package" size={16} />
+                        <span class="font-mono text-sm">{project().crates}</span>
+                        <span class="sr-only">(opens in new tab)</span>
+                      </a>
+                    ) : null}
                   </div>
                 </section>
 

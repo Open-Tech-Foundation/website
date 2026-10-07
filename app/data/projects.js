@@ -260,22 +260,6 @@ export const projects = [
     site: "https://tsr.opentechf.org",
   },
   {
-    id: "regex-compiler",
-    name: "regex-compiler",
-    division: "software",
-    category: "developer-tools",
-    status: "under-development",
-    lang: "JavaScript",
-    license: "MIT",
-    featured: false,
-    banner: "/img/banners/regex-compiler.svg",
-    tagline: "A regex builder that turns a human-friendly DSL into optimized expressions.",
-    detail:
-      "Describe a pattern in readable terms and get a correct, optimized regular expression out — so the intent stays legible long after the pattern is written.",
-    href: `${GH}/regex-compiler`,
-    npm: "@opentf/regex-compiler",
-  },
-  {
     id: "release",
     name: "release",
     division: "software",
@@ -314,7 +298,7 @@ export const projects = [
     name: "Pixels",
     division: "software",
     category: "media",
-    status: "under-development",
+    status: "alpha",
     lang: "Rust",
     license: "Apache-2.0",
     featured: false,
@@ -323,6 +307,7 @@ export const projects = [
     detail:
       "Processes images as a pull-based stream, so only the pixels actually needed are decoded and transformed — bounded memory regardless of source size.",
     href: `${GH}/Pixels`,
+    crates: "otf-pixels",
   },
   {
     id: "2d-engine",
@@ -373,21 +358,6 @@ export const projects = [
     href: `${GH}/Micro-UI`,
     site: "https://micro-ui.opentechf.org/",
     npm: "@opentf/micro-ui",
-  },
-  {
-    id: "typed-js",
-    name: "Typed JS",
-    division: "software",
-    category: "developer-tools",
-    status: "under-development",
-    lang: "Rust",
-    license: "Apache-2.0",
-    featured: false,
-    banner: "/img/banners/typed-js.svg",
-    tagline: "A minimal type annotation dialect for JavaScript.",
-    detail:
-      "A Rust-based project exploring a minimal type annotation dialect for JavaScript.",
-    href: `${GH}/Typed-JS`,
   },
 ];
 
