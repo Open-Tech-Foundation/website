@@ -33,7 +33,7 @@ function FilterPanel(props) {
         </div>
         <button
           type="button"
-          onclick={props.onClear}
+          onclick={() => props.onClear()}
           disabled={!props.hasActiveFilters}
           class="shrink-0 text-xs font-semibold text-[var(--accent-text)] disabled:opacity-40 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded"
         >
@@ -51,7 +51,7 @@ function FilterPanel(props) {
           value={props.search}
           placeholder="Search"
           aria-label="Search"
-          oninput={props.onSearch}
+          oninput={(e) => props.onSearch(e)}
           class="w-full px-3 py-2 rounded-lg border border-[var(--otfw-border)] bg-[var(--otfw-bg)] text-sm text-[var(--otfw-text)] placeholder:text-[var(--otfw-text-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
         />
       </div>
