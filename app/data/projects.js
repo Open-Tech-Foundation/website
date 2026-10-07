@@ -283,6 +283,7 @@ export const projects = [
     lang: "Rust",
     license: "Apache-2.0",
     featured: true,
+    banner: "/img/banners/win-runner.svg",
     tagline: "Run Windows command-line programs outside Windows.",
     detail:
       "Runs Windows x86-64 CLI programs on Linux through native Windows API shims — no Wine or VM — with a disposable in-memory C: drive, snapshots, a scriptable shell, and a WebSocket control API built for CI pipelines and coding agents.",
