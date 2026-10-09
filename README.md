@@ -44,7 +44,7 @@ app/
   components/         shared UI (cards, banners, division tabs, icons, mobile nav)
   data/
     projects.js       ← SINGLE SOURCE OF TRUTH for everything project-related
-    principles.js     the seven principles (rendered on the home page)
+    principles.js     the eight principles (rendered on the home page)
   global.css          Tailwind entry, brand + accessible accent tokens, footer tokens
 otfw.config.js        site URL, navbar links, brand
 index.html            app shell + the no-flash theme bootstrap

@@ -1,4 +1,4 @@
-// The seven principles from the foundation's mission statement. Kept as data so the
+// The eight principles from the foundation's mission statement. Kept as data so the
 // home page renders them from one source rather than hard-coding the list in markup.
 //
 // `summary` is the one-line form from the org README — used verbatim. `detail` expands
@@ -61,5 +61,13 @@ export const principles = [
     detail:
       "Direction comes from the people doing the work. Roadmaps are public, proposals are open to anyone, and no single company holds a veto over what the projects become.",
     icon: "users",
+  },
+  {
+    id: "technical-freedom",
+    name: "Technical Freedom",
+    summary: "Standards free to read and implement, with no paywalls",
+    detail:
+      "We believe technical standards should be accessible to everyone without paywalls or financial barriers. Open Tech Foundation publishes technical specifications freely for anyone to read and implement. We do not license, certify, approve, or verify implementations of our standards.",
+    icon: "spec",
   },
 ];

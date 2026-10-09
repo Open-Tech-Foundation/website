@@ -1,6 +1,6 @@
 import Icon from "./Icon.jsx";
 
-// One of the seven mission principles. The home page passes `expanded`, since the
+// One of the eight mission principles. The home page passes `expanded`, since the
 // longer explanation only appears alongside the complete mission statement.
 export default function PrincipleCard(props) {
   const p = props.item;

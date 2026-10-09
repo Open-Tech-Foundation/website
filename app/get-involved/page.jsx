@@ -56,7 +56,7 @@ const DUTIES = [
   },
   {
     title: "Guide the mission",
-    body: "Core Members are custodians of the Foundation's mission and of the seven principles that follow from it. They are responsible for ensuring that the work the Foundation undertakes, and the work it declines, remains consistent with them.",
+    body: "Core Members are custodians of the Foundation's mission and of the eight principles that follow from it. They are responsible for ensuring that the work the Foundation undertakes, and the work it declines, remains consistent with them.",
   },
   {
     title: "Direct research and development",
