@@ -58,12 +58,51 @@ export default function ProjectPage() {
     internalDependencies().length > 0 || externalDependencies().length > 0;
   const sectionLinks = () => [
     { href: "#overview", label: "Overview" },
-    { href: "#screenshots", label: "Screenshots" },
     { href: "#description", label: "Description" },
     { href: "#project-details", label: "Details" },
-    { href: "#project-links", label: "Links" },
+    { href: "#screenshots", label: "Screenshots" },
     ...(hasDependencies()
       ? [{ href: "#project-dependencies", label: "Dependencies" }]
+      : []),
+  ];
+
+  const links = () => [
+    {
+      key: "source",
+      href: project().href,
+      icon: "github",
+      label: "Source",
+      primary: true,
+    },
+    ...(project().site
+      ? [
+          {
+            key: "website",
+            href: project().site,
+            icon: "globe",
+            label: "Website",
+          },
+        ]
+      : []),
+    ...(project().npm
+      ? [
+          {
+            key: "npm",
+            href: `https://www.npmjs.com/package/${project().npm}`,
+            icon: "npm",
+            label: <span class="font-mono text-sm">{project().npm}</span>,
+          },
+        ]
+      : []),
+    ...(project().crates
+      ? [
+          {
+            key: "crates",
+            href: `https://crates.io/crates/${project().crates}`,
+            icon: "package",
+            label: <span class="font-mono text-sm">{project().crates}</span>,
+          },
+        ]
       : []),
   ];
 
@@ -123,6 +162,30 @@ export default function ProjectPage() {
                 <p class="text-lg text-[var(--otfw-text-muted)] leading-relaxed">
                   {project().tagline}
                 </p>
+
+                <div class="flex flex-wrap gap-3">
+                  {links().map((link) => (
+                    <a
+                      key={link.key}
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      class={
+                        link.primary
+                          ? "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
+                          : `${META_LINK} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]`
+                      }
+                    >
+                      {link.icon === "npm" ? (
+                        <NpmMark size={16} />
+                      ) : (
+                        <Icon name={link.icon} size={16} />
+                      )}
+                      {link.label}
+                      <span class="sr-only">(opens in new tab)</span>
+                    </a>
+                  ))}
+                </div>
               </div>
             </section>
 
@@ -202,69 +265,6 @@ export default function ProjectPage() {
                       Screenshots will be published here as they become available.
                     </div>
                   )}
-                </section>
-
-                <section id="project-links" class="scroll-mt-28 space-y-5" aria-labelledby="links-heading">
-                  <div class="space-y-1.5">
-                    <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
-                      Resources
-                    </p>
-                    <h2 id="links-heading" class="text-2xl font-bold tracking-tight text-[var(--otfw-text)]">
-                      Links
-                    </h2>
-                  </div>
-
-                  <div class="flex flex-wrap gap-3">
-                    <a
-                      href={project().href}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
-                    >
-                      <Icon name="github" size={16} />
-                      Source
-                      <span class="sr-only">(opens in new tab)</span>
-                    </a>
-
-                    {project().site ? (
-                      <a
-                        href={project().site}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        class={`${META_LINK} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]`}
-                      >
-                        <Icon name="globe" size={16} />
-                        Website
-                        <span class="sr-only">(opens in new tab)</span>
-                      </a>
-                    ) : null}
-
-                    {project().npm ? (
-                      <a
-                        href={`https://www.npmjs.com/package/${project().npm}`}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        class={`${META_LINK} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]`}
-                      >
-                        <NpmMark size={16} />
-                        <span class="font-mono text-sm">{project().npm}</span>
-                        <span class="sr-only">(opens in new tab)</span>
-                      </a>
-                    ) : null}
-
-                    {project().crates ? (
-                      <a
-                        href={`https://crates.io/crates/${project().crates}`}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        class={`${META_LINK} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]`}
-                      >
-                        <Icon name="package" size={16} />
-                        <span class="font-mono text-sm">{project().crates}</span>
-                        <span class="sr-only">(opens in new tab)</span>
-                      </a>
-                    ) : null}
-                  </div>
                 </section>
 
               </div>
