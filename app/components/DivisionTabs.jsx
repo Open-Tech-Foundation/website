@@ -426,7 +426,7 @@ export default function DivisionTabs(props) {
                       : "px-4 py-1.5 rounded-lg text-xs font-bold text-[var(--otfw-text-muted)] hover:text-[var(--otfw-text)] transition-colors"
                   }
                 >
-                  Projects <span class="ml-1 text-[10px] font-semibold opacity-70">{g.items.length}</span>
+                  Projects <span class="ml-1 text-xs font-semibold opacity-70">({g.items.length})</span>
                 </button>
                 {DOC_KIND_LIST.map((kind) => (
                   <button
@@ -440,7 +440,7 @@ export default function DivisionTabs(props) {
                         : "px-4 py-1.5 rounded-lg text-xs font-bold text-[var(--otfw-text-muted)] hover:text-[var(--otfw-text)] transition-colors"
                     }
                   >
-                    {kind.label} <span class="ml-1 text-[10px] font-semibold opacity-70">{docCount(kind.id, did)}</span>
+                    {kind.label} <span class="ml-1 text-xs font-semibold opacity-70">({docCount(kind.id, did)})</span>
                   </button>
                 ))}
               </div>

@@ -154,6 +154,7 @@ export default function ProjectPage() {
                   </h1>
                   <span
                     class={`inline-flex items-center px-2.5 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wider ${STATUS[project().status].cls}`}
+                    title={STATUS[project().status].hint}
                   >
                     {STATUS[project().status].label}
                   </span>
