@@ -28,6 +28,7 @@ const FOOTER_NAV = [
     links: [
       { label: "Open Source Policy", href: "/policies/open-source" },
       { label: "Privacy Policy", href: "/policies/privacy" },
+      { label: "Security Policy", href: "/policies/security-policy" },
     ],
   },
 ];

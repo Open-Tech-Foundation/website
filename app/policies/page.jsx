@@ -18,6 +18,11 @@ const POLICIES = [
     body: "Privacy requirements for all OTF websites, applications, software projects, and services — including the zero-data-collection principle.",
     href: "/policies/privacy",
   },
+  {
+    title: "Security Policy",
+    body: "Security requirements for software projects, websites, applications, and services developed, maintained, or operated by OTF.",
+    href: "/policies/security-policy",
+  },
 ];
 
 export default function PoliciesPage() {
