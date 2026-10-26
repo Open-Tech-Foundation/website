@@ -13,6 +13,11 @@ const POLICIES = [
     body: "Requirements for software projects developed, maintained, or officially published by OTF — licensing, dependencies, security and privacy, releases, and project independence.",
     href: "/policies/open-source",
   },
+  {
+    title: "Privacy Policy",
+    body: "Privacy requirements for all OTF websites, applications, software projects, and services — including the zero-data-collection principle.",
+    href: "/policies/privacy",
+  },
 ];
 
 export default function PoliciesPage() {
