@@ -3,12 +3,12 @@ import Icon from "../components/Icon.jsx";
 export const metadata = {
   title: "Contact",
   description:
-    "Get in touch with the Open Tech Foundation — general enquiries at contact@opentechf.org, project support at support@opentechf.org.",
+    "Get in touch with the Open Tech Foundation — general enquiries at contact@opentechf.org, project support at support@opentechf.org, and security disclosures at security@opentechf.org.",
   canonical: "/contact",
 };
 
-// Three addresses, deliberately separated: one for the foundation, one for the
-// software, and one for vulnerabilities — which must not be reported in public.
+// Two addresses, deliberately separated: one for the foundation and one for
+// the software. Vulnerability reports live on the /security page.
 const CHANNELS = [
   {
     icon: "mail",
@@ -21,15 +21,7 @@ const CHANNELS = [
     title: "Project support",
     body: "Need help with one of the projects?",
     email: "support@opentechf.org",
-    note: "For bugs and feature requests, an issue on the project's repository will get a faster and more useful answer than email.",
-  },
-  {
-    icon: "shield",
-    // Heavier stroke: this card carries the one message that must not be missed.
-    iconWeight: 2.4,
-    title: "Security disclosures",
-    body: "Found a vulnerability? Report it privately rather than in a public issue, and we will coordinate a fix and disclosure with you.",
-    email: "security@opentechf.org",
+    note: "For bugs and feature requests, an issue on the project's repository will get a faster and more useful answer than email. Found a vulnerability? Please use the Security page.",
   },
 ];
 
@@ -49,11 +41,11 @@ export default function ContactPage() {
       </section>
 
       <section class="px-6 py-16">
-        <div class="max-w-5xl mx-auto grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="max-w-3xl mx-auto grid gap-4 sm:grid-cols-2">
           {CHANNELS.map((c) => (
             <div key={c.email} class="h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
               <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--otfw-accent-soft)] text-[var(--accent-text)]">
-                <Icon name={c.icon} size={20} weight={c.iconWeight} />
+                <Icon name={c.icon} size={20} />
               </span>
 
               <h2 class="text-base font-bold text-[var(--otfw-text)]">
