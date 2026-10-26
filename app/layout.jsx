@@ -23,6 +23,10 @@ const FOOTER_NAV = [
       { label: "Source hosting - GitHub", href: GITHUB, external: true, icon: "github" },
     ],
   },
+  {
+    title: "Policies",
+    links: [{ label: "Open Source Policy", href: "/policies/open-source" }],
+  },
 ];
 
 // Site-wide SEO defaults — least-specific in the metadata merge, so every route
@@ -74,7 +78,7 @@ export default function RootLayout(props) {
       </main>
 
       <footer class="site-footer mt-auto">
-        <div class="max-w-6xl mx-auto w-full px-6 py-14 grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
+        <div class="max-w-6xl mx-auto w-full px-6 py-14 grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div class="space-y-3">
             <Link href="/" class="inline-flex items-center gap-2.5">
               <img
