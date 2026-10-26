@@ -19,6 +19,7 @@ const FOOTER_NAV = [
   {
     title: "Projects",
     links: [
+      { label: "Security", href: "/security" },
       { label: "Source hosting - GitHub", href: GITHUB, external: true, icon: "github" },
     ],
   },

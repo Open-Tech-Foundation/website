@@ -67,11 +67,8 @@ export default function AboutPage() {
     <div class="w-full">
       <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
         <div class="max-w-3xl mx-auto py-20 text-center space-y-5">
-          <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
-            Open Tech Foundation
-          </p>
           <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
-            About Open Tech Foundation
+            About
           </h1>
           <p class="text-lg text-[var(--otfw-text-muted)] leading-relaxed">
             Open Tech Foundation (OTF) is an open technology organization
