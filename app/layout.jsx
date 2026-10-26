@@ -25,7 +25,10 @@ const FOOTER_NAV = [
   },
   {
     title: "Policies",
-    links: [{ label: "Open Source Policy", href: "/policies/open-source" }],
+    links: [
+      { label: "Open Source Policy", href: "/policies/open-source" },
+      { label: "Privacy Policy", href: "/policies/privacy" },
+    ],
   },
 ];
 
