@@ -136,7 +136,7 @@ export const projects = [
     detail:
       "Processes, scheduling, and isolation in the browser — treating JavaScript and WebAssembly modules the way an operating system treats binaries.",
     href: `${GH}/WorkerOS`,
-    internalDependencies: ["web-app-framework"],
+    internalDependencies: ["afw"],
   },
   {
     id: "office-docs-viewer",
@@ -156,21 +156,21 @@ export const projects = [
 
   // ── Web Development ─────────────────────────────────────────────────────────
   {
-    id: "web-app-framework",
-    name: "OTF Web",
+    id: "afw",
+    name: "AFW",
     division: "software",
     category: "web-development",
     status: "alpha",
     lang: "Rust",
     license: "MIT",
     featured: true,
-    banner: "/img/banners/otf-web.svg",
-    tagline: "A high-performance, zero-VDOM framework that compiles JSX to native DOM.",
+    banner: "/img/banners/afw.svg",
+    tagline: "App Framework for the Web: JSX compiled to native DOM, no virtual DOM.",
     detail:
-      "Components compile to standard Custom Elements and a state change updates only the DOM node bound to it — no virtual tree, no reconciliation pass. File-based routing, SSR, static generation, and MDX included. This site is built with it.",
-    href: `${GH}/Web-App-Framework`,
-    site: "https://web.opentechf.org",
-    npm: "@opentf/web",
+      "A Rust compiler reads your JSX once and emits the exact DOM operations it needs. Every component is a standard Custom Element, and every expression is one binding to one signal, so a state change touches only the nodes that read it. File-based routing, SSR, static generation, and MDX included. This site is built with it.",
+    href: `${GH}/AFW`,
+    site: "https://afw.opentechf.org",
+    npm: "@opentf/afw",
     internalDependencies: ["js-std"],
   },
   {

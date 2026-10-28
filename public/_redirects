@@ -1,0 +1,4 @@
+# Moved pages, answered at the edge with a permanent redirect so search engines
+# move the old URL's ranking to the new one; change both together with the id
+# in app/data/projects.js.
+/projects/web-app-framework /projects/afw 301

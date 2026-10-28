@@ -7,7 +7,7 @@
  * theme whenever a visitor's explicit choice differs from their OS setting. */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Brand accent — the foundation orange, shared with the OTF Web framework site.
+/* Brand accent — the foundation orange, shared with the AFW framework site.
  * Exposed to Tailwind as `accent`/`accent-hover` utilities. */
 @theme {
   --color-accent: #ff851b;
