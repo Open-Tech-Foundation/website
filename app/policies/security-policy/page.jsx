@@ -1,3 +1,6 @@
+import PolicyHero from "../../components/PolicyHero.jsx";
+import PolicySection from "../../components/PolicySection.jsx";
+
 export const metadata = {
   title: "Security Policy",
   description:
@@ -140,38 +143,25 @@ function Para({ p }) {
 export default function SecurityPolicyPage() {
   return (
     <div class="w-full flex-1 flex flex-col">
-      <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
-        <div class="max-w-3xl mx-auto py-20 text-center space-y-5">
-          <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
-            Policy
-          </p>
-          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
-            Security Policy
-          </h1>
-        </div>
-      </section>
+      <PolicyHero title="Security Policy" />
 
       <div class="px-6 py-16 md:py-20">
         <div class="max-w-3xl mx-auto">
-          {SECTIONS.map((s) => (
-            <section
+          {SECTIONS.map((s, i) => (
+            <PolicySection
               key={s.title}
-              class="mt-14 md:mt-20 pt-10 md:pt-14 border-t border-[var(--otfw-border)] first:mt-0 first:pt-0 first:border-0"
+              index={String(i + 1).padStart(2, "0")}
+              title={s.title}
             >
-              <h2 class="mt-12 mb-5 text-2xl md:text-3xl font-bold tracking-tight text-[var(--otfw-text)]">
-                {s.title}
-              </h2>
-              <div class="space-y-4 text-[var(--otfw-text-muted)] leading-relaxed">
-                {s.paras ? s.paras.map((p) => <Para key={typeof p === "string" ? p : p.text} p={p} />) : null}
-                {s.items ? (
-                  <ul class="list-disc pl-6 space-y-1.5 text-[var(--otfw-text-muted)]">
-                    {s.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                ) : null}
-              </div>
-            </section>
+              {s.paras ? s.paras.map((p) => <Para key={typeof p === "string" ? p : p.text} p={p} />) : null}
+              {s.items ? (
+                <ul class="list-disc pl-6 space-y-1.5 text-[var(--otfw-text-muted)]">
+                  {s.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </PolicySection>
           ))}
         </div>
       </div>
