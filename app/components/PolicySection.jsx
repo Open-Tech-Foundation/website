@@ -6,7 +6,7 @@ export default function PolicySection({ index, title, children }) {
           <span class="font-mono text-sm font-bold text-[var(--accent-text)] mr-3 align-middle">
             {index}
           </span>
-        ) : null}
+        ) : null}{" "}
         {title}
       </h2>
       <div class="space-y-4 text-[var(--otfw-text-muted)] leading-relaxed">
