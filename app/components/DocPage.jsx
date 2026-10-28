@@ -9,9 +9,10 @@ import {
 import { fetchDocSource, parseDoc, renderMarkdown } from "../lib/docs.js";
 
 // The detail page for a single proposal or specification. The route is dynamic
-// (`/proposals/[division]/[id]`), so it produces no static HTML at build time —
-// the component renders client-side: metadata comes instantly from the manifest,
-// and the markdown body is fetched from the upstream repository on mount.
+// (`/proposals/[division]/[id]`), but `getStaticPaths` on each page enumerates the
+// documents, so the shell — breadcrumb, title, status and summary from the manifest —
+// is pre-rendered with its own metadata. The markdown body is fetched from the
+// upstream repository on mount.
 export default function DocPage() {
   const kindId = () =>
     router.pathname.startsWith("/proposals") ? "proposals" : "specifications";

@@ -36,6 +36,9 @@ const FOOTER_NAV = [
 // Site-wide SEO defaults — least-specific in the metadata merge, so every route
 // inherits these and overrides only what it needs. `titleTemplate` brands child pages
 // ("Projects — Open Tech Foundation"); the home page opts out with an absolute title.
+// Canonical and og:url come from each page's path. No og:image: link previews need
+// an absolute ~1200x630 PNG, and the SVG logo is not one — add public/og.png and
+// reference it here before relying on it.
 export const metadata = {
   titleTemplate: "%s — Open Tech Foundation",
   description:
@@ -43,12 +46,11 @@ export const metadata = {
   openGraph: {
     siteName: "Open Tech Foundation",
     type: "website",
-    image: "/img/Logo.svg",
   },
   twitter: {
     card: "summary",
-    image: "/img/Logo.svg",
   },
+  meta: [{ property: "og:locale", content: "en_US" }],
   links: [
     { rel: "icon", href: "/img/Logo.svg" },
     { rel: "apple-touch-icon", href: "/img/Logo.svg" },

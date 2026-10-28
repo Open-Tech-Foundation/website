@@ -5,7 +5,7 @@ export const metadata = {
   title: "Security Policy",
   description:
     "Security requirements for software projects, websites, applications, and services developed, maintained, or operated by the Open Tech Foundation.",
-  canonical: "/policies/security",
+  canonical: "/policies/security-policy",
 };
 
 const SECTIONS = [
