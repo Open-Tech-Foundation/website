@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 #
-# Builds the site into dist on a fresh Linux or macOS host: installs the
-# site's packages (esdev comes from the @opentf/afw-cli devDependency) and
-# runs its build. Written for Cloudflare Workers Builds:
+# Builds the site into dist on a fresh Linux or macOS host:
+# installs esdev from the latest release (or ESDEV_VERSION), installs the
+# site's packages, and runs its build. Written for Cloudflare Workers Builds:
 #
 #   Root directory      (repository root)
 #   Build command       bash scripts/build-site.sh
 #   Deploy command      npx wrangler deploy
 #   Variables           SKIP_DEPENDENCY_INSTALL=1   (this script installs)
+#                       GITHUB_TOKEN=<read-only>    (optional; see install.sh)
 #
-#   ESDEV_VERSION is not used here: esdev is pinned by the lockfile, so
-#   automated builds always match `pnpm install` locally.
+#   ESDEV_VERSION=0.23.0  build with that esdev release instead of the newest
 set -euo pipefail
 
 repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -22,6 +22,12 @@ if [ "$(git -C "$repo_root" rev-parse --is-shallow-repository 2>/dev/null)" = tr
   git -C "$repo_root" fetch --unshallow --quiet ||
     echo "warning: could not fetch full history; pages will show the latest commit's date" >&2
 fi
+
+# The installer from this checkout, not a downloaded copy: the build runs the
+# script this commit ships.
+bash "$repo_root/install.sh" --only=esdev
+export PATH="${ES_RUNTIME_INSTALL:-${ESRUN_INSTALL:-$HOME/.es-runtime}}/bin:$PATH"
+esdev --version
 
 # The site pins pnpm in its package.json; install that version when the host
 # has none.

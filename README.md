@@ -50,6 +50,7 @@ afw.config.js         site URL, navbar links, brand
 esdev.json            build config: @opentf/esdev-plugin-afw + the SSG site target
 entry.js              client bootstrap (mountApp)
 index.html            app shell + the no-flash theme bootstrap
+install.sh            ES-Runtime's esdev installer (copied verbatim from upstream)
 scripts/build-site.sh Cloudflare Workers Builds entry (see Deploy)
 public/img/banners/   one SVG per project, drawn to show what that project does
 ```
@@ -128,8 +129,11 @@ and [AFW](https://github.com/Open-Tech-Foundation/AFW) sites:
   API token Workers Builds provides automatically
 
 The script fetches full git history when the clone is shallow (so "Last updated" dates
-and `sitemap.xml`'s `<lastmod>` come from real commit history), pins pnpm from
-`packageManager`, and runs `pnpm install --frozen-lockfile` before the build.
+and `sitemap.xml`'s `<lastmod>` come from real commit history), installs esdev through
+this checkout's `install.sh` (the `@opentf/afw-cli` package is the build library, not
+the `esdev` CLI), pins pnpm from `packageManager`, and runs
+`pnpm install --frozen-lockfile` before the build. `install.sh` is copied verbatim from
+ES-Runtime; re-copy it to pick up upstream fixes.
 
 Local one-shot deploy (requires `npx wrangler login` or `CLOUDFLARE_API_TOKEN`):
 
