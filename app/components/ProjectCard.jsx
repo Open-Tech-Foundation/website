@@ -1,11 +1,11 @@
-import { Link } from "@opentf/web";
+import { Link } from "@opentf/afw";
 import Icon from "./Icon.jsx";
 import LangIcon from "./LangIcon.jsx";
 import ProjectBanner from "./ProjectBanner.jsx";
 import { categoryById, STATUS } from "../data/projects.js";
 
 const TAG =
-  "inline-flex items-center px-2 py-0.5 rounded-md bg-[var(--otfw-bg)] border border-[var(--otfw-border)] text-[10px] font-bold uppercase tracking-wider text-[var(--otfw-text-muted)]";
+  "inline-flex items-center px-2 py-0.5 rounded-md bg-[var(--afw-bg)] border border-[var(--afw-border)] text-[10px] font-bold uppercase tracking-wider text-[var(--afw-text-muted)]";
 
 // A project in the index.
 //
@@ -26,12 +26,12 @@ export default function ProjectCard(props) {
   const href = `/projects/${p.id}`;
 
   return (
-    <div class="group relative h-full flex flex-col rounded-2xl border border-[var(--otfw-border)] bg-white dark:bg-[var(--otfw-bg-elevated)] overflow-hidden transition-colors hover:border-[var(--otfw-accent)]/40 focus-within:border-[var(--otfw-accent)]/40 focus-within:ring-2 focus-within:ring-[var(--otfw-accent)]/20">
+    <div class="group relative h-full flex flex-col rounded-2xl border border-[var(--afw-border)] bg-white dark:bg-[var(--afw-bg-elevated)] overflow-hidden transition-colors hover:border-[var(--afw-accent)]/40 focus-within:border-[var(--afw-accent)]/40 focus-within:ring-2 focus-within:ring-[var(--afw-accent)]/20">
       {props.banner ? <ProjectBanner item={p} eager={props.eager} /> : null}
 
       <div class="flex flex-col gap-3 p-6 flex-1 min-h-64">
         <div class="flex items-start justify-between gap-3">
-          <h3 class="text-base font-bold text-[var(--otfw-text)]">
+          <h3 class="text-base font-bold text-[var(--afw-text)]">
             <Link
               href={href}
               class="card-link hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:text-[var(--accent-text)] transition-colors"
@@ -46,12 +46,12 @@ export default function ProjectCard(props) {
           </span>
         </div>
 
-        <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed">
+        <p class="text-sm text-[var(--afw-text-muted)] leading-relaxed">
           {p.tagline}
         </p>
 
         {props.category ? (
-          <div class="flex flex-wrap items-center gap-2 pt-3 mt-auto border-t border-[var(--otfw-border)]">
+          <div class="flex flex-wrap items-center gap-2 pt-3 mt-auto border-t border-[var(--afw-border)]">
             {category ? <span class={TAG}>{category.name}</span> : null}
             {p.lang ? (
               <span class={`${TAG} gap-1.5`}>
@@ -62,12 +62,12 @@ export default function ProjectCard(props) {
             {p.license ? <span class={TAG}>{p.license}</span> : null}
           </div>
         ) : (
-          <div class="relative z-10 flex flex-wrap items-center gap-x-4 gap-y-2 pt-3 mt-auto border-t border-[var(--otfw-border)] text-xs">
+          <div class="relative z-10 flex flex-wrap items-center gap-x-4 gap-y-2 pt-3 mt-auto border-t border-[var(--afw-border)] text-xs">
             <a
               href={p.href}
               target="_blank"
               rel="noreferrer noopener"
-              class="inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
+              class="inline-flex items-center gap-1.5 font-semibold text-[var(--afw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded transition-colors"
             >
               <Icon name="github" size={14} />
               Source
@@ -79,7 +79,7 @@ export default function ProjectCard(props) {
                 href={p.site}
                 target="_blank"
                 rel="noreferrer noopener"
-                class="inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
+                class="inline-flex items-center gap-1.5 font-semibold text-[var(--afw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded transition-colors"
               >
                 <Icon name="globe" size={14} />
                 Website
@@ -87,7 +87,7 @@ export default function ProjectCard(props) {
               </a>
             ) : null}
 
-            <span class="ml-auto inline-flex items-center gap-3 text-[var(--otfw-text-muted)]">
+            <span class="ml-auto inline-flex items-center gap-3 text-[var(--afw-text-muted)]">
               {p.license ? <span>{p.license}</span> : null}
               {p.lang ? (
                 <span class="inline-flex items-center gap-1.5">

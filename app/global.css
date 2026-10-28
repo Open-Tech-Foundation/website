@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@opentf/web-docs/theme";
+@import "@opentf/afw-docs/theme";
 
 /* The docs theme switches on `[data-theme="dark"]` (set before first paint from
  * localStorage), so Tailwind's `dark:` variant has to follow that attribute rather than
@@ -24,13 +24,13 @@
  *
  * --accent-text : accent-coloured text drawn ON the page background
  * --accent-on   : text/icons drawn ON an accent-filled surface
- * (`--otfw-accent` itself stays the fill for buttons, borders, and badges.) */
+ * (`--afw-accent` itself stays the fill for buttons, borders, and badges.) */
 :root {
   /* Clears 4.5:1 on white (5.38), on the accent-soft tint (4.83), and on that tint over
-   * --otfw-bg-surface (4.64) — accent text sits on all three. */
+   * --afw-bg-surface (4.64) — accent text sits on all three. */
   --accent-text: #b34a0b;
   --accent-on: #1a1205;
-  /* Muted body text on an accent-soft surface: the standard --otfw-text-muted drops to
+  /* Muted body text on an accent-soft surface: the standard --afw-text-muted drops to
    * 4.10:1 once the warm tint is underneath it. */
   --text-muted-on-accent: #556070;
 
@@ -38,14 +38,14 @@
    * orange used for links and accents — so the solid button is the neutral ink colour
    * and the orange stays a highlight. Inverts with the theme; 17.9:1 in light, 16.4:1
    * in dark. */
-  --btn-bg: var(--otfw-text);
-  --btn-fg: var(--otfw-bg);
+  --btn-bg: var(--afw-text);
+  --btn-fg: var(--afw-bg);
 }
 
 [data-theme="dark"] {
-  --accent-text: var(--otfw-accent);
-  --accent-on: var(--otfw-accent-contrast);
-  --text-muted-on-accent: var(--otfw-text-muted);
+  --accent-text: var(--afw-accent);
+  --accent-on: var(--afw-accent-contrast);
+  --text-muted-on-accent: var(--afw-text-muted);
 }
 
 /* ── Footer ────────────────────────────────────────────────────────────────────
@@ -69,7 +69,7 @@
  * has to hold to the Privacy principle it advertises, so the docs theme's webfont is
  * replaced with a system stack that ships with the device. */
 :root {
-  --otfw-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  --afw-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -85,27 +85,27 @@ html {
 
 /* Component hosts compile to custom elements, which are `display: inline` by default —
  * inline boxes collapse in the grid/flex layouts these are used in. Hosts are addressed
- * by the stable `web-<kebab>` class the compiler stamps on every component. */
-.web-project-card,
-.web-count-card,
-.web-principle-card,
-.web-involve-card,
-.web-section-heading,
-.web-project-banner {
+ * by the stable `afw-<kebab>` class the compiler stamps on every component. */
+.afw-project-card,
+.afw-count-card,
+.afw-principle-card,
+.afw-involve-card,
+.afw-section-heading,
+.afw-project-banner {
   display: block;
 }
-.web-project-card,
-.web-principle-card,
-.web-involve-card {
+.afw-project-card,
+.afw-principle-card,
+.afw-involve-card {
   height: 100%;
 }
 
 /* Count cards render through <Link>, whose component host is inline by default.
  * Constrain both hosts so a single-column mobile grid cannot grow to the link's
  * intrinsic width. */
-.web-count-card,
-.web-count-card .web-link,
-.web-count-card .web-link > a {
+.afw-count-card,
+.afw-count-card .afw-link,
+.afw-count-card .afw-link > a {
   display: block;
   width: 100%;
   min-width: 0;
@@ -124,7 +124,7 @@ html {
   height: 26rem;
   background: radial-gradient(
     ellipse at 50% 0%,
-    var(--otfw-accent-soft),
+    var(--afw-accent-soft),
     transparent 70%
   );
   pointer-events: none;
@@ -138,8 +138,8 @@ html {
   top: -4rem;
   z-index: 100;
   padding: 0.6rem 1rem;
-  border-radius: var(--otfw-radius);
-  background: var(--otfw-accent);
+  border-radius: var(--afw-radius);
+  background: var(--afw-accent);
   color: var(--accent-on);
   font-weight: 600;
   transition: top 0.15s;
@@ -150,7 +150,7 @@ html {
 
 /* ── Mobile navigation ─────────────────────────────────────────────────────── */
 /* The docs theme only relocates its navbar links into a drawer when a <Sidebar> is
- * mounted (`:root[data-otfw-has-sidebar]`). This site has no sidebar, so below the
+ * mounted (`:root[data-afw-has-sidebar]`). This site has no sidebar, so below the
  * theme's 768px breakpoint the links overflow the bar. Hide them there and let
  * <MobileNav> render the links as a scrollable strip underneath instead. */
 .mobile-nav {
@@ -158,12 +158,12 @@ html {
 }
 
 @media (max-width: 767px) {
-  .otfw-navbar-nav {
+  .afwd-navbar-nav {
     display: none;
   }
 
   /* Long brand name — keep it on one line next to the action cluster. */
-  .otfw-navbar-title {
+  .afwd-navbar-title {
     white-space: nowrap;
     font-size: 0.95rem;
   }
@@ -172,11 +172,11 @@ html {
     display: block;
     height: var(--mobile-nav-height);
     position: sticky;
-    top: var(--otfw-navbar-height);
+    top: var(--afw-navbar-height);
     z-index: 30;
-    background: color-mix(in srgb, var(--otfw-bg) 92%, transparent);
+    background: color-mix(in srgb, var(--afw-bg) 92%, transparent);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--otfw-border);
+    border-bottom: 1px solid var(--afw-border);
   }
   .mobile-nav-list {
     display: flex;
@@ -196,17 +196,17 @@ html {
     display: inline-block;
     white-space: nowrap;
     padding: 0.4rem 0.85rem;
-    border: 1px solid var(--otfw-border);
+    border: 1px solid var(--afw-border);
     border-radius: 999px;
     font-size: 0.82rem;
     font-weight: 600;
-    color: var(--otfw-text-muted);
+    color: var(--afw-text-muted);
     transition: color 0.15s, border-color 0.15s;
   }
   .mobile-nav-link.is-active {
     color: var(--accent-text);
-    border-color: var(--otfw-accent);
-    background: var(--otfw-accent-soft);
+    border-color: var(--afw-accent);
+    background: var(--afw-accent-soft);
   }
 }
 
@@ -215,13 +215,13 @@ html {
  * the bubble's right half lands outside the viewport and gives every page a horizontal
  * scrollbar. Anchor those bubbles to the right edge of their trigger instead — still
  * fully visible on hover, just no longer overhanging. */
-.otfw-navbar-actions .otfw-tooltip-bubble {
+.afwd-navbar-actions .afwd-tooltip-bubble {
   left: auto;
   right: 0;
   transform: translateX(0) translateY(3px);
 }
-.otfw-navbar-actions .otfw-tooltip:hover .otfw-tooltip-bubble,
-.otfw-navbar-actions .otfw-tooltip:focus-within .otfw-tooltip-bubble {
+.afwd-navbar-actions .afwd-tooltip:hover .afwd-tooltip-bubble,
+.afwd-navbar-actions .afwd-tooltip:focus-within .afwd-tooltip-bubble {
   transform: translateX(0) translateY(0);
 }
 
@@ -255,7 +255,7 @@ html {
   z-index: 1;
 }
 .card-link:focus-visible {
-  outline: 2px solid var(--otfw-accent);
+  outline: 2px solid var(--afw-accent);
   outline-offset: 2px;
   border-radius: 0.25rem;
 }
@@ -271,31 +271,31 @@ html {
 }
 
 main {
-  min-height: calc(100vh - var(--otfw-navbar-height));
-  min-height: calc(100dvh - var(--otfw-navbar-height));
+  min-height: calc(100vh - var(--afw-navbar-height));
+  min-height: calc(100dvh - var(--afw-navbar-height));
 }
 
 @media (max-width: 767px) {
   main {
     min-height: calc(
-      100vh - var(--otfw-navbar-height) - var(--mobile-nav-height)
+      100vh - var(--afw-navbar-height) - var(--mobile-nav-height)
     );
     min-height: calc(
-      100dvh - var(--otfw-navbar-height) - var(--mobile-nav-height)
+      100dvh - var(--afw-navbar-height) - var(--mobile-nav-height)
     );
   }
 }
 
-/* Prose links in MDX (blog posts) come from the docs theme as `var(--otfw-accent)`,
+/* Prose links in MDX (blog posts) come from the docs theme as `var(--afw-accent)`,
  * which is 2.44:1 on white and fails AA as text. Same substitution as everywhere else:
  * the raw brand orange is a fill, `--accent-text` is the readable one. */
-.otfw-prose a {
+.afwd-prose a {
   color: var(--accent-text);
 }
 
 /* In-page anchors (#section) jump straight under the sticky navbar, which covers
  * the target — give rendered headings a scroll offset like the category sections. */
-.otfw-prose :is(h1, h2, h3, h4, h5, h6) {
+.afwd-prose :is(h1, h2, h3, h4, h5, h6) {
   scroll-margin-top: 6rem;
 }
 

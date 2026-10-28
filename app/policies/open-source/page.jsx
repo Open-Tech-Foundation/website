@@ -97,13 +97,13 @@ export default function OpenSourcePolicyPage() {
             <PolicySection key={s.title} index={String(i + 1).padStart(2, "0")} title={s.title}>
               {s.paras
                 ? s.paras.map((p) => (
-                    <p key={p} class="text-[var(--otfw-text-muted)]">
+                    <p key={p} class="text-[var(--afw-text-muted)]">
                       {p}
                     </p>
                   ))
                 : null}
               {s.items ? (
-                <ul class="list-disc pl-6 space-y-1.5 text-[var(--otfw-text-muted)]">
+                <ul class="list-disc pl-6 space-y-1.5 text-[var(--afw-text-muted)]">
                   {s.items.map((item) => (
                     <li key={item}>{item}</li>
                   ))}

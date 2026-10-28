@@ -1,11 +1,11 @@
-import { Link, router } from "@opentf/web";
+import { Link, router } from "@opentf/afw";
 
 // Mobile top-level navigation.
 //
-// The @opentf/web-docs navbar only moves its links into a drawer on pages that mount a
-// <Sidebar> (`:root[data-otfw-has-sidebar]`). This site has no sidebar anywhere, so
+// The @opentf/afw-docs navbar only moves its links into a drawer on pages that mount a
+// <Sidebar> (`:root[data-afw-has-sidebar]`). This site has no sidebar anywhere, so
 // below the theme's 768px breakpoint the links would stay in the bar and overflow it.
-// global.css hides `.otfw-navbar-nav` there and this strip takes over: a scrollable row
+// global.css hides `.afwd-navbar-nav` there and this strip takes over: a scrollable row
 // of pills under the bar, driven by the same `config.docs.nav` array.
 //
 // Active state follows the theme's own NavbarLink rule — exact match, or a section

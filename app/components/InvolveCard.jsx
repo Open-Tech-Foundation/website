@@ -9,17 +9,17 @@ export default function InvolveCard(props) {
       href={c.href}
       target={c.external ? "_blank" : null}
       rel={c.external ? "noreferrer noopener" : null}
-      class="group h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] transition-colors hover:border-[var(--otfw-accent)]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
+      class="group h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)] transition-colors hover:border-[var(--afw-accent)]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)]"
     >
-      <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--otfw-accent-soft)] text-[var(--accent-text)]">
+      <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--afw-accent-soft)] text-[var(--accent-text)]">
         <Icon name={c.icon} size={20} />
       </span>
 
-      <h3 class="text-base font-bold text-[var(--otfw-text)] group-hover:text-[var(--accent-text)] transition-colors">
+      <h3 class="text-base font-bold text-[var(--afw-text)] group-hover:text-[var(--accent-text)] transition-colors">
         {c.title}
       </h3>
 
-      <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed">
+      <p class="text-sm text-[var(--afw-text-muted)] leading-relaxed">
         {c.body}
       </p>
 

@@ -1,6 +1,6 @@
-import { BlogLayout } from "@opentf/web-docs";
-import { posts } from "@opentf/web-docs/posts";
-import config from "../../otfw.config.js";
+import { BlogLayout } from "@opentf/afw-docs";
+import { posts } from "@opentf/afw-docs/posts";
+import config from "../../afw.config.js";
 
 // The blog section's shell. `frame={false}` because the navbar and footer already come
 // from the root app/layout.jsx — BlogLayout would otherwise render its own set. On a

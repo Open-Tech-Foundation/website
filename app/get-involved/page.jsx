@@ -71,12 +71,12 @@ const DUTIES = [
 export default function GetInvolvedPage() {
   return (
     <div class="w-full">
-      <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
+      <section class="hero-glow px-6 border-b border-[var(--afw-border)]">
         <div class="max-w-3xl mx-auto py-20 text-center space-y-5">
           <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
             Community governance
           </p>
-          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
+          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--afw-text)]">
             Get involved
           </h1>
         </div>
@@ -90,18 +90,18 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      <section class="px-6 py-20 border-t border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
+      <section class="px-6 py-20 border-t border-[var(--afw-border)] bg-[var(--afw-bg-surface)]">
         <div class="max-w-3xl mx-auto space-y-8">
           <div class="space-y-3">
             <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
               Governance
             </p>
-            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[var(--otfw-text)]">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[var(--afw-text)]">
               Core Members
             </h2>
           </div>
 
-          <p class="text-[var(--otfw-text)]/85 leading-relaxed">
+          <p class="text-[var(--afw-text)]/85 leading-relaxed">
             The Foundation is directed by a Core Membership: a body of senior
             technologists drawn from different disciplines and industries, who
             together hold responsibility for decisions affecting the Foundation as a
@@ -111,8 +111,8 @@ export default function GetInvolvedPage() {
           </p>
 
           <div class="space-y-3">
-            <h3 class="text-base font-bold text-[var(--otfw-text)]">Eligibility</h3>
-            <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+            <h3 class="text-base font-bold text-[var(--afw-text)]">Eligibility</h3>
+            <p class="text-[var(--afw-text-muted)] leading-relaxed">
               A candidate for Core Membership shall have a minimum of ten (10) years of
               professional experience in technology or a directly related discipline.
               The Core Membership is constituted to be varied in background —
@@ -122,8 +122,8 @@ export default function GetInvolvedPage() {
           </div>
 
           <div class="space-y-3">
-            <h3 class="text-base font-bold text-[var(--otfw-text)]">Appointment</h3>
-            <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+            <h3 class="text-base font-bold text-[var(--afw-text)]">Appointment</h3>
+            <p class="text-[var(--afw-text-muted)] leading-relaxed">
               The Core Membership is self-constituting. Its first member is the founder
               of the Foundation; each subsequent member is admitted by a vote of those
               already serving, who assess the candidate's background and experience
@@ -133,18 +133,18 @@ export default function GetInvolvedPage() {
           </div>
 
           <div class="space-y-4">
-            <h3 class="text-base font-bold text-[var(--otfw-text)]">
+            <h3 class="text-base font-bold text-[var(--afw-text)]">
               Responsibilities
             </h3>
             <ol class="space-y-4">
               {DUTIES.map((d, i) => (
-                <li class="flex gap-4 p-5 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg)]">
+                <li class="flex gap-4 p-5 rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg)]">
                   <span class="shrink-0 font-mono text-sm font-bold text-[var(--accent-text)]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div class="space-y-1.5">
-                    <h4 class="font-bold text-[var(--otfw-text)]">{d.title}</h4>
-                    <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed">
+                    <h4 class="font-bold text-[var(--afw-text)]">{d.title}</h4>
+                    <p class="text-sm text-[var(--afw-text-muted)] leading-relaxed">
                       {d.body}
                     </p>
                   </div>
@@ -153,12 +153,12 @@ export default function GetInvolvedPage() {
             </ol>
           </div>
 
-          <div class="space-y-6 pt-6 border-t border-[var(--otfw-border)]">
-            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[var(--otfw-text)]">
+          <div class="space-y-6 pt-6 border-t border-[var(--afw-border)]">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[var(--afw-text)]">
               Contributing Members
             </h2>
 
-            <p class="text-[var(--otfw-text)]/85 leading-relaxed">
+            <p class="text-[var(--afw-text)]/85 leading-relaxed">
               Contribution to the Foundation is open to anyone and requires no
               appointment: the repositories take pull requests, issues, and discussion
               from any person who wishes to take part. Contributing Membership is a
@@ -169,10 +169,10 @@ export default function GetInvolvedPage() {
             </p>
 
             <div class="space-y-3">
-              <h3 class="text-base font-bold text-[var(--otfw-text)]">
+              <h3 class="text-base font-bold text-[var(--afw-text)]">
                 The post
               </h3>
-              <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+              <p class="text-[var(--afw-text-muted)] leading-relaxed">
                 A Contributing Member reviews contributions, triages issues, and
                 moderates discussion within the project or domain they serve, and is
                 expected to be consistently available to do so. The post is applied for
@@ -182,10 +182,10 @@ export default function GetInvolvedPage() {
             </div>
 
             <div class="space-y-3">
-              <h3 class="text-base font-bold text-[var(--otfw-text)]">
+              <h3 class="text-base font-bold text-[var(--afw-text)]">
                 Relation to the Core Membership
               </h3>
-              <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+              <p class="text-[var(--afw-text-muted)] leading-relaxed">
                 Contributing Members do not hold a vote on organisation-wide matters,
                 which rest with the Core Membership. The two posts are distinct in
                 purpose: the Core Membership decides the direction of the Foundation,
@@ -195,18 +195,18 @@ export default function GetInvolvedPage() {
             </div>
           </div>
 
-          <div class="space-y-3 pt-6 border-t border-[var(--otfw-border)]">
-            <h3 class="text-base font-bold text-[var(--otfw-text)]">
+          <div class="space-y-3 pt-6 border-t border-[var(--afw-border)]">
+            <h3 class="text-base font-bold text-[var(--afw-text)]">
               Expressions of interest
             </h3>
-            <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+            <p class="text-[var(--afw-text-muted)] leading-relaxed">
               The Foundation welcomes applications for either post. Write to us with an
               account of your background, the disciplines or projects you would take
               responsibility for, and which of the two you have in mind.
             </p>
             <a
               href="mailto:contact@opentechf.org"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)]"
             >
               <Icon name="mail" size={16} />
               contact@opentechf.org

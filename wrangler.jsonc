@@ -6,7 +6,7 @@
     "enabled": true
   },
   "assets": {
-    // Where `otfw build --ssg` writes the pre-rendered site. Required by
+    // Where `esdev build` writes the pre-rendered site. Required by
     // `wrangler deploy`, which has no worker entrypoint to infer it from.
     "directory": "./dist",
     // Every route is pre-rendered to its own .html file and the build emits a

@@ -1,7 +1,7 @@
 # Open Tech Foundation Website
 
 The official site for the Open Tech Foundation, built with our own framework,
-[OTF Web](https://web.opentechf.org).
+[AFW](https://afw.opentechf.org).
 
 **Live site:** https://opentechf.org/
 
@@ -12,16 +12,16 @@ open source, open data, open standards, and open protocols — for the public go
 
 ## Stack
 
-- **[OTF Web](https://web.opentechf.org)** (`@opentf/web`) — zero-VDOM framework; JSX
+- **[AFW](https://afw.opentechf.org)** (`@opentf/afw`) — zero-VDOM framework; JSX
   compiles to native DOM
-- **[`@opentf/web-docs`](https://web.opentechf.org/docs/packages/web-docs)** — supplies the
+- **[`@opentf/afw-docs`](https://afw.opentechf.org/docs/packages/afw-docs)** — supplies the
   navbar, footer, and the light/dark theme tokens, so this site and the framework site
   share one visual language
-- **Tailwind CSS v4** — utilities, on top of the theme's `--otfw-*` design tokens
+- **Tailwind CSS v4** — utilities, on top of the theme's `--afw-*` design tokens
 - **Cloudflare Workers** — static asset hosting
 
-Every route is pre-rendered to static HTML (`otfw build --ssg`), so the pages carry their
-full content and `<head>` before any JavaScript runs.
+Every route is pre-rendered to static HTML (`esdev build` via the `site-ssg` target), so
+the pages carry their full content and `<head>` before any JavaScript runs.
 
 ## Structure
 
@@ -40,13 +40,15 @@ app/
     hardware/         /specifications/hardware
   get-involved/       /get-involved           how to contribute
   contact/            /contact                contact + security disclosure
-  404.jsx             the 404 page (renders WITHOUT the root layout — see the file)
+  404.jsx             the 404 page (the root layout wraps it — see the file)
   components/         shared UI (cards, banners, division tabs, icons, mobile nav)
   data/
     projects.js       ← SINGLE SOURCE OF TRUTH for everything project-related
     principles.js     the eight principles (rendered on the home page)
   global.css          Tailwind entry, brand + accessible accent tokens, footer tokens
-otfw.config.js        site URL, navbar links, brand
+afw.config.js         site URL, navbar links, brand
+esdev.json            build config: @opentf/esdev-plugin-afw + the SSG site target
+entry.js              client bootstrap (mountApp)
 index.html            app shell + the no-flash theme bootstrap
 public/img/banners/   one SVG per project, drawn to show what that project does
 ```
@@ -82,7 +84,7 @@ Append an entry to `projects`:
   actually does. A project added without one falls back to a generated panel in the same
   visual language until its own banner is drawn.
 
-A page at `/projects/<id>` is generated automatically — `getStaticPaths` enumerates the
+A page at `/projects/<id>` is generated automatically — the SSG crawler enumerates the
 `projects` array, so no route needs adding.
 
 ### Adding a proposal or specification
@@ -100,13 +102,13 @@ when it grows an implementation worth listing on its own.
 
 ```bash
 pnpm install
-pnpm dev
+pnpm dev        # esdev start
 ```
 
 ## Build
 
 ```bash
-pnpm build     # otfw build --ssg
+pnpm build      # esdev build — client bundle + SSG pass
 ```
 
 Outputs to `dist/` — one pre-rendered `.html` per route, plus `sitemap.xml`,
@@ -131,7 +133,7 @@ pnpm preview
 
 ## Conventions worth knowing
 
-- **Colour.** `--otfw-accent` (the brand orange) is a *fill* colour. For accent-coloured
+- **Colour.** `--afw-accent` (the brand orange) is a *fill* colour. For accent-coloured
   **text** use `--accent-text`, for text sitting **on** an accent fill use `--accent-on`,
   and for muted text on an accent-soft surface use `--text-muted-on-accent`. The raw
   orange fails WCAG AA as text; see the comment in `global.css` for the measured ratios.
@@ -143,8 +145,8 @@ pnpm preview
   whenever a visitor's explicit choice differs from their OS setting.
 - **Third-party requests.** There are none — no CDN fonts, no analytics, no remote
   assets. The Privacy principle applies to this site too.
-- **The 404 page** renders without the root layout (the framework matches it with
-  `route: null`, so the layout chain is empty). It carries its own navbar and footer.
+- **The 404 page** is wrapped by the root layout (AFW applies the layout chain to the
+  `notFound` fallback), so it carries no navbar or footer of its own.
 - **One `return` per component.** The compiler builds each component into a single
   element factory; a second `return` renders correctly under SSG but leaves the custom
   element empty once the client hydrates. Use a ternary, not an early return.

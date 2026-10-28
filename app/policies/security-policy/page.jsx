@@ -121,21 +121,22 @@ const SECTIONS = [
 ];
 
 function Para({ p }) {
-  if (typeof p === "string") {
-    return <p class="text-[var(--otfw-text-muted)]">{p}</p>;
-  }
+  const isObject = typeof p === "string" ? false : true;
   return (
-    <p class="text-[var(--otfw-text-muted)]">
-      {p.text}{" "}
-      <a
-        href={p.link.href}
-        target="_blank"
-        rel="noreferrer noopener"
-        class="font-semibold text-[var(--accent-text)] hover:underline break-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded"
-      >
-        {p.link.label}
-        <span class="sr-only">(opens in new tab)</span>
-      </a>
+    <p class="text-[var(--afw-text-muted)]">
+      {isObject ? p.text : p}
+      {isObject && p.link ? " " : null}
+      {isObject && p.link ? (
+        <a
+          href={p.link.href}
+          target="_blank"
+          rel="noreferrer noopener"
+          class="font-semibold text-[var(--accent-text)] hover:underline break-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded"
+        >
+          {p.link.label}
+          <span class="sr-only">(opens in new tab)</span>
+        </a>
+      ) : null}
     </p>
   );
 }
@@ -155,7 +156,7 @@ export default function SecurityPolicyPage() {
             >
               {s.paras ? s.paras.map((p) => <Para key={typeof p === "string" ? p : p.text} p={p} />) : null}
               {s.items ? (
-                <ul class="list-disc pl-6 space-y-1.5 text-[var(--otfw-text-muted)]">
+                <ul class="list-disc pl-6 space-y-1.5 text-[var(--afw-text-muted)]">
                   {s.items.map((item) => (
                     <li key={item}>{item}</li>
                   ))}

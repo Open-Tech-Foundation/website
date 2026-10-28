@@ -1,4 +1,4 @@
-import { Link, router, RawHtml } from "@opentf/web";
+import { Link, router, RawHtml } from "@opentf/afw";
 import Icon from "./Icon.jsx";
 import {
   DOC_KINDS,
@@ -67,9 +67,9 @@ export default function DocPage() {
       {() =>
         doc() ? (
           <div>
-            <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
+            <section class="hero-glow px-6 border-b border-[var(--afw-border)]">
               <div class="max-w-3xl mx-auto py-16 space-y-6">
-                <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-xs text-[var(--otfw-text-muted)]">
+                <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-xs text-[var(--afw-text-muted)]">
                   <Link
                     href="/"
                     class="font-semibold hover:text-[var(--accent-text)] transition-colors"
@@ -88,7 +88,7 @@ export default function DocPage() {
                 </nav>
 
                 <div class="flex flex-wrap items-center gap-3">
-                  <h1 class="text-3xl md:text-4xl font-black tracking-tight text-[var(--otfw-text)]">
+                  <h1 class="text-3xl md:text-4xl font-black tracking-tight text-[var(--afw-text)]">
                     {doc().title}
                   </h1>
                   <span
@@ -99,7 +99,7 @@ export default function DocPage() {
                   </span>
                 </div>
 
-                <p class="text-lg text-[var(--otfw-text-muted)] leading-relaxed">
+                <p class="text-lg text-[var(--afw-text-muted)] leading-relaxed">
                   {doc().summary}
                 </p>
 
@@ -108,7 +108,7 @@ export default function DocPage() {
                     href={doc().href}
                     target="_blank"
                     rel="noreferrer noopener"
-                    class="inline-flex items-center gap-1.5 font-semibold text-[var(--accent-text)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded"
+                    class="inline-flex items-center gap-1.5 font-semibold text-[var(--accent-text)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded"
                   >
                     <Icon name="github" size={15} />
                     Source on GitHub
@@ -120,7 +120,7 @@ export default function DocPage() {
                       href={doc().site}
                       target="_blank"
                       rel="noreferrer noopener"
-                      class="inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
+                      class="inline-flex items-center gap-1.5 font-semibold text-[var(--afw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded transition-colors"
                     >
                       <Icon name="globe" size={15} />
                       Website
@@ -136,18 +136,18 @@ export default function DocPage() {
                 {() =>
                   loading ? (
                     <div class="animate-pulse space-y-4 py-10" role="status" aria-live="polite">
-                      <div class="h-4 rounded bg-[var(--otfw-border)] w-3/4"></div>
-                      <div class="h-4 rounded bg-[var(--otfw-border)] w-full"></div>
-                      <div class="h-4 rounded bg-[var(--otfw-border)] w-5/6"></div>
-                      <div class="h-4 rounded bg-[var(--otfw-border)] w-2/3"></div>
+                      <div class="h-4 rounded bg-[var(--afw-border)] w-3/4"></div>
+                      <div class="h-4 rounded bg-[var(--afw-border)] w-full"></div>
+                      <div class="h-4 rounded bg-[var(--afw-border)] w-5/6"></div>
+                      <div class="h-4 rounded bg-[var(--afw-border)] w-2/3"></div>
                     </div>
                   ) : error ? (
                     <div role="alert" class="p-10 rounded-2xl border border-dashed border-red-300 dark:border-red-500/30 text-center space-y-3">
                       <p class="font-bold text-red-600 dark:text-red-400">
                         Failed to load content
                       </p>
-                      <p class="text-sm text-[var(--otfw-text-muted)]">{error}</p>
-                      <p class="text-sm text-[var(--otfw-text-muted)]">
+                      <p class="text-sm text-[var(--afw-text-muted)]">{error}</p>
+                      <p class="text-sm text-[var(--afw-text-muted)]">
                         You can{" "}
                         <a
                           href={doc().href}
@@ -161,7 +161,7 @@ export default function DocPage() {
                       </p>
                     </div>
                   ) : (
-                    <article class="otfw-prose">
+                    <article class="afwd-prose">
                       <RawHtml html={bodyHtml} />
                     </article>
                   )
@@ -171,7 +171,7 @@ export default function DocPage() {
           </div>
         ) : (
           <section class="px-6 py-32 text-center space-y-5">
-            <h1 class="text-2xl font-bold text-[var(--otfw-text)]">
+            <h1 class="text-2xl font-bold text-[var(--afw-text)]">
               {kind().itemLabel} not found
             </h1>
             <Link

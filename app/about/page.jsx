@@ -1,4 +1,4 @@
-import { Link } from "@opentf/web";
+import { Link } from "@opentf/afw";
 
 export const metadata = {
   title: "About",
@@ -46,16 +46,16 @@ const FUNDING = [
 
 function Section({ eyebrow, title, children }) {
   return (
-    <section class="mt-14 md:mt-20 pt-10 md:pt-14 border-t border-[var(--otfw-border)] first:mt-0 first:pt-0 first:border-0">
+    <section class="mt-14 md:mt-20 pt-10 md:pt-14 border-t border-[var(--afw-border)] first:mt-0 first:pt-0 first:border-0">
       {eyebrow ? (
         <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
           {eyebrow}
         </p>
       ) : null}
-      <h2 class="mt-12 mb-5 text-2xl md:text-3xl font-bold tracking-tight text-[var(--otfw-text)]">
+      <h2 class="mt-12 mb-5 text-2xl md:text-3xl font-bold tracking-tight text-[var(--afw-text)]">
         {title}
       </h2>
-      <div class="space-y-4 text-[var(--otfw-text-muted)] leading-relaxed">
+      <div class="space-y-4 text-[var(--afw-text-muted)] leading-relaxed">
         {children}
       </div>
     </section>
@@ -65,21 +65,21 @@ function Section({ eyebrow, title, children }) {
 export default function AboutPage() {
   return (
     <div class="w-full">
-      <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
+      <section class="hero-glow px-6 border-b border-[var(--afw-border)]">
         <div class="max-w-3xl mx-auto py-20 text-center space-y-5">
-          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
+          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--afw-text)]">
             About
           </h1>
-          <p class="text-lg text-[var(--otfw-text-muted)] leading-relaxed">
+          <p class="text-lg text-[var(--afw-text-muted)] leading-relaxed">
             Open Tech Foundation (OTF) is an open technology organization
             building{" "}
-            <strong class="font-bold text-[var(--otfw-text)]">
+            <strong class="font-bold text-[var(--afw-text)]">
               software and hardware technologies for developers, enterprises,
               and the general public
             </strong>
             .
           </p>
-          <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+          <p class="text-[var(--afw-text-muted)] leading-relaxed">
             Our projects operate under a common set of constraints that guide
             how they are designed, developed, maintained, released, funded, and
             governed.
@@ -100,13 +100,13 @@ export default function AboutPage() {
               {CONSTRAINTS.map((c, i) => (
                 <li
                   key={c.title}
-                  class="flex gap-4 p-5 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]"
+                  class="flex gap-4 p-5 rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)]"
                 >
                   <span class="shrink-0 font-mono text-sm font-bold text-[var(--accent-text)]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div class="space-y-1">
-                    <h3 class="font-bold text-[var(--otfw-text)]">{c.title}</h3>
+                    <h3 class="font-bold text-[var(--afw-text)]">{c.title}</h3>
                     <p class="text-sm leading-relaxed">{c.body}</p>
                   </div>
                 </li>
@@ -167,7 +167,7 @@ export default function AboutPage() {
           <Section title="Human-Driven Releases">
             <p>
               OTF projects use{" "}
-              <strong class="font-bold text-[var(--otfw-text)]">
+              <strong class="font-bold text-[var(--afw-text)]">
                 Semantic Versioning (SemVer)
               </strong>{" "}
               where applicable.
@@ -190,7 +190,7 @@ export default function AboutPage() {
           <Section title="Independent Governance">
             <p>
               OTF membership and governance are for{" "}
-              <strong class="font-bold text-[var(--otfw-text)]">
+              <strong class="font-bold text-[var(--afw-text)]">
                 individuals, not corporations
               </strong>
               .
@@ -230,7 +230,7 @@ export default function AboutPage() {
           <Section title="Funding">
             <p>Maintaining open technology requires infrastructure and resources.</p>
             <p>OTF currently considers several ways of supporting that work:</p>
-            <ul class="list-disc pl-6 space-y-1.5 text-[var(--otfw-text)]">
+            <ul class="list-disc pl-6 space-y-1.5 text-[var(--afw-text)]">
               {FUNDING.map((f) => (
                 <li key={f}>{f}</li>
               ))}
@@ -267,7 +267,7 @@ export default function AboutPage() {
             </p>
             <p>
               Most importantly,{" "}
-              <strong class="font-bold text-[var(--otfw-text)]">
+              <strong class="font-bold text-[var(--afw-text)]">
                 feedback of any kind is welcome
               </strong>
               . We want people to question our decisions, identify problems,

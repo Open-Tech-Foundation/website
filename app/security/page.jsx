@@ -14,12 +14,12 @@ const TIMELINE = [
 export default function SecurityPage() {
   return (
     <div class="w-full flex-1 flex flex-col">
-      <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
+      <section class="hero-glow px-6 border-b border-[var(--afw-border)]">
         <div class="max-w-3xl mx-auto py-20 text-center space-y-5">
-          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
+          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--afw-text)]">
             Security
           </h1>
-          <p class="text-lg text-[var(--otfw-text-muted)] leading-relaxed">
+          <p class="text-lg text-[var(--afw-text-muted)] leading-relaxed">
             How to report vulnerabilities in OTF projects, and how we handle
             them.
           </p>
@@ -29,14 +29,14 @@ export default function SecurityPage() {
       <section class="px-6 py-16">
         <div class="max-w-3xl mx-auto space-y-12">
           <div class="space-y-4">
-            <h2 class="text-2xl font-bold text-[var(--otfw-text)]">
+            <h2 class="text-2xl font-bold text-[var(--afw-text)]">
               Reporting a vulnerability
             </h2>
-            <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+            <p class="text-[var(--afw-text-muted)] leading-relaxed">
               Please report vulnerabilities privately to{" "}
               <a
                 href="mailto:security@opentechf.org"
-                class="font-semibold text-[var(--accent-text)] hover:underline break-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded"
+                class="font-semibold text-[var(--accent-text)] hover:underline break-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded"
               >
                 security@opentechf.org
               </a>{" "}
@@ -47,10 +47,10 @@ export default function SecurityPage() {
           </div>
 
           <div class="space-y-4">
-            <h2 class="text-2xl font-bold text-[var(--otfw-text)]">
+            <h2 class="text-2xl font-bold text-[var(--afw-text)]">
               What to expect
             </h2>
-            <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+            <p class="text-[var(--afw-text-muted)] leading-relaxed">
               We practise coordinated disclosure. A maintainer will acknowledge
               your report, investigate, and work on a fix; you are welcome to
               coordinate a public disclosure once a release is available.
@@ -59,12 +59,12 @@ export default function SecurityPage() {
               {TIMELINE.map((t) => (
                 <div
                   key={t.label}
-                  class="p-5 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] space-y-1.5"
+                  class="p-5 rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)] space-y-1.5"
                 >
-                  <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--otfw-text-muted)]">
+                  <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--afw-text-muted)]">
                     {t.label}
                   </p>
-                  <p class="text-sm font-semibold text-[var(--otfw-text)] leading-relaxed">
+                  <p class="text-sm font-semibold text-[var(--afw-text)] leading-relaxed">
                     {t.value}
                   </p>
                 </div>
@@ -73,16 +73,16 @@ export default function SecurityPage() {
           </div>
 
           <div class="space-y-4">
-            <h2 class="text-2xl font-bold text-[var(--otfw-text)]">
+            <h2 class="text-2xl font-bold text-[var(--afw-text)]">
               Scope
             </h2>
-            <p class="text-[var(--otfw-text-muted)] leading-relaxed">
+            <p class="text-[var(--afw-text-muted)] leading-relaxed">
               This process covers the open source projects published under the{" "}
               <a
                 href="https://github.com/Open-Tech-Foundation"
                 target="_blank"
                 rel="noreferrer noopener"
-                class="font-semibold text-[var(--accent-text)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded"
+                class="font-semibold text-[var(--accent-text)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded"
               >
                 Open Tech Foundation
                 <span class="sr-only">(opens in new tab)</span>
@@ -90,7 +90,7 @@ export default function SecurityPage() {
               organization on GitHub. For anything else, reach out through the{" "}
               <a
                 href="/contact"
-                class="font-semibold text-[var(--accent-text)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded"
+                class="font-semibold text-[var(--accent-text)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded"
               >
                 contact
               </a>{" "}
@@ -101,7 +101,7 @@ export default function SecurityPage() {
       </section>
 
       <div class="mt-auto px-6 pb-12 flex items-center justify-center">
-        <p class="text-xs text-[var(--otfw-text-muted)]">
+        <p class="text-xs text-[var(--afw-text-muted)]">
           We appreciate responsible disclosure and will credit reporters by
           name unless they prefer to remain anonymous.
         </p>

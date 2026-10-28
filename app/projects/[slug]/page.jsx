@@ -1,4 +1,4 @@
-import { Link, router } from "@opentf/web";
+import { Link, router } from "@opentf/afw";
 import Icon from "../../components/Icon.jsx";
 import LangIcon from "../../components/LangIcon.jsx";
 import NpmMark from "../../components/NpmMark.jsx";
@@ -11,7 +11,7 @@ import {
 } from "../../data/projects.js";
 
 // One page per project at /projects/<id>. `getStaticPaths` enumerates them so
-// `otfw build --ssg` pre-renders each with its own <head>; without it a dynamic route
+// `esdev build` (site-ssg target) pre-renders each with its own <head>; without it a dynamic route
 // produces no static HTML.
 export function getStaticPaths() {
   return projects.map((p) => ({ params: { slug: p.id } }));
@@ -30,7 +30,7 @@ export function generateMetadata({ params }) {
 }
 
 const META_LINK =
-  "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold border border-[var(--otfw-border)] text-[var(--otfw-text)] hover:border-[var(--otfw-accent)] transition-colors";
+  "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold border border-[var(--afw-border)] text-[var(--afw-text)] hover:border-[var(--afw-accent)] transition-colors";
 
 export default function ProjectPage() {
   // Read through functions rather than a const: navigating between two project pages
@@ -115,16 +115,16 @@ export default function ProjectPage() {
               class="fixed right-6 top-28 z-20 hidden w-52 2xl:block"
               aria-label="Project sections"
             >
-              <nav class="rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] p-4 shadow-sm">
-                <p class="px-3 pb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--otfw-text-muted)]">
+              <nav class="rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)] p-4 shadow-sm">
+                <p class="px-3 pb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--afw-text-muted)]">
                   On this page
                 </p>
-                <div class="space-y-1 border-l border-[var(--otfw-border)]">
+                <div class="space-y-1 border-l border-[var(--afw-border)]">
                   {sectionLinks().map((section) => (
                     <a
                       key={section.href}
                       href={section.href}
-                      class="block border-l-2 border-transparent -ml-px px-3 py-2 text-sm font-medium text-[var(--otfw-text-muted)] transition-colors hover:border-[var(--otfw-accent)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
+                      class="block border-l-2 border-transparent -ml-px px-3 py-2 text-sm font-medium text-[var(--afw-text-muted)] transition-colors hover:border-[var(--afw-accent)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)]"
                     >
                       {section.label}
                     </a>
@@ -133,9 +133,9 @@ export default function ProjectPage() {
               </nav>
             </aside>
 
-            <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
+            <section class="hero-glow px-6 border-b border-[var(--afw-border)]">
               <div id="overview" class="max-w-7xl mx-auto py-16 space-y-6 scroll-mt-28 2xl:mr-[17rem]">
-                <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-xs text-[var(--otfw-text-muted)]">
+                <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-xs text-[var(--afw-text-muted)]">
                   <Link
                     href="/projects"
                     class="font-semibold hover:text-[var(--accent-text)] transition-colors"
@@ -149,7 +149,7 @@ export default function ProjectPage() {
                 </nav>
 
                 <div class="flex flex-wrap items-center gap-3">
-                  <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
+                  <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--afw-text)]">
                     {project().name}
                   </h1>
                   <span
@@ -160,7 +160,7 @@ export default function ProjectPage() {
                   </span>
                 </div>
 
-                <p class="text-lg text-[var(--otfw-text-muted)] leading-relaxed">
+                <p class="text-lg text-[var(--afw-text-muted)] leading-relaxed">
                   {project().tagline}
                 </p>
 
@@ -173,8 +173,8 @@ export default function ProjectPage() {
                       rel="noreferrer noopener"
                       class={
                         link.primary
-                          ? "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
-                          : `${META_LINK} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]`
+                          ? "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)]"
+                          : `${META_LINK} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)]`
                       }
                     >
                       {link.icon === "npm" ? (
@@ -192,41 +192,41 @@ export default function ProjectPage() {
 
             <section class="px-6 py-14">
               <div class="max-w-7xl mx-auto space-y-10 2xl:mr-[17rem]">
-                <p id="description" class="scroll-mt-28 text-[var(--otfw-text)]/85 leading-relaxed text-lg">
+                <p id="description" class="scroll-mt-28 text-[var(--afw-text)]/85 leading-relaxed text-lg">
                   {project().detail}
                 </p>
 
-                <dl id="project-details" class="scroll-mt-28 grid gap-px sm:grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden border border-[var(--otfw-border)] bg-[var(--otfw-border)]">
-                  <div class="bg-[var(--otfw-bg-surface)] p-5">
-                    <dt class="text-[10px] font-bold uppercase tracking-wider text-[var(--otfw-text-muted)]">
+                <dl id="project-details" class="scroll-mt-28 grid gap-px sm:grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden border border-[var(--afw-border)] bg-[var(--afw-border)]">
+                  <div class="bg-[var(--afw-bg-surface)] p-5">
+                    <dt class="text-[10px] font-bold uppercase tracking-wider text-[var(--afw-text-muted)]">
                       Status
                     </dt>
-                    <dd class="mt-1 font-semibold text-[var(--otfw-text)]">
+                    <dd class="mt-1 font-semibold text-[var(--afw-text)]">
                       {STATUS[project().status].label}
                     </dd>
                   </div>
-                  <div class="bg-[var(--otfw-bg-surface)] p-5">
-                    <dt class="text-[10px] font-bold uppercase tracking-wider text-[var(--otfw-text-muted)]">
+                  <div class="bg-[var(--afw-bg-surface)] p-5">
+                    <dt class="text-[10px] font-bold uppercase tracking-wider text-[var(--afw-text-muted)]">
                       Category
                     </dt>
-                    <dd class="mt-1 font-semibold text-[var(--otfw-text)]">
+                    <dd class="mt-1 font-semibold text-[var(--afw-text)]">
                       {category()?.name}
                     </dd>
                   </div>
-                  <div class="bg-[var(--otfw-bg-surface)] p-5">
-                    <dt class="text-[10px] font-bold uppercase tracking-wider text-[var(--otfw-text-muted)]">
+                  <div class="bg-[var(--afw-bg-surface)] p-5">
+                    <dt class="text-[10px] font-bold uppercase tracking-wider text-[var(--afw-text-muted)]">
                       Language
                     </dt>
-                    <dd class="mt-1 font-semibold text-[var(--otfw-text)] inline-flex items-center gap-2">
+                    <dd class="mt-1 font-semibold text-[var(--afw-text)] inline-flex items-center gap-2">
                       <LangIcon lang={project().lang} size={16} />
                       {project().lang || "—"}
                     </dd>
                   </div>
-                  <div class="bg-[var(--otfw-bg-surface)] p-5">
-                    <dt class="text-[10px] font-bold uppercase tracking-wider text-[var(--otfw-text-muted)]">
+                  <div class="bg-[var(--afw-bg-surface)] p-5">
+                    <dt class="text-[10px] font-bold uppercase tracking-wider text-[var(--afw-text-muted)]">
                       Licence
                     </dt>
-                    <dd class="mt-1 font-semibold text-[var(--otfw-text)]">
+                    <dd class="mt-1 font-semibold text-[var(--afw-text)]">
                       {project().license || "—"}
                     </dd>
                   </div>
@@ -237,7 +237,7 @@ export default function ProjectPage() {
                     <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
                       Product preview
                     </p>
-                    <h2 id="screenshots-heading" class="text-2xl font-bold tracking-tight text-[var(--otfw-text)]">
+                    <h2 id="screenshots-heading" class="text-2xl font-bold tracking-tight text-[var(--afw-text)]">
                       Screenshots
                     </h2>
                   </div>
@@ -245,7 +245,7 @@ export default function ProjectPage() {
                   {screenshots().length > 0 ? (
                     <div class="grid gap-5 md:grid-cols-2">
                       {screenshots().map((screenshot) => (
-                        <figure key={screenshot.src} class="overflow-hidden rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
+                        <figure key={screenshot.src} class="overflow-hidden rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)]">
                           <img
                             src={screenshot.src}
                             alt={screenshot.alt || `${project().name} screenshot`}
@@ -254,7 +254,7 @@ export default function ProjectPage() {
                             class="aspect-video w-full object-cover"
                           />
                           {screenshot.caption ? (
-                            <figcaption class="px-5 py-4 text-sm text-[var(--otfw-text-muted)]">
+                            <figcaption class="px-5 py-4 text-sm text-[var(--afw-text-muted)]">
                               {screenshot.caption}
                             </figcaption>
                           ) : null}
@@ -262,7 +262,7 @@ export default function ProjectPage() {
                       ))}
                     </div>
                   ) : (
-                    <div class="rounded-2xl border border-dashed border-[var(--otfw-border)] px-6 py-10 text-sm text-[var(--otfw-text-muted)]">
+                    <div class="rounded-2xl border border-dashed border-[var(--afw-border)] px-6 py-10 text-sm text-[var(--afw-text-muted)]">
                       Screenshots will be published here as they become available.
                     </div>
                   )}
@@ -274,24 +274,24 @@ export default function ProjectPage() {
             {hasDependencies() ? (
               <section
                 id="project-dependencies"
-                class="border-t border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] px-6 py-14 scroll-mt-28"
+                class="border-t border-[var(--afw-border)] bg-[var(--afw-bg-surface)] px-6 py-14 scroll-mt-28"
               >
                 <div class="max-w-7xl mx-auto space-y-6 2xl:mr-[17rem]">
                   <div class="space-y-1.5">
                     <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
                       Foundation projects
                     </p>
-                    <h2 class="text-2xl font-bold tracking-tight text-[var(--otfw-text)]">
+                    <h2 class="text-2xl font-bold tracking-tight text-[var(--afw-text)]">
                       Dependencies
                     </h2>
-                    <p class="text-sm text-[var(--otfw-text-muted)]">
+                    <p class="text-sm text-[var(--afw-text-muted)]">
                       This project is built with these Open Tech Foundation projects.
                     </p>
                   </div>
 
                   {internalDependencies().length > 0 ? (
                     <div class="space-y-4">
-                      <h3 class="text-sm font-bold text-[var(--otfw-text)]">
+                      <h3 class="text-sm font-bold text-[var(--afw-text)]">
                         Internal dependencies
                       </h3>
                       <div class="grid gap-4 sm:grid-cols-2">
@@ -299,17 +299,17 @@ export default function ProjectPage() {
                           <Link
                             key={dependency.id}
                             href={`/projects/${dependency.id}`}
-                            class="group flex flex-col gap-3 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] p-5 transition-colors hover:border-[var(--otfw-accent)]/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
+                            class="group flex flex-col gap-3 rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)] p-5 transition-colors hover:border-[var(--afw-accent)]/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)]"
                           >
                             <div class="flex items-start justify-between gap-3">
-                              <h4 class="font-bold text-[var(--otfw-text)] group-hover:text-[var(--accent-text)] transition-colors">
+                              <h4 class="font-bold text-[var(--afw-text)] group-hover:text-[var(--accent-text)] transition-colors">
                                 {dependency.name}
                               </h4>
-                              <span class="shrink-0 text-[10px] font-bold uppercase tracking-wider text-[var(--otfw-text-muted)]">
+                              <span class="shrink-0 text-[10px] font-bold uppercase tracking-wider text-[var(--afw-text-muted)]">
                                 {dependency.lang}
                               </span>
                             </div>
-                            <p class="text-sm leading-relaxed text-[var(--otfw-text-muted)]">
+                            <p class="text-sm leading-relaxed text-[var(--afw-text-muted)]">
                               {dependency.tagline}
                             </p>
                             <span class="mt-auto inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent-text)]">
@@ -324,7 +324,7 @@ export default function ProjectPage() {
 
                   {externalDependencies().length > 0 ? (
                     <div class="space-y-4">
-                      <h3 class="text-sm font-bold text-[var(--otfw-text)]">
+                      <h3 class="text-sm font-bold text-[var(--afw-text)]">
                         External dependencies
                       </h3>
                       <div class="grid gap-4 sm:grid-cols-2">
@@ -334,13 +334,13 @@ export default function ProjectPage() {
                             href={dependency.href}
                             target="_blank"
                             rel="noreferrer noopener"
-                            class="group flex flex-col gap-3 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] p-5 transition-colors hover:border-[var(--otfw-accent)]/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
+                            class="group flex flex-col gap-3 rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)] p-5 transition-colors hover:border-[var(--afw-accent)]/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)]"
                           >
-                            <h4 class="font-bold text-[var(--otfw-text)] group-hover:text-[var(--accent-text)] transition-colors">
+                            <h4 class="font-bold text-[var(--afw-text)] group-hover:text-[var(--accent-text)] transition-colors">
                               {dependency.name}
                             </h4>
                             {dependency.description ? (
-                              <p class="text-sm leading-relaxed text-[var(--otfw-text-muted)]">
+                              <p class="text-sm leading-relaxed text-[var(--afw-text-muted)]">
                                 {dependency.description}
                               </p>
                             ) : null}
@@ -359,7 +359,7 @@ export default function ProjectPage() {
           </div>
         ) : (
           <section class="px-6 py-32 text-center space-y-5">
-            <h1 class="text-2xl font-bold text-[var(--otfw-text)]">
+            <h1 class="text-2xl font-bold text-[var(--afw-text)]">
               Project not found
             </h1>
             <Link

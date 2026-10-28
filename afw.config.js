@@ -1,6 +1,6 @@
-import { defineDocsConfig } from "@opentf/web-docs/config";
+import { defineDocsConfig } from "@opentf/afw-docs/config";
 
-// The org site is not a docs site — but it reuses the @opentf/web-docs shell for the
+// The org site is not a docs site — but it reuses the @opentf/afw-docs shell for the
 // navbar (brand, active-route underline, GitHub icon, theme toggle) and footer, so the
 // foundation's site and the framework's own site share one visual language.
 export default defineDocsConfig({
@@ -20,7 +20,7 @@ export default defineDocsConfig({
   },
 
   // Blog generator: posts live under app/blog/<slug>/page.mdx. The toolchain reads each
-  // post's frontmatter into `@opentf/web-docs/posts` for the index and the banners, and
+  // post's frontmatter into `@opentf/afw-docs/posts` for the index and the banners, and
   // emits /blog/rss.xml and /blog/atom.xml at build time (which is why site.url above
   // is required).
   blog: {

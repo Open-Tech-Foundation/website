@@ -1,4 +1,4 @@
-import { Link } from "@opentf/web";
+import { Link } from "@opentf/afw";
 import Icon from "./Icon.jsx";
 import { DOC_STATUS } from "../data/projects.js";
 
@@ -12,15 +12,15 @@ export default function DocIndexSection(props) {
 
   return (
     <div class="w-full">
-      <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
+      <section class="hero-glow px-6 border-b border-[var(--afw-border)]">
         <div class="max-w-3xl mx-auto py-20 text-center space-y-5">
           <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
             {division.name} · {kind.label}
           </p>
-          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
+          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--afw-text)]">
             {division.name} {kind.heading}
           </h1>
-          <p class="text-lg text-[var(--otfw-text-muted)] leading-relaxed">
+          <p class="text-lg text-[var(--afw-text-muted)] leading-relaxed">
 {kind.blurb}
           </p>
         </div>
@@ -29,14 +29,14 @@ export default function DocIndexSection(props) {
       <section class="px-6 py-16">
         <div class="max-w-3xl mx-auto space-y-4">
           {items.map((p) => (
-            <div key={p.id} class="relative group p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] transition-colors hover:border-[var(--otfw-accent)]/40 focus-within:border-[var(--otfw-accent)]/40 focus-within:ring-2 focus-within:ring-[var(--otfw-accent)]/20">
+            <div key={p.id} class="relative group p-6 rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)] transition-colors hover:border-[var(--afw-accent)]/40 focus-within:border-[var(--afw-accent)]/40 focus-within:ring-2 focus-within:ring-[var(--afw-accent)]/20">
               <div class="flex items-start justify-between gap-4">
                 <div class="space-y-2">
-                  <p class="font-mono text-xs text-[var(--otfw-text-muted)]">
+                  <p class="font-mono text-xs text-[var(--afw-text-muted)]">
                     {kind.itemLabel} {p.id}
                   </p>
 
-                  <h2 class="text-lg font-bold text-[var(--otfw-text)]">
+                  <h2 class="text-lg font-bold text-[var(--afw-text)]">
                     {/* Reading the document is the point, so the card leads to the
                         document rendered on this site. The overlay makes the whole
                         card that link, and the repository stays reachable via Source. */}
@@ -56,7 +56,7 @@ export default function DocIndexSection(props) {
                 </span>
               </div>
 
-              <p class="mt-3 text-sm text-[var(--otfw-text-muted)] leading-relaxed">
+              <p class="mt-3 text-sm text-[var(--afw-text-muted)] leading-relaxed">
                 {p.summary}
               </p>
 
@@ -71,7 +71,7 @@ export default function DocIndexSection(props) {
                   href={p.href}
                   target="_blank"
                   rel="noreferrer noopener"
-                  class="relative z-10 inline-flex items-center gap-1.5 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
+                  class="relative z-10 inline-flex items-center gap-1.5 font-semibold text-[var(--afw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded transition-colors"
                 >
                   <Icon name="github" size={14} />
                   Source
@@ -79,18 +79,18 @@ export default function DocIndexSection(props) {
                 </a>
 
                 {p.license ? (
-                  <span class="ml-auto text-[var(--otfw-text-muted)]">{p.license}</span>
+                  <span class="ml-auto text-[var(--afw-text-muted)]">{p.license}</span>
                 ) : null}
               </div>
             </div>
           ))}
 
           {items.length === 0 ? (
-            <div class="p-10 rounded-2xl border border-dashed border-[var(--otfw-border)] text-center space-y-3">
-              <h2 class="font-bold text-[var(--otfw-text)]">
+            <div class="p-10 rounded-2xl border border-dashed border-[var(--afw-border)] text-center space-y-3">
+              <h2 class="font-bold text-[var(--afw-text)]">
                 No {division.name.toLowerCase()} {kind.plural} yet
               </h2>
-              <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed max-w-md mx-auto">
+              <p class="text-sm text-[var(--afw-text-muted)] leading-relaxed max-w-md mx-auto">
 {kind.emptyBody}
               </p>
             </div>
@@ -101,7 +101,7 @@ export default function DocIndexSection(props) {
               href={kind.repo}
               target="_blank"
               rel="noreferrer noopener"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)]"
             >
               <Icon name="github" size={16} />
               {kind.submitCta}
@@ -109,7 +109,7 @@ export default function DocIndexSection(props) {
             </a>
             <Link
               href="/projects"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold border border-[var(--otfw-border)] text-[var(--otfw-text)] hover:border-[var(--otfw-accent)] transition-colors"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold border border-[var(--afw-border)] text-[var(--afw-text)] hover:border-[var(--afw-accent)] transition-colors"
             >
               Back to projects
             </Link>

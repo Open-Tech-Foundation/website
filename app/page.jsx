@@ -1,4 +1,4 @@
-import { Link } from "@opentf/web";
+import { Link } from "@opentf/afw";
 import Icon from "./components/Icon.jsx";
 import PrincipleCard from "./components/PrincipleCard.jsx";
 import ProjectCard from "./components/ProjectCard.jsx";
@@ -22,7 +22,7 @@ export const metadata = {
 };
 
 const BTN_GHOST =
-  "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold border border-[var(--otfw-border)] text-[var(--otfw-text)] hover:border-[var(--otfw-accent)] transition-colors";
+  "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold border border-[var(--afw-border)] text-[var(--afw-text)] hover:border-[var(--afw-accent)] transition-colors";
 
 // The hero's at-a-glance table — one metric row per kind, counted per division.
 // Rows are rendered inline within <tbody>: a component rooted at <tr> cannot be
@@ -57,29 +57,29 @@ export default function HomePage() {
               Advocacy • Collaboration • Open Innovation
             </p>
 
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-[1.08] text-[var(--otfw-text)]">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-[1.08] text-[var(--afw-text)]">
               Open Technology for{" "}
               <span class="text-[var(--accent-text)]">Everyone</span>.
             </h1>
 
-            <p class="text-lg md:text-xl text-[var(--otfw-text-muted)] leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p class="text-lg md:text-xl text-[var(--afw-text-muted)] leading-relaxed max-w-2xl mx-auto lg:mx-0">
               We are a community-driven, non-profit initiative advancing open technologies — including open source, open data, and open standards — for everyone, from the general public to enterprises.
             </p>
           </div>
 
           {/* At-a-glance: everything the foundation publishes, counted per division. */}
-          <div class="rounded-2xl border border-[var(--otfw-border)] bg-white dark:bg-[var(--otfw-bg-elevated)] p-6 w-full max-w-sm mx-auto lg:ml-auto lg:mr-0">
+          <div class="rounded-2xl border border-[var(--afw-border)] bg-white dark:bg-[var(--afw-bg-elevated)] p-6 w-full max-w-sm mx-auto lg:ml-auto lg:mr-0">
             <h2 class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
               At a glance
             </h2>
             <table class="w-full mt-4 text-left" aria-label="At a glance: project counts by division">
               <thead>
-                <tr class="text-[10px] uppercase tracking-wider text-[var(--otfw-text-muted)]">
+                <tr class="text-[10px] uppercase tracking-wider text-[var(--afw-text-muted)]">
                   <th class="py-2 font-semibold" scope="col">Metric</th>
                   {divisions.map((d) => (
                     <th
                       key={d.id}
-                      class="py-2 font-bold text-right text-[var(--otfw-text)]"
+                      class="py-2 font-bold text-right text-[var(--afw-text)]"
                       scope="col"
                     >
                       <span class="inline-flex items-center justify-end gap-1.5">
@@ -92,9 +92,9 @@ export default function HomePage() {
               </thead>
               <tbody class="text-sm">
                 {GLANCE_ROWS.map((row) => (
-                  <tr key={row.label} class="border-t border-[var(--otfw-border)]">
+                  <tr key={row.label} class="border-t border-[var(--afw-border)]">
                     <th
-                      class="py-2.5 font-semibold text-[var(--otfw-text-muted)]"
+                      class="py-2.5 font-semibold text-[var(--afw-text-muted)]"
                       scope="row"
                     >
                       {row.label}
@@ -124,7 +124,7 @@ export default function HomePage() {
       </section>
 
       {/* Mission / principles */}
-      <section class="px-6 py-20 border-t border-[var(--otfw-border)]">
+      <section class="px-6 py-20 border-t border-[var(--afw-border)]">
         <div class="max-w-6xl mx-auto space-y-12">
           <SectionHeading title="Our mission" />
 
@@ -137,7 +137,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured projects */}
-      <section class="px-6 py-20 border-t border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
+      <section class="px-6 py-20 border-t border-[var(--afw-border)] bg-[var(--afw-bg-surface)]">
         <div class="max-w-6xl mx-auto space-y-12">
           <SectionHeading eyebrow="What we build" title="Featured projects ✨" />
 

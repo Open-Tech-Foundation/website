@@ -7,11 +7,11 @@ export default function SectionHeading(props) {
           {props.eyebrow}
         </p>
       ) : null}
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[var(--otfw-text)]">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[var(--afw-text)]">
         {props.title}
       </h2>
       {props.lead ? (
-        <p class="text-[var(--otfw-text-muted)] leading-relaxed">{props.lead}</p>
+        <p class="text-[var(--afw-text-muted)] leading-relaxed">{props.lead}</p>
       ) : null}
     </div>
   );

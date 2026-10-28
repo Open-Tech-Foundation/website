@@ -1,4 +1,4 @@
-import { Link } from "@opentf/web";
+import { Link } from "@opentf/afw";
 import Icon from "./Icon.jsx";
 
 // A lead card in a division: a label, a count, and nothing else — the documents
@@ -12,10 +12,10 @@ export default function CountCard(props) {
     <Link
       href={props.href}
       aria-label={`${count} ${count === 1 ? props.noun : props.nounPlural} — ${isEmpty ? props.emptyCta : props.cta}`}
-      class={`group w-full h-full flex flex-col justify-between gap-4 p-6 rounded-2xl border border-dashed bg-white dark:bg-[var(--otfw-bg-elevated)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] ${isEmpty ? "border-[var(--otfw-border)] hover:border-[var(--otfw-border)] opacity-80" : "border-[var(--otfw-border)] hover:border-[var(--otfw-accent)]"}`}
+      class={`group w-full h-full flex flex-col justify-between gap-4 p-6 rounded-2xl border border-dashed bg-white dark:bg-[var(--afw-bg-elevated)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] ${isEmpty ? "border-[var(--afw-border)] hover:border-[var(--afw-border)] opacity-80" : "border-[var(--afw-border)] hover:border-[var(--afw-accent)]"}`}
     >
       <div class="flex items-start justify-between gap-3">
-        <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--otfw-accent-soft)] text-[var(--accent-text)]">
+        <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--afw-accent-soft)] text-[var(--accent-text)]">
           <Icon name={props.icon} size={20} />
         </span>
         <span class="text-[10px] font-bold uppercase tracking-wider text-[var(--accent-text)]">
@@ -27,7 +27,7 @@ export default function CountCard(props) {
         <p class="text-5xl font-black tracking-tight text-[var(--accent-text)] leading-none">
           {count}
         </p>
-        <p class="mt-2 text-sm text-[var(--otfw-text-muted)]">
+        <p class="mt-2 text-sm text-[var(--afw-text-muted)]">
           {count === 1 ? props.noun : props.nounPlural}
         </p>
       </div>

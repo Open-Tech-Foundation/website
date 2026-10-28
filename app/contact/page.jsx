@@ -28,12 +28,12 @@ const CHANNELS = [
 export default function ContactPage() {
   return (
     <div class="w-full flex-1 flex flex-col">
-      <section class="hero-glow px-6 border-b border-[var(--otfw-border)]">
+      <section class="hero-glow px-6 border-b border-[var(--afw-border)]">
         <div class="max-w-3xl mx-auto py-20 text-center space-y-5">
-          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--otfw-text)]">
+          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--afw-text)]">
             Contact
           </h1>
-          <p class="text-lg text-[var(--otfw-text-muted)] leading-relaxed">
+          <p class="text-lg text-[var(--afw-text-muted)] leading-relaxed">
             We are a distributed, volunteer-run foundation — email is the front
             door.
           </p>
@@ -43,28 +43,28 @@ export default function ContactPage() {
       <section class="px-6 py-16">
         <div class="max-w-3xl mx-auto grid gap-4 sm:grid-cols-2">
           {CHANNELS.map((c) => (
-            <div key={c.email} class="h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)]">
-              <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--otfw-accent-soft)] text-[var(--accent-text)]">
+            <div key={c.email} class="h-full flex flex-col gap-3 p-6 rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)]">
+              <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--afw-accent-soft)] text-[var(--accent-text)]">
                 <Icon name={c.icon} size={20} />
               </span>
 
-              <h2 class="text-base font-bold text-[var(--otfw-text)]">
+              <h2 class="text-base font-bold text-[var(--afw-text)]">
                 {c.title}
               </h2>
 
-              <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed">
+              <p class="text-sm text-[var(--afw-text-muted)] leading-relaxed">
                 {c.body}
               </p>
 
               <a
                 href={`mailto:${c.email}`}
-                class="font-semibold text-[var(--accent-text)] hover:underline break-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded"
+                class="font-semibold text-[var(--accent-text)] hover:underline break-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded"
               >
                 {c.email}
               </a>
 
               {c.note ? (
-                <p class="text-xs text-[var(--otfw-text-muted)] leading-relaxed border-t border-[var(--otfw-border)] pt-3 mt-auto">
+                <p class="text-xs text-[var(--afw-text-muted)] leading-relaxed border-t border-[var(--afw-border)] pt-3 mt-auto">
                   {c.note}
                 </p>
               ) : null}
@@ -75,7 +75,7 @@ export default function ContactPage() {
 
       {/* `mt-auto` drops the location to the foot of the content area, just above the
           footer, however tall the page happens to be. */}
-      <div class="mt-auto px-6 pb-12 flex items-center justify-center gap-2 text-lg text-[var(--otfw-text-muted)]">
+      <div class="mt-auto px-6 pb-12 flex items-center justify-center gap-2 text-lg text-[var(--afw-text-muted)]">
         <Icon name="pin" size={20} />
         Chennai
       </div>

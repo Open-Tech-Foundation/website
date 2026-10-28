@@ -1,8 +1,8 @@
-import { Link } from "@opentf/web";
-import { Navbar } from "@opentf/web-docs";
+import { Link } from "@opentf/afw";
+import { Navbar } from "@opentf/afw-docs";
 import Icon from "./components/Icon.jsx";
 import MobileNav from "./components/MobileNav.jsx";
-import config from "../otfw.config.js";
+import config from "../afw.config.js";
 
 const GITHUB = "https://github.com/Open-Tech-Foundation";
 const YEAR = new Date().getFullYear();
@@ -69,7 +69,7 @@ export const metadata = {
 
 export default function RootLayout(props) {
   return (
-    <div class="min-h-screen flex flex-col bg-[var(--otfw-bg)] text-[var(--otfw-text)]">
+    <div class="min-h-screen flex flex-col bg-[var(--afw-bg)] text-[var(--afw-text)]">
       <a href="#main" class="skip-link">
         Skip to content
       </a>
@@ -141,12 +141,12 @@ export default function RootLayout(props) {
             <span>
               Built with{" "}
               <a
-                href="https://web.opentechf.org"
+                href="https://afw.opentechf.org"
                 target="_blank"
                 rel="noreferrer noopener"
                 class="font-semibold text-[var(--footer-accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--footer-accent)] rounded"
               >
-                OTF Web
+                AFW
                 <span class="sr-only">(opens in new tab)</span>
               </a>
               {" "}· No trackers, no analytics.

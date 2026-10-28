@@ -1,7 +1,8 @@
 {
   "name": "website",
-  "version": "0.0.0",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "description": "Advocacy • Collaboration • Open Innovation",
   "homepage": "https://opentechf.org/",
   "repository": {
@@ -11,21 +12,21 @@
   "bugs": {
     "url": "https://github.com/Open-Tech-Foundation/website/issues"
   },
-  "type": "module",
   "scripts": {
-    "dev": "otfw dev",
-    "build": "otfw build --ssg",
+    "dev": "esdev start",
+    "build": "esdev build --minify",
     "preview": "pnpm run build && wrangler dev",
     "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
-    "@opentf/web": "^0.28.0",
-    "@opentf/web-docs": "^0.26.0",
-    "marked": "^18.0.13"
+    "@opentf/afw": "^0.32.0",
+    "@opentf/afw-docs": "^0.30.0",
+    "marked": "^18.0.13",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@opentf/web-cli": "^1.26.0",
-    "tailwindcss": "4.3.3",
-    "wrangler": "^4.125.0"
+    "@opentf/afw-cli": "^1.30.0",
+    "@opentf/esdev-plugin-afw": "^0.4.0",
+    "wrangler": "^4.147.0"
   }
 }

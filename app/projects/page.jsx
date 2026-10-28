@@ -28,11 +28,11 @@ export default function ProjectsPage() {
       </div>
 
       <section class="w-full px-6 pb-16 xl:pl-[18rem]" aria-label="Project status guide">
-        <div class="border-t border-[var(--otfw-border)] pt-8">
+        <div class="border-t border-[var(--afw-border)] pt-8">
           <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
             Status guide
           </p>
-          <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 text-xs text-[var(--otfw-text-muted)]">
+          <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 text-xs text-[var(--afw-text-muted)]">
             {STATUS_ORDER.map((key) => (
               <li key={key} class="space-y-2">
                 <span

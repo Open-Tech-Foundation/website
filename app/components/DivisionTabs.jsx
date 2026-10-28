@@ -1,4 +1,4 @@
-import { Link, onMount } from "@opentf/web";
+import { Link, onMount } from "@opentf/afw";
 import Icon from "./Icon.jsx";
 import ProjectCard from "./ProjectCard.jsx";
 import {
@@ -28,21 +28,21 @@ function FilterPanel(props) {
     <div class="space-y-6">
       <div class="flex items-center justify-between gap-3">
         <div>
-          <p class="text-sm font-bold text-[var(--otfw-text)]">Filter</p>
-          <p class="mt-1 text-xs text-[var(--otfw-text-muted)]">Narrow the list.</p>
+          <p class="text-sm font-bold text-[var(--afw-text)]">Filter</p>
+          <p class="mt-1 text-xs text-[var(--afw-text-muted)]">Narrow the list.</p>
         </div>
         <button
           type="button"
           onclick={() => props.onClear()}
           disabled={!props.hasActiveFilters}
-          class="shrink-0 text-xs font-semibold text-[var(--accent-text)] disabled:opacity-40 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded"
+          class="shrink-0 text-xs font-semibold text-[var(--accent-text)] disabled:opacity-40 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded"
         >
           Clear
         </button>
       </div>
 
       <div class="space-y-2">
-        <label for={`f-search-${props.idPrefix}`} class="text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--otfw-text-muted)]">
+        <label for={`f-search-${props.idPrefix}`} class="text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--afw-text-muted)]">
           Search
         </label>
         <input
@@ -52,26 +52,26 @@ function FilterPanel(props) {
           placeholder="Search"
           aria-label="Search"
           oninput={(e) => props.onSearch(e)}
-          class="w-full px-3 py-2 rounded-lg border border-[var(--otfw-border)] bg-[var(--otfw-bg)] text-sm text-[var(--otfw-text)] placeholder:text-[var(--otfw-text-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)]"
+          class="w-full px-3 py-2 rounded-lg border border-[var(--afw-border)] bg-[var(--afw-bg)] text-sm text-[var(--afw-text)] placeholder:text-[var(--afw-text-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)]"
         />
       </div>
 
       {props.sections.map((section) => (
         <fieldset key={section.key} class="space-y-3">
-          <legend class="text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--otfw-text-muted)]">
+          <legend class="text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--afw-text-muted)]">
             {section.label}
           </legend>
           <div class="space-y-2.5">
             {section.options.map((option) => {
               const inputId = `f-${props.idPrefix}-${section.key}-${option.value}`;
               return (
-                <label key={option.value} for={inputId} class="flex items-center gap-2.5 text-sm text-[var(--otfw-text)] cursor-pointer">
+                <label key={option.value} for={inputId} class="flex items-center gap-2.5 text-sm text-[var(--afw-text)] cursor-pointer">
                   <input
                     id={inputId}
                     type="checkbox"
                     checked={props.filters[section.key]?.includes(option.value)}
                     onchange={() => props.onToggle(section.key, option.value)}
-                    class="size-4 accent-[var(--otfw-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] focus-visible:ring-offset-2"
+                    class="size-4 accent-[var(--afw-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] focus-visible:ring-offset-2"
                   />
                   <span>{option.label}</span>
                 </label>
@@ -89,9 +89,9 @@ function DocCard(props) {
   const kind = props.kind;
 
   return (
-    <div class="relative group p-4 rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] transition-colors hover:border-[var(--otfw-accent)]/40 focus-within:border-[var(--otfw-accent)]/40 focus-within:ring-2 focus-within:ring-[var(--otfw-accent)]/20">
+    <div class="relative group p-4 rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)] transition-colors hover:border-[var(--afw-accent)]/40 focus-within:border-[var(--afw-accent)]/40 focus-within:ring-2 focus-within:ring-[var(--afw-accent)]/20">
       <div class="flex items-start justify-between gap-2">
-        <p class="font-mono text-[10px] text-[var(--otfw-text-muted)]">
+        <p class="font-mono text-[10px] text-[var(--afw-text-muted)]">
           {kind.itemLabel} {p.id}
         </p>
         <span
@@ -102,7 +102,7 @@ function DocCard(props) {
         </span>
       </div>
 
-      <h3 class="mt-1.5 text-sm font-bold text-[var(--otfw-text)] leading-snug">
+      <h3 class="mt-1.5 text-sm font-bold text-[var(--afw-text)] leading-snug">
         <Link
           href={`${kind.route}/${p.division}/${p.id}`}
           class="card-link group-hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:text-[var(--accent-text)] transition-colors"
@@ -111,7 +111,7 @@ function DocCard(props) {
         </Link>
       </h3>
 
-      <p class="mt-1.5 text-xs text-[var(--otfw-text-muted)] leading-relaxed line-clamp-2">
+      <p class="mt-1.5 text-xs text-[var(--afw-text-muted)] leading-relaxed line-clamp-2">
         {p.summary}
       </p>
 
@@ -125,7 +125,7 @@ function DocCard(props) {
           href={p.href}
           target="_blank"
           rel="noreferrer noopener"
-          class="relative z-10 inline-flex items-center gap-1 font-semibold text-[var(--otfw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] rounded transition-colors"
+          class="relative z-10 inline-flex items-center gap-1 font-semibold text-[var(--afw-text-muted)] hover:text-[var(--accent-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] rounded transition-colors"
         >
           <Icon name="github" size={11} />
           Source
@@ -286,7 +286,7 @@ export default function DivisionTabs(props) {
           <div
             onwheel={scrollFilter}
             style={`bottom: ${filterBottom}px;`}
-            class="fixed left-6 top-24 z-20 w-56 overflow-y-auto overscroll-contain rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] p-5 shadow-sm"
+            class="fixed left-6 top-24 z-20 w-56 overflow-y-auto overscroll-contain rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)] p-5 shadow-sm"
           >
             <FilterPanel
               idPrefix="desktop"
@@ -303,8 +303,8 @@ export default function DivisionTabs(props) {
       ) : null}
 
       {props.grouped ? (
-        <details class="xl:hidden rounded-2xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] p-5">
-          <summary class="cursor-pointer text-sm font-bold text-[var(--otfw-text)]">
+        <details class="xl:hidden rounded-2xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)] p-5">
+          <summary class="cursor-pointer text-sm font-bold text-[var(--afw-text)]">
             Filter
           </summary>
           <div
@@ -333,7 +333,7 @@ export default function DivisionTabs(props) {
             <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--accent-text)]">
               What we build
             </p>
-            <h1 class="text-3xl md:text-4xl font-black tracking-tight text-[var(--otfw-text)]">
+            <h1 class="text-3xl md:text-4xl font-black tracking-tight text-[var(--afw-text)]">
               Projects
             </h1>
           </div>
@@ -355,8 +355,8 @@ export default function DivisionTabs(props) {
                 onkeydown={(e) => onKeyDown(e, i)}
                 class={
                   active === i
-                    ? "px-5 py-2 rounded-full border border-[var(--otfw-accent)] bg-[var(--otfw-accent-soft)] text-[var(--accent-text)] text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] focus-visible:ring-offset-2"
-                    : "px-5 py-2 rounded-full border border-[var(--otfw-border)] text-[var(--otfw-text-muted)] text-sm font-bold hover:border-[var(--otfw-accent)]/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] focus-visible:ring-offset-2"
+                    ? "px-5 py-2 rounded-full border border-[var(--afw-accent)] bg-[var(--afw-accent-soft)] text-[var(--accent-text)] text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] focus-visible:ring-offset-2"
+                    : "px-5 py-2 rounded-full border border-[var(--afw-border)] text-[var(--afw-text-muted)] text-sm font-bold hover:border-[var(--afw-accent)]/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] focus-visible:ring-offset-2"
                 }
                 onclick={() => { active = i; contentTab = "projects"; }}
               >
@@ -386,8 +386,8 @@ export default function DivisionTabs(props) {
               onkeydown={(e) => onKeyDown(e, i)}
               class={
                 active === i
-                  ? "px-5 py-2 rounded-full border border-[var(--otfw-accent)] bg-[var(--otfw-accent-soft)] text-[var(--accent-text)] text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] focus-visible:ring-offset-2"
-                  : "px-5 py-2 rounded-full border border-[var(--otfw-border)] text-[var(--otfw-text-muted)] text-sm font-bold hover:border-[var(--otfw-accent)]/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--otfw-accent)] focus-visible:ring-offset-2"
+                  ? "px-5 py-2 rounded-full border border-[var(--afw-accent)] bg-[var(--afw-accent-soft)] text-[var(--accent-text)] text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] focus-visible:ring-offset-2"
+                  : "px-5 py-2 rounded-full border border-[var(--afw-border)] text-[var(--afw-text-muted)] text-sm font-bold hover:border-[var(--afw-accent)]/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--afw-accent)] focus-visible:ring-offset-2"
               }
               onclick={() => { active = i; contentTab = "projects"; }}
             >
@@ -415,15 +415,15 @@ export default function DivisionTabs(props) {
           >
             {/* Content tabs — the project index only; the home page lists featured projects flat */}
             {props.grouped ? (
-              <div class="flex gap-1.5 p-1 mx-auto rounded-xl border border-[var(--otfw-border)] bg-[var(--otfw-bg-surface)] w-fit">
+              <div class="flex gap-1.5 p-1 mx-auto rounded-xl border border-[var(--afw-border)] bg-[var(--afw-bg-surface)] w-fit">
                 <button
                   type="button"
                   aria-pressed={contentTab === "projects"}
                   onclick={() => (contentTab = "projects")}
                   class={
                     contentTab === "projects"
-                      ? "px-4 py-1.5 rounded-lg text-xs font-bold bg-[var(--otfw-accent-soft)] text-[var(--accent-text)] transition-colors"
-                      : "px-4 py-1.5 rounded-lg text-xs font-bold text-[var(--otfw-text-muted)] hover:text-[var(--otfw-text)] transition-colors"
+                      ? "px-4 py-1.5 rounded-lg text-xs font-bold bg-[var(--afw-accent-soft)] text-[var(--accent-text)] transition-colors"
+                      : "px-4 py-1.5 rounded-lg text-xs font-bold text-[var(--afw-text-muted)] hover:text-[var(--afw-text)] transition-colors"
                   }
                 >
                   Projects <span class="ml-1 text-xs font-semibold opacity-70">({g.items.length})</span>
@@ -436,8 +436,8 @@ export default function DivisionTabs(props) {
                     onclick={() => (contentTab = kind.id)}
                     class={
                       contentTab === kind.id
-                        ? "px-4 py-1.5 rounded-lg text-xs font-bold bg-[var(--otfw-accent-soft)] text-[var(--accent-text)] transition-colors"
-                        : "px-4 py-1.5 rounded-lg text-xs font-bold text-[var(--otfw-text-muted)] hover:text-[var(--otfw-text)] transition-colors"
+                        ? "px-4 py-1.5 rounded-lg text-xs font-bold bg-[var(--afw-accent-soft)] text-[var(--accent-text)] transition-colors"
+                        : "px-4 py-1.5 rounded-lg text-xs font-bold text-[var(--afw-text-muted)] hover:text-[var(--afw-text)] transition-colors"
                     }
                   >
                     {kind.label} <span class="ml-1 text-xs font-semibold opacity-70">({docCount(kind.id, did)})</span>
@@ -453,10 +453,10 @@ export default function DivisionTabs(props) {
                   ? categorySectionsFor(did).map((c) => (
                       <section key={c.id} id={c.id} class="my-8 space-y-6 scroll-mt-24" aria-labelledby={`${c.id}-heading`}>
                         <div class="space-y-1.5">
-                          <h2 id={`${c.id}-heading`} class="text-2xl font-bold tracking-tight text-[var(--otfw-text)]">
+                          <h2 id={`${c.id}-heading`} class="text-2xl font-bold tracking-tight text-[var(--afw-text)]">
                             {c.name}
                           </h2>
-                          <p class="text-sm text-[var(--otfw-text-muted)]">{c.blurb}</p>
+                          <p class="text-sm text-[var(--afw-text-muted)]">{c.blurb}</p>
                         </div>
                         <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
                           {c.items.map((p, idx) => (
@@ -474,13 +474,13 @@ export default function DivisionTabs(props) {
                   )}
 
                 {props.grouped && projectMatchCount(g) === 0 && categorySectionsFor(did).length === 0 && g.items.length > 0 && hasActiveFilters() ? (
-                  <p class="text-center text-sm text-[var(--otfw-text-muted)] py-4">
+                  <p class="text-center text-sm text-[var(--afw-text-muted)] py-4">
                     No projects match your filters.
                   </p>
                 ) : null}
 
                 {g.items.length === 0 && categorySectionsFor(did).length === 0 ? (
-                  <p class="text-center text-sm text-[var(--otfw-text-muted)] py-4">
+                  <p class="text-center text-sm text-[var(--afw-text-muted)] py-4">
                     No {g.division.name.toLowerCase()} repositories yet — this division starts
                     as proposals, and becomes code once a proposal finds enough support to build.
                   </p>
@@ -502,17 +502,17 @@ export default function DivisionTabs(props) {
                 </div>
 
                 {docItemsFor(did).length === 0 && hasActiveFilters() ? (
-                  <p class="text-center text-sm text-[var(--otfw-text-muted)] py-4">
+                  <p class="text-center text-sm text-[var(--afw-text-muted)] py-4">
                     No {contentTab === "proposals" ? "proposals" : "specifications"} match your filters.
                   </p>
                 ) : null}
 
                 {docItemsFor(did).length === 0 && !hasActiveFilters() ? (
-                  <div class="p-10 rounded-2xl border border-dashed border-[var(--otfw-border)] text-center space-y-3">
-                    <h3 class="font-bold text-[var(--otfw-text)]">
+                  <div class="p-10 rounded-2xl border border-dashed border-[var(--afw-border)] text-center space-y-3">
+                    <h3 class="font-bold text-[var(--afw-text)]">
                       No {g.division.name.toLowerCase()} {contentTab === "proposals" ? "proposals" : "specifications"} yet
                     </h3>
-                    <p class="text-sm text-[var(--otfw-text-muted)] leading-relaxed max-w-md mx-auto">
+                    <p class="text-sm text-[var(--afw-text-muted)] leading-relaxed max-w-md mx-auto">
                       {DOC_KIND_LIST.find((k) => k.id === contentTab)?.emptyBody}
                     </p>
                   </div>
