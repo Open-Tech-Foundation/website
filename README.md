@@ -50,6 +50,7 @@ afw.config.js         site URL, navbar links, brand
 esdev.json            build config: @opentf/esdev-plugin-afw + the SSG site target
 entry.js              client bootstrap (mountApp)
 index.html            app shell + the no-flash theme bootstrap
+scripts/build-site.sh Cloudflare Workers Builds entry (see Deploy)
 public/img/banners/   one SVG per project, drawn to show what that project does
 ```
 
@@ -116,14 +117,25 @@ Outputs to `dist/` — one pre-rendered `.html` per route, plus `sitemap.xml`,
 
 ## Deploy
 
-```bash
-pnpm deploy
-```
+Production deploys run through **Cloudflare Workers Builds** (git-connected), using
+`scripts/build-site.sh` — the same pattern as the [ES-Runtime](https://github.com/Open-Tech-Foundation/ES-Runtime)
+and [AFW](https://github.com/Open-Tech-Foundation/AFW) sites:
 
-**Cloudflare settings:**
-- Build command: `pnpm run build`
-- Deploy command: `wrangler deploy`
-- Output directory: `dist`
+- **Root directory:** (repository root)
+- **Build command:** `bash scripts/build-site.sh`
+- **Deploy command:** `npx wrangler deploy`
+- **Variables:** `SKIP_DEPENDENCY_INSTALL=1` (the script installs), plus the Cloudflare
+  API token Workers Builds provides automatically
+
+The script fetches full git history when the clone is shallow (so "Last updated" dates
+and `sitemap.xml`'s `<lastmod>` come from real commit history), pins pnpm from
+`packageManager`, and runs `pnpm install --frozen-lockfile` before the build.
+
+Local one-shot deploy (requires `npx wrangler login` or `CLOUDFLARE_API_TOKEN`):
+
+```bash
+pnpm deploy    # pnpm run build && wrangler deploy
+```
 
 ## Preview production build
 
