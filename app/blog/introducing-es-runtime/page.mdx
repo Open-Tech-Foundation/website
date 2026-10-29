@@ -50,35 +50,24 @@ This server may accept connections, and that is all. It cannot read a file, make
 
 ## Security model
 
-Security is the central design constraint of ES Runtime, not a feature added on top. The model rests on four ideas.
+Security is the central design constraint of ES Runtime, not a feature added on top. In short:
 
-### 1. Deny by default, enforced at the operation
-
-A run can reach only what its command line names. There are eleven capabilities: `read`, `write`, `imports`, `net`, `listen`, `env`, `run`, `signals`, `workers`, `diagnostics` and `diagnostics-detail`. Most of them can be narrowed to a list, such as specific paths or hosts.
-
-Enforcement happens at the operation boundary between the V8 isolate and the host, not at import time. Every file, network, environment and subprocess operation passes through the same gate, so a transitive dependency cannot gain access by loading a different module or taking a different code path.
-
-### 2. The deploy line is the policy
-
-The command line is the complete statement of what a service may do:
+- **Deny by default.** A run can reach only what its command line grants, across eleven capabilities such as `read`, `write`, `net` and `env`. Checks happen at every host operation, not at import time, so a transitive dependency cannot route around them.
+- **A filesystem root jail with no escape switch.** Every file and module path is confined to the working directory, symlinks and `..` included. No flag turns the jail off, and guest code can never widen it.
+- **Explicit read-only access.** Read and write are separate grants, and `--allow-read` never makes a path writable.
+- **The deploy line is the policy.** The command line is the complete statement of what a service may do, with no separate policy file to drift out of sync.
+- **A small production surface.** `esrun` has no watcher, debugger port or transform step. FFI, native addons, remote imports and runtime CommonJS are left out on purpose.
 
 ```sh
-esrun --allow-net --allow-read --allow-listen app.js
+esrun --allow-listen=443 \
+      --allow-read=/etc/letsencrypt/live/example.com \
+      --allow-write=./logs \
+      server.js
 ```
 
-Reviewers, auditors and CI pipelines can read that line and know the service's reach. There is no separate policy file to drift out of sync with what is deployed.
+This service may accept connections on port 443, read its TLS certificates, and write only to `./logs`.
 
-### 3. A small production surface
-
-`esrun` contains no file watcher, no debugger port, and no transform step. A capability flag is only as meaningful as the binary that enforces it, so everything that exists for developer convenience lives in `esdev` instead.
-
-### 4. Non-goals that remove attack surface
-
-ES Runtime deliberately does not support FFI, native addons, remote module imports, CommonJS at runtime, or `data:` worker URLs. Each is a common route around a permission boundary. Leaving them out keeps the guarantees simple to state and simple to verify.
-
-The same model covers state and observability. Durable workers persist to disk under the same `read` and `write` grants as the rest of the application, and diagnostic output sits behind the `diagnostics` capabilities.
-
-For the full model, including how to build a least-privilege deploy line, see the [security guide](https://esrun.opentechf.org/docs/guides/securing-runtime) and the [capabilities reference](https://esrun.opentechf.org/docs/guides/securing-runtime/capabilities).
+Read the full model, with its guarantees and its known limits, in the official [security guide](https://esrun.opentechf.org/docs/guides/securing-runtime).
 
 ## esdev: the development toolchain
 
@@ -94,6 +83,7 @@ The permission flags are the same in both binaries, with one deliberate differen
 | **Feedback loop** | [Watch mode](https://esrun.opentechf.org/esdev/watch) and hot module replacement |
 | **Extensibility** | A [plugin system](https://esrun.opentechf.org/esdev/plugins) |
 | **Debugging** | Debugger support for local development |
+| **Supply chain** | A [dependency policy](https://esrun.opentechf.org/docs/security/dependency-policy) that decides which packages a build may ship |
 | **Permissions** | [Permission tracing](https://esrun.opentechf.org/esdev/permissions), which prints the `esrun` line that grants exactly what a run used |
 
 Permission tracing connects the two binaries. Develop without flags, run `esdev --trace-permissions app.js` to see which capabilities the service actually used, then deploy with exactly that set on `esrun`. The [esdev documentation](https://esrun.opentechf.org/esdev) covers the details.
@@ -189,3 +179,5 @@ ES Runtime is an alpha release, so interfaces may change as we incorporate feedb
 4. Report issues and contribute on [GitHub](https://github.com/Open-Tech-Foundation/ES-Runtime).
 
 **Feedback of any kind is welcome.** Tell us where ES Runtime falls short, what you would need to adopt it, and where its guarantees do not hold up.
+
+Thanks for reading! 🙏
