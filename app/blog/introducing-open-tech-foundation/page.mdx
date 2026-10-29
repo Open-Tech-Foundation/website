@@ -1,0 +1,89 @@
+---
+title: Introducing Open Tech Foundation
+description: Why Open Tech Foundation exists, the seven constraints that guide our work, and how we build, release, govern, and fund open technology.
+date: 2026-10-29
+author: Thanga Ganapathy
+tags: Foundation, Announcement
+---
+
+import { Callout } from "@opentf/afw-docs";
+
+<Callout type="info" title="AI-assisted writing">
+  This post was written with the help of AI. The ideas, decisions, and final review are our own.
+</Callout>
+
+## Why Open Tech Foundation Exists
+
+Open Tech Foundation (OTF) builds open technology across software and hardware, for developers, enterprises, and the general public.
+
+We believe open technology needs more than an open license. How technology is designed, developed, released, maintained, and governed also matters. OTF exists to build technology under a defined set of constraints and to apply those constraints consistently across our projects.
+
+## Our Constraints
+
+Seven core constraints guide OTF:
+
+- **Accessibility** — Technology should be accessible and usable by as many people as possible.
+- **Interoperability** — Technology should work across systems without unnecessary platform or vendor dependence.
+- **Privacy** — Zero telemetry. No tracking, analytics beacons, or phoning home.
+- **Security** — Security must be considered throughout the design and development process.
+- **Transparency** — Technology, decisions, limitations, and development should be open and understandable.
+- **Sustainability** — Projects should remain practical to maintain and operate over the long term.
+- **Community Governance** — The Foundation is governed by individuals, not corporations.
+
+These constraints establish the baseline for our work. The following practices explain how we apply that thinking.
+
+## Technology for Everyone
+
+OTF is not limited to developer libraries or enterprise infrastructure. We also build technology intended for direct use by the general public.
+
+Projects such as [ACI](/projects/aci), our custom [Web Browser](/projects/web-browser), and [Office Docs Viewer](/projects/office-docs-viewer) reflect this broader scope. We want open technology to serve people directly, not only the developers and organizations building on top of it.
+
+## Correctness Over Chasing Performance
+
+We prioritize correctness and do not chase speed or benchmark numbers for their own sake.
+
+Performance improvements are welcome, but we do not treat being the fastest as an objective in itself. Our focus is on technology that behaves as intended and produces correct, reliable results.
+
+## Fewer External Dependencies
+
+We aim to minimize external project and package dependencies wherever practical.
+
+Every dependency expands the amount of code and maintenance we must trust. Dependencies can also introduce transitive risks and increase exposure to software supply-chain attacks.
+
+We therefore keep dependencies deliberate and limited, using external packages when they provide clear technical value rather than adding them by default.
+
+OTF also does not accept external projects for incubation. Keeping projects within our development and security expectations from the beginning helps us maintain a controlled project scope and minimize risks associated with externally originated codebases. This does not prevent outside contributors or companies from collaborating technically on OTF projects.
+
+## Human-Driven Releases
+
+OTF projects use Semantic Versioning (SemVer) where applicable, and releases are decided by humans.
+
+A commit, merge, or automated workflow does not automatically mean a new release should happen. A human decides when a project is ready and what the release represents. Automation can assist with repetitive tasks, but it does not make the release decision.
+
+This also helps ensure that changelogs communicate the actual intention of a release rather than simply listing changes mechanically.
+
+## Independence and Collaboration
+
+OTF membership and governance are for individuals, not corporations. Companies cannot hold Foundation membership, voting rights, or governance seats. People employed by companies can still participate as individuals.
+
+We remain open to technical collaboration with companies and enterprises through contributions, testing, interoperability work, and other constructive project work.
+
+However, commercial companies cannot sponsor individual OTF projects. General support for the Foundation is welcome, but financial support does not confer control over project roadmaps, releases, or technical decisions.
+
+## Funding Our Work
+
+Maintaining open technology requires resources. OTF can receive public donations and general support through GitHub Sponsors. We also allow selected advertising on our websites as a source of maintenance revenue.
+
+Advertising and sponsorship are different funding models. General support helps maintain the Foundation; it does not purchase control over individual projects.
+
+## Our Approach to AI
+
+OTF has a defined approach to the use of artificial intelligence in its projects and development process. The policy and the reasoning behind it deserve a dedicated explanation, which we will cover in a separate post.
+
+## Join Us
+
+Open technology benefits from people who use it, test it, question it, and help improve it.
+
+Visit our [Get Involved](/get-involved) page to learn about contributing and membership. You can also support the Foundation and its work.
+
+**Feedback of any kind is welcome.** Tell us what works, what does not, and what you think we should improve. We want OTF's technology and decisions to stand up to scrutiny.
