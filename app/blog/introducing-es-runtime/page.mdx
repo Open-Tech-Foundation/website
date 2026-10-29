@@ -1,0 +1,189 @@
+---
+title: "Introducing ES Runtime: a secure, standards-based server runtime"
+description: A V8-based, WinterTC-compliant ECMAScript runtime with a Rust core, a deny-by-default capability model, and a separate development toolchain binary.
+date: 2026-10-29
+author: Thanga Ganapathy
+tags: ES Runtime, esdev, JavaScript, Rust, Security
+---
+
+import { Callout } from "@opentf/afw-docs";
+
+<Callout type="info" title="AI-assisted writing">
+  This post was written with the help of AI. The ideas, decisions, and final review are our own.
+</Callout>
+
+Today we are introducing **[ES Runtime](/projects/es-runtime)** (`esrun`), a server-side ECMAScript runtime from the Open Tech Foundation.
+
+ES Runtime is built on V8 with a Rust core. It conforms to WinterTC, it loads ES modules only, and a capability model governs everything it can touch: a program may do nothing that the command line does not grant.
+
+ES Runtime is in **alpha** (v0.45.0) and is licensed under Apache-2.0.
+
+## Why another runtime?
+
+Server-side JavaScript has a security problem that its runtimes were not designed to solve. A typical service pulls in hundreds of packages, and each one runs with the full authority of the process: it can read any file, open any socket, and spawn any program. The service's actual reach is whatever its least careful transitive dependency decides it is.
+
+ES Runtime starts from the other end. It asks what a service needs to do, grants exactly that, and refuses everything else at the boundary between JavaScript and the host. The rest of the design follows from that decision:
+
+- **Standards first.** WinterTC APIs such as `Request`, `Response`, `fetch` and Web Crypto, with ESM as the only module format.
+- **Secure by construction.** A capability-based permission model that denies everything by default.
+- **A focused production binary.** `esrun` runs services and nothing else. Development tooling lives in a separate binary, `esdev`.
+- **Fewer dependencies.** The infrastructure most services need ships inside the runtime instead of arriving through a dependency tree.
+
+## A minimal example
+
+```js
+import { serve } from "runtime:http";
+
+const server = serve({ port: 8080 }, (req) => {
+  return new Response("Hello from ES Runtime!");
+});
+
+const { hostname, port } = await server.addr;
+console.log(`listening on http://${hostname}:${port}`);
+```
+
+```sh
+esrun --allow-listen app.js
+```
+
+This server may accept connections, and that is all. It cannot read a file, make an outbound request, or read an environment variable, because none of those were granted.
+
+## Security model
+
+Security is the central design constraint of ES Runtime, not a feature added on top. The model rests on four ideas.
+
+### 1. Deny by default, enforced at the operation
+
+A run can reach only what its command line names. There are eleven capabilities: `read`, `write`, `imports`, `net`, `listen`, `env`, `run`, `signals`, `workers`, `diagnostics` and `diagnostics-detail`. Most of them can be narrowed to a list, such as specific paths or hosts.
+
+Enforcement happens at the operation boundary between the V8 isolate and the host, not at import time. Every file, network, environment and subprocess operation passes through the same gate, so a transitive dependency cannot gain access by loading a different module or taking a different code path.
+
+### 2. The deploy line is the policy
+
+The command line is the complete statement of what a service may do:
+
+```sh
+esrun --allow-net --allow-read --allow-listen app.js
+```
+
+Reviewers, auditors and CI pipelines can read that line and know the service's reach. There is no separate policy file to drift out of sync with what is deployed.
+
+### 3. A small production surface
+
+`esrun` contains no file watcher, no debugger port, and no transform step. A capability flag is only as meaningful as the binary that enforces it, so everything that exists for developer convenience lives in `esdev` instead.
+
+### 4. Non-goals that remove attack surface
+
+ES Runtime deliberately does not support FFI, native addons, remote module imports, CommonJS at runtime, or `data:` worker URLs. Each is a common route around a permission boundary. Leaving them out keeps the guarantees simple to state and simple to verify.
+
+The same model covers state and observability. Durable workers persist to disk under the same `read` and `write` grants as the rest of the application, and diagnostic output sits behind the `diagnostics` capabilities.
+
+For the full model, including how to build a least-privilege deploy line, see the [security guide](https://esrun.opentechf.org/docs/guides/securing-runtime) and the [capabilities reference](https://esrun.opentechf.org/docs/guides/securing-runtime/capabilities).
+
+## esdev: the development toolchain
+
+`esdev` runs the same runtime with the same flags, and adds what you need to build, test and iterate on a service. It is meant for development machines and CI, not production.
+
+| Area | What esdev provides |
+| --- | --- |
+| **Languages** | [TypeScript](https://esrun.opentechf.org/esdev/typescript) and JSX, with CommonJS packages converted at build time |
+| **Build** | A [bundler](https://esrun.opentechf.org/esdev/build) with CSS and Tailwind support |
+| **Testing** | A built-in [test runner](https://esrun.opentechf.org/esdev/test) with DOM parity, and [real-browser runs](https://esrun.opentechf.org/esdev/test/browser) over WebDriver BiDi |
+| **Feedback loop** | [Watch mode](https://esrun.opentechf.org/esdev/watch) and hot module replacement |
+| **Extensibility** | A [plugin system](https://esrun.opentechf.org/esdev/plugins) |
+| **Debugging** | Debugger support for local development |
+| **Permissions** | Permission discovery, which finds the minimum set of capabilities an application uses |
+
+Permission discovery connects the toolchain to the security model. Develop with the full toolchain, let `esdev` work out which capabilities the service actually uses, then ship exactly that set to production with `esrun`. The [esdev documentation](https://esrun.opentechf.org/esdev) covers the details.
+
+## Built in
+
+Much of a typical service's dependency tree is available directly in the runtime:
+
+- **Networking:** HTTP and WebSocket servers.
+- **Data stores:** embedded SQLite, plus first-party clients for PostgreSQL, MySQL/MariaDB, MongoDB (beta), Redis and Valkey.
+- **Messaging:** AMQP 0-9-1 (RabbitMQ), MQTT and NATS.
+- **Formats:** XML, YAML, JSONC, JSON5, TOML, CSV, MessagePack, CBOR and Protobuf.
+- **Utilities:** SMTP email, archives, password hashing, two-factor codes, cookies, CSRF tokens and webhooks.
+- **Media and documents:** native image processing and a PDF toolkit.
+- **Observability:** OTLP span export to any collector, without an SDK.
+- **WebAssembly** support.
+
+Each of these is code we maintain and hold to the same security expectations as the runtime itself, rather than another package to audit.
+
+## Durable workers
+
+Durable workers give you addressable state that outlives the process, without extra infrastructure.
+
+- **Serialized calls.** Calls to a worker run one at a time, so concurrent requests cannot break an invariant such as a stock level.
+- **Committed results.** A call returns only after its writes have committed.
+- **Persistent timers.** Timers survive restarts.
+- **No extra servers.** Each worker stores its state in its own embedded SQLite file, so there is no separate queue, cache or database server to run.
+
+See the [durable workers guide](https://esrun.opentechf.org/docs/guides/durable-workers) for details.
+
+## Performance
+
+Correctness comes first at OTF, and we do not build for benchmark numbers. We still measure performance, and we publish the results and the method, including the tests where ES Runtime is not the fastest.
+
+The figures below are a selection, measured with esrun 0.45.0, Node.js 24.21.0, Bun 1.4.3 and Deno 2.9.7 on Linux with an Intel Core i7-8700K.
+
+### Startup and module loading
+
+Lower is better.
+
+| Runtime | Cold start | Memory | 300-module graph | Memory |
+| --- | --- | --- | --- | --- |
+| Bun | 4.2 ms | 12 MB | 12.1 ms | 24 MB |
+| **esrun** | **8.9 ms** | **26 MB** | **33.7 ms** | **28 MB** |
+| Deno | 13.1 ms | 29 MB | 31.4 ms | 33 MB |
+| Node.js | 20.3 ms | 43 MB | 94.6 ms | 62 MB |
+
+### HTTP server
+
+Hello-world requests per second; higher is better. Measured over loopback with `oha` at 100 connections, best of three runs.
+
+| Framework | Bun | Deno | **esrun** | Node.js |
+| --- | --- | --- | --- | --- |
+| Hono | 70.9k | 71.3k | **49.0k** | 31.1k |
+| Elysia | 81.2k | 75.0k | **50.2k** | 30.7k |
+
+Bun and Deno lead here, and we say so plainly.
+
+### Database queries
+
+Queries per second with 100 queries in flight, each returning 100 rows; higher is better. esrun uses its first-party drivers. Bun uses its built-in SQL client, while Node.js and Deno use postgres.js and mysql2.
+
+| Database | **esrun** | Bun | Deno | Node.js |
+| --- | --- | --- | --- | --- |
+| PostgreSQL | **20.4k** (100 MB) | 13.9k (66 MB) | 9.2k (145 MB) | 8.6k (212 MB) |
+| MySQL | **22.1k** (91 MB) | 19.2k (63 MB) | 15.9k (371 MB) | 14.8k (440 MB) |
+
+### PDF processing
+
+Eight documents processed at once from a 200-page report, with peak memory in brackets; lower is better. esrun uses its built-in `runtime:pdf`. The other runtimes have no built-in PDF support, so they run pdf.js for text extraction and pdf-lib for editing.
+
+| Task | **esrun** | Bun | Deno | Node.js |
+| --- | --- | --- | --- | --- |
+| Extract text | **280 ms** (60 MB) | 1,931 ms (169 MB) | 2,343 ms (259 MB) | 3,196 ms (376 MB) |
+| Merge | **42 ms** (93 MB) | 461 ms (174 MB) | 451 ms (150 MB) | 531 ms (189 MB) |
+| Split | **20 ms** (49 MB) | 264 ms (126 MB) | 213 ms (100 MB) | 319 ms (143 MB) |
+
+Results depend on workload and hardware, and different runtimes lead different tests. Treat these figures as a guide. The [full benchmark suite](https://esrun.opentechf.org/docs/benchmarks) has the method, the remaining results, and comparisons with LLRT.
+
+## Scope
+
+ES Runtime is not a drop-in replacement for Node.js. Node.js compatibility, a package installer, a linter or formatter, and native extensions are all explicit non-goals.
+
+It is aimed at teams that want a standards-based server platform with a hard security boundary and an integrated toolchain. For a side-by-side view of how it differs from Node.js, Bun and Deno, see the [comparison page](https://esrun.opentechf.org/docs/comparison).
+
+## Getting started
+
+ES Runtime is an alpha release, so interfaces may change as we incorporate feedback.
+
+1. Follow the [documentation](https://esrun.opentechf.org/docs) to install both binaries and run your first module.
+2. Read the [security guide](https://esrun.opentechf.org/docs/guides/securing-runtime) to build a least-privilege deploy line.
+3. Review the [benchmarks](https://esrun.opentechf.org/docs/benchmarks) and the [comparison with Node.js, Bun and Deno](https://esrun.opentechf.org/docs/comparison).
+4. Report issues and contribute on [GitHub](https://github.com/Open-Tech-Foundation/ES-Runtime).
+
+**Feedback of any kind is welcome.** Tell us where ES Runtime falls short, what you would need to adopt it, and where its guarantees do not hold up.
