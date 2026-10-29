@@ -6,6 +6,7 @@ export const metadata = {
   description:
     "Technical writing from the Open Tech Foundation's projects, and news from the Foundation itself.",
   canonical: "/blog",
+  openGraph: { type: "website" },
 };
 
 export default function BlogIndex() {
