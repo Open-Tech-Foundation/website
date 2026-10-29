@@ -82,7 +82,9 @@ For the full model, including how to build a least-privilege deploy line, see th
 
 ## esdev: the development toolchain
 
-`esdev` runs the same runtime with the same flags, and adds what you need to build, test and iterate on a service. It is meant for development machines and CI, not production.
+`esdev` runs the same runtime and adds what you need to build, test and iterate on a service. It is meant for development machines and CI, not production.
+
+The permission flags are the same in both binaries, with one deliberate difference: **`esdev` grants everything by default, while `esrun` grants nothing.** You should not need flags to run the program you are in the middle of writing, but a deployment should state exactly what it may reach. To develop under production's grant instead, pass `--deny-all` and add the capabilities you want.
 
 | Area | What esdev provides |
 | --- | --- |
@@ -92,9 +94,9 @@ For the full model, including how to build a least-privilege deploy line, see th
 | **Feedback loop** | [Watch mode](https://esrun.opentechf.org/esdev/watch) and hot module replacement |
 | **Extensibility** | A [plugin system](https://esrun.opentechf.org/esdev/plugins) |
 | **Debugging** | Debugger support for local development |
-| **Permissions** | Permission discovery, which finds the minimum set of capabilities an application uses |
+| **Permissions** | [Permission tracing](https://esrun.opentechf.org/esdev/permissions), which prints the `esrun` line that grants exactly what a run used |
 
-Permission discovery connects the toolchain to the security model. Develop with the full toolchain, let `esdev` work out which capabilities the service actually uses, then ship exactly that set to production with `esrun`. The [esdev documentation](https://esrun.opentechf.org/esdev) covers the details.
+Permission tracing connects the two binaries. Develop without flags, run `esdev --trace-permissions app.js` to see which capabilities the service actually used, then deploy with exactly that set on `esrun`. The [esdev documentation](https://esrun.opentechf.org/esdev) covers the details.
 
 ## Built in
 
