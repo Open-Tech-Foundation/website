@@ -9,6 +9,11 @@ export const metadata = {
 
 const POLICIES = [
   {
+    title: "AI Policy",
+    body: "Requirements for AI-assisted development across OTF projects — permitted usage, human decision-making and approval, verification, and human-controlled releases.",
+    href: "/policies/ai-policy",
+  },
+  {
     title: "Open Source Policy",
     body: "Requirements for software projects developed, maintained, or officially published by OTF — licensing, dependencies, security and privacy, releases, and project independence.",
     href: "/policies/open-source",
