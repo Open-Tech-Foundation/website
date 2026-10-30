@@ -167,27 +167,27 @@ importers:
   .:
     dependencies:
       '@opentf/afw':
-        specifier: ^0.32.0
-        version: 0.32.0
+        specifier: ^0.33.0
+        version: 0.33.0
       '@opentf/afw-docs':
-        specifier: ^0.30.0
-        version: 0.30.0(@opentf/afw@0.32.0)
+        specifier: ^0.31.0
+        version: 0.31.0(@opentf/afw@0.33.0)
       marked:
-        specifier: ^18.0.13
-        version: 18.0.13
+        specifier: ^18.1.2
+        version: 18.1.2
       tailwindcss:
         specifier: ^4.3.3
         version: 4.3.3
     devDependencies:
       '@opentf/afw-cli':
-        specifier: ^1.30.0
-        version: 1.30.0(@opentf/afw@0.32.0)
+        specifier: ^1.32.0
+        version: 1.32.0(@opentf/afw@0.33.0)
       '@opentf/esdev-plugin-afw':
-        specifier: ^0.4.0
-        version: 0.4.0
+        specifier: ^0.5.0
+        version: 0.5.0
       wrangler:
-        specifier: ^4.147.0
-        version: 4.154.0
+        specifier: ^4.156.0
+        version: 4.156.0
 
 packages:
 
@@ -569,26 +569,26 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@opentf/afw-cli@1.30.0':
-    resolution: {integrity: sha512-kEL5/zD5LWIysA+uiI+Ske/p4bxJauRFMw99u/WbsxfeIgupWD3drz26NTkHsgEncZkx8vN8rqrAWFLprOBgfQ==}
+  '@opentf/afw-cli@1.32.0':
+    resolution: {integrity: sha512-zJ4JonWoZeN/zkQhrVj8d5P9SaPIuPaRCSZXHlKcXd9V/ngb4CkD0kkARaXzaTy7fttLl+4J6tQDZxeiPt9i0g==}
     engines: {esdev: '>=0.16.0'}
     peerDependencies:
-      '@opentf/afw': 0.32.0
+      '@opentf/afw': 0.33.0
 
-  '@opentf/afw-compiler@0.20.0':
-    resolution: {integrity: sha512-kWSeK9bdZ6wuKNpQkOJK4bPsAkK5UCu6wtofLOA5LzBbua3KvMs/cRCtRUCwxHx99XVXK6HTS3a6HncXGmG3bg==}
+  '@opentf/afw-compiler@0.21.0':
+    resolution: {integrity: sha512-feY8nGiXdNoG1/ewOr2Jm2pSVLP/GQ9hNlj0VvcbXJqq9EC7WmL+EP4pt3JdeLQuQNNALXgOrylUBDahCziIQw==}
     engines: {esdev: '>=0.16.0'}
 
-  '@opentf/afw-docs@0.30.0':
-    resolution: {integrity: sha512-cP2UGFwLVOnay1qNr9pPIxzLdDSmZKHQrjjAyiutmMBdRf0kX7xaCdszlMaQVkr9cONr2E1LyMN5JEmCjmj91A==}
+  '@opentf/afw-docs@0.31.0':
+    resolution: {integrity: sha512-001ZaiGQRNYdcD8L2sYWrBWBybiu7sUJ60l4CA8Xy3llFGDoYtofcnsM/l/u+KJq8bVhpHbtvuIW8RyTyhQHPg==}
     peerDependencies:
-      '@opentf/afw': 0.32.0
+      '@opentf/afw': 0.33.0
 
-  '@opentf/afw@0.32.0':
-    resolution: {integrity: sha512-sEAzFmakmZ33KdcxAzl3nbtPlvp668LTmVnFl4I/ro9bbF4T9V46tGSJq5BRgDxbe0ZTupFV65aVPHGnM5sJgg==}
+  '@opentf/afw@0.33.0':
+    resolution: {integrity: sha512-K5i7jaOu6QQBtF6eWYd4bluptyAfvh2ibYow3B/MR2Bv2OoK41JsAU0JIOTxpu97GJhWd0H68SX0wqfbHCTfCA==}
 
-  '@opentf/esdev-plugin-afw@0.4.0':
-    resolution: {integrity: sha512-VHXlkPsMJ07vSSDT/h6bhtnr6SpH9LrHw2Dux6XGi9E496E7/f1BKiEcue1nMFORFdnc4bVICIxJ0ifYsLRdxQ==}
+  '@opentf/esdev-plugin-afw@0.5.0':
+    resolution: {integrity: sha512-kd9gwsZfGdGFrw7k247VOgL9CvgLq2q1sZkICRYZhX12TxIACl3iY+eHegd9lEvW0FhOT2RVlVQnwY+QTCsDgQ==}
     engines: {esdev: '>=0.16.0'}
 
   '@poppinss/colors@4.1.6':
@@ -635,13 +635,13 @@ packages:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
 
-  marked@18.0.13:
-    resolution: {integrity: sha512-xTxVzZsBFwunP6HDmtBkabUQEYArnP7/rMDGmPj9SlrKlQ4i8MdYVow+nJL0eOqwpUqhzBoTBRADGN6uYwPyOw==}
+  marked@18.1.2:
+    resolution: {integrity: sha512-DfOnvLAQ6WYeWxWO1u4RyFOeqyHup6dks5PPqnoFiooU7ipRvidO/2j8plhAHIiZg574E9ZlzSjUiPMLAzFkgg==}
     engines: {node: '>= 20'}
     hasBin: true
 
-  miniflare@5.20261023.1-beta:
-    resolution: {integrity: sha512-hgm1AJhwC6W+iaRhvMnfs7bPOsxjKa8LXTFR2WVPA5qA9KhpyBd2LddmT+9M9tm65VZ8YWkwQGvB+cKbqJoKeA==}
+  miniflare@5.20261023.3-beta:
+    resolution: {integrity: sha512-thdXzlktu5GE1o/BlmMAPeJ0Cu6Tu5LpMbRlyfRrpVvMRrhd6p52TMqcITCZZLVzt1UO92VGBkLDhLOpryUAyQ==}
     engines: {node: '>=22.0.0'}
 
   path-to-regexp@6.3.0:
@@ -686,8 +686,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@4.154.0:
-    resolution: {integrity: sha512-duA4dckBE/51ibAlGh2mUYcvGiu7sZFcn61I+KfNEeK5KQzKKEth9Xf5ROatoPBOebYPz0gfknXOCjBhwLOo8Q==}
+  wrangler@4.156.0:
+    resolution: {integrity: sha512-kVLAShuLiNgE3jcrmXcymDf/iPKDPrSxACe5ueugW/33HeNB9E9CkKYchudCeBwgmsnl4k+1zt4NO7vqb/fRuQ==}
     engines: {node: '>=22.0.0'}
     hasBin: true
     peerDependencies:
@@ -941,23 +941,23 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@opentf/afw-cli@1.30.0(@opentf/afw@0.32.0)':
+  '@opentf/afw-cli@1.32.0(@opentf/afw@0.33.0)':
     dependencies:
-      '@opentf/afw': 0.32.0
-      '@opentf/esdev-plugin-afw': 0.4.0
+      '@opentf/afw': 0.33.0
+      '@opentf/esdev-plugin-afw': 0.5.0
 
-  '@opentf/afw-compiler@0.20.0': {}
+  '@opentf/afw-compiler@0.21.0': {}
 
-  '@opentf/afw-docs@0.30.0(@opentf/afw@0.32.0)':
+  '@opentf/afw-docs@0.31.0(@opentf/afw@0.33.0)':
     dependencies:
-      '@opentf/afw': 0.32.0
-      '@opentf/afw-compiler': 0.20.0
+      '@opentf/afw': 0.33.0
+      '@opentf/afw-compiler': 0.21.0
 
-  '@opentf/afw@0.32.0': {}
+  '@opentf/afw@0.33.0': {}
 
-  '@opentf/esdev-plugin-afw@0.4.0':
+  '@opentf/esdev-plugin-afw@0.5.0':
     dependencies:
-      '@opentf/afw-compiler': 0.20.0
+      '@opentf/afw-compiler': 0.21.0
 
   '@poppinss/colors@4.1.6':
     dependencies:
@@ -1017,9 +1017,9 @@ snapshots:
 
   kleur@4.1.5: {}
 
-  marked@18.0.13: {}
+  marked@18.1.2: {}
 
-  miniflare@5.20261023.1-beta:
+  miniflare@5.20261023.3-beta:
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       sharp: 0.35.5
@@ -1091,13 +1091,13 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20261023.1
       '@cloudflare/workerd-windows-64': 1.20261023.1
 
-  wrangler@4.154.0:
+  wrangler@4.156.0:
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20261023.1)
       blake3-wasm: 2.1.5
       esbuild: 0.28.2
-      miniflare: 5.20261023.1-beta
+      miniflare: 5.20261023.3-beta
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.24
       workerd: 1.20261023.1
